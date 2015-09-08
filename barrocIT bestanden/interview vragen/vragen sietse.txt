@@ -1,0 +1,14 @@
+- The information you gave us said you make lots of use of the R&D department, how does this work in practice? 
+(does R&D make use of the same database to send you ideas)
+
+- Question about the table, is there any reason besides the difference between basic and unique information that the
+upper part is Fat
+
+- What is the main problem staying up-to-date with the maintenence contracts and how would you prefer to see this
+ solved
+
+- Are there any things specific you want us to include in the program.
+
+- should the program have acces to the internet or is it just for local use.
+
+- Is there anything we have missed or do you feel you need te say before we get started?

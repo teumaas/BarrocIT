@@ -1,0 +1,7 @@
+vragen J. Berger
+
+>What kind of security measures do you espect us to implement?
+>should acces to someone else's data be read-only or do you want to be able to adjust it?
+>do you want us to link the 3 word documents or would you prefer a single database with different account acces?
+>is there a point that needs extra attention or is there somethig specific that you need?
+>is there any information we need to know about the sales department to make this project succesful?
