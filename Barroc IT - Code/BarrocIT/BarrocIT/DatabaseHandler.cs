@@ -3,12 +3,16 @@ using System.Windows.Forms;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Data;
 
 public class DatabaseHandler
 {
+    private string SQLConnString;
     SqlConnection SQLConn;
+
 	public DatabaseHandler(string SQLConnString)
 	{
+        this.SQLConnString = SQLConnString;
         SQLConn = new SqlConnection(SQLConnString);
 	}
 
@@ -22,9 +26,20 @@ public class DatabaseHandler
         SQLConn.Close();
     }
 
-    public void disposeConnection()
+    public SqlConnection getConection()
     {
-        SQLConn.Dispose();
+        return SQLConn;
+    }
+
+    public DataTable SQLCommand(string query)
+    {
+        testConnection();
+        openConnection();
+        SqlDataAdapter dataAdapter = new SqlDataAdapter(query, getConection());
+        DataTable dt = new DataTable();
+        dataAdapter.Fill(dt);
+        closeConnection();
+        return dt;
     }
 
     public void testConnection()
