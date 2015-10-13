@@ -66,14 +66,17 @@
             // 
             // cmbUsername
             // 
+            this.cmbUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbUsername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsername.FormattingEnabled = true;
             this.cmbUsername.Items.AddRange(new object[] {
-            "Select department..."});
+            "Development",
+            "Finance",
+            "Sales"});
             this.cmbUsername.Location = new System.Drawing.Point(35, 141);
             this.cmbUsername.Name = "cmbUsername";
             this.cmbUsername.Size = new System.Drawing.Size(261, 21);
             this.cmbUsername.TabIndex = 1;
-            this.cmbUsername.Text = "Select department...";
             // 
             // lblInfo
             // 

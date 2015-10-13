@@ -26,11 +26,8 @@ namespace BarrocIT
             txtAssembly.Text = "Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             txtPassword.Text = "Password";
             txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-            cmbUsername.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-            cmbUsername.ForeColor = SystemColors.ControlDarkDark;
             txtPassword.ForeColor = SystemColors.ControlDarkDark;
-
-            
+            cmbUsername.Text = "Select department...";
         }
 
         private void FRMLogin_Load(object sender, EventArgs e)
@@ -58,7 +55,6 @@ namespace BarrocIT
                 txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
                 txtPassword.ForeColor = SystemColors.ControlDarkDark;
             }
-
         }
     }
 }
