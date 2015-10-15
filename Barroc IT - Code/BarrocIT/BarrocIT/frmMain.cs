@@ -12,6 +12,7 @@ namespace BarrocIT
 {
     public partial class frmMain : Form
     {
+        frmLogin Login;
         frmProjects AddProject;
         frmCalendar Calendar;
         frmAdd Add;
@@ -86,6 +87,13 @@ namespace BarrocIT
         {
             Help = new frmHelp();
             Help.Show();
+        }
+
+        private void itemSignout_Click(object sender, EventArgs e)
+        {
+            Login = new frmLogin();
+            Login.Show();
+            this.Close();
         }
     }
 }

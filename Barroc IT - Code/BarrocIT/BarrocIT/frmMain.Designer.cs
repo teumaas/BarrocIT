@@ -96,6 +96,7 @@
             this.itemSignout.Index = 0;
             this.itemSignout.Shortcut = System.Windows.Forms.Shortcut.CtrlL;
             this.itemSignout.Text = "&Sign out";
+            this.itemSignout.Click += new System.EventHandler(this.itemSignout_Click);
             // 
             // itemExit
             // 
