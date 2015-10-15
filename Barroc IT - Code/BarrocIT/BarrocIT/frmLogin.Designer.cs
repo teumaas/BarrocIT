@@ -46,7 +46,7 @@
             // 
             this.btnLogin.Image = global::BarrocIT.Properties.Resources.Key;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(218, 194);
+            this.btnLogin.Location = new System.Drawing.Point(219, 194);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(78, 23);
             this.btnLogin.TabIndex = 0;

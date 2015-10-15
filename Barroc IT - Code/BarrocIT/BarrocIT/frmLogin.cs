@@ -34,11 +34,6 @@ namespace BarrocIT
             cmbUsername.Text = "Select department...";
 
             txtPassword.Text = "Password";
-            txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-            txtPassword.ForeColor = SystemColors.ControlDarkDark;
-
-            cmbUsername.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-            cmbUsername.ForeColor = SystemColors.ControlDarkDark;
 
             txtAssembly.ForeColor = SystemColors.ControlDarkDark;
             txtAssembly.Text = "Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -55,8 +50,6 @@ namespace BarrocIT
             {
                 txtPassword.Text = string.Empty;
                 txtPassword.UseSystemPasswordChar = true;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                txtPassword.ForeColor = SystemColors.WindowText;
             }
         }
 
@@ -66,8 +59,6 @@ namespace BarrocIT
             {
                 txtPassword.Text = "Password";
                 txtPassword.UseSystemPasswordChar = false;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-                txtPassword.ForeColor = SystemColors.ControlDarkDark;
             }
         }
 

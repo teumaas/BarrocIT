@@ -54,12 +54,11 @@
             this.tabProjects = new System.Windows.Forms.TabPage();
             this.dataGridViewProjects = new System.Windows.Forms.DataGridView();
             this.groupBoxProjects = new System.Windows.Forms.GroupBox();
-            this.btnProjectsRemove = new System.Windows.Forms.Button();
-            this.btnProjectsEdit = new System.Windows.Forms.Button();
-            this.btnProjectsAdd = new System.Windows.Forms.Button();
+            this.btnProjectsView = new System.Windows.Forms.Button();
             this.tabMeetings = new System.Windows.Forms.TabPage();
             this.dataGridViewMeetings = new System.Windows.Forms.DataGridView();
             this.groupBoxMeetings = new System.Windows.Forms.GroupBox();
+            this.btnCalendar = new System.Windows.Forms.Button();
             this.btnMeetingsRemove = new System.Windows.Forms.Button();
             this.btnMeetingsEdit = new System.Windows.Forms.Button();
             this.btnMeetingsAdd = new System.Windows.Forms.Button();
@@ -95,18 +94,22 @@
             // itemSignout
             // 
             this.itemSignout.Index = 0;
-            this.itemSignout.Text = "Sign out";
+            this.itemSignout.Shortcut = System.Windows.Forms.Shortcut.CtrlL;
+            this.itemSignout.Text = "&Sign out";
             // 
             // itemExit
             // 
             this.itemExit.Index = 1;
+            this.itemExit.Shortcut = System.Windows.Forms.Shortcut.AltF4;
             this.itemExit.Text = "Exit";
             this.itemExit.Click += new System.EventHandler(this.itemExit_Click);
             // 
             // menuHelp
             // 
             this.menuHelp.Index = 1;
-            this.menuHelp.Text = "Help";
+            this.menuHelp.Shortcut = System.Windows.Forms.Shortcut.CtrlH;
+            this.menuHelp.Text = "&Help";
+            this.menuHelp.Click += new System.EventHandler(this.menuHelp_Click);
             // 
             // tabConDepartments
             // 
@@ -121,7 +124,8 @@
             this.tabConDepartments.Name = "tabConDepartments";
             this.tabConDepartments.SelectedIndex = 0;
             this.tabConDepartments.Size = new System.Drawing.Size(1004, 482);
-            this.tabConDepartments.TabIndex = 1;
+            this.tabConDepartments.TabIndex = 0;
+            this.tabConDepartments.TabStop = false;
             // 
             // tabCustomers
             // 
@@ -145,7 +149,7 @@
             this.dataGridViewCustomers.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewCustomers.Name = "dataGridViewCustomers";
             this.dataGridViewCustomers.Size = new System.Drawing.Size(833, 437);
-            this.dataGridViewCustomers.TabIndex = 8;
+            this.dataGridViewCustomers.TabIndex = 0;
             // 
             // groupBoxCustomers
             // 
@@ -157,7 +161,7 @@
             this.groupBoxCustomers.Location = new System.Drawing.Point(843, 6);
             this.groupBoxCustomers.Name = "groupBoxCustomers";
             this.groupBoxCustomers.Size = new System.Drawing.Size(147, 137);
-            this.groupBoxCustomers.TabIndex = 3;
+            this.groupBoxCustomers.TabIndex = 0;
             this.groupBoxCustomers.TabStop = false;
             this.groupBoxCustomers.Text = "Menu";
             // 
@@ -169,6 +173,7 @@
             this.btnPrintInfo.Name = "btnPrintInfo";
             this.btnPrintInfo.Size = new System.Drawing.Size(135, 23);
             this.btnPrintInfo.TabIndex = 0;
+            this.btnPrintInfo.TabStop = false;
             this.btnPrintInfo.Text = "Print info";
             this.btnPrintInfo.UseVisualStyleBackColor = true;
             // 
@@ -180,6 +185,7 @@
             this.btnCustomersRemove.Name = "btnCustomersRemove";
             this.btnCustomersRemove.Size = new System.Drawing.Size(135, 23);
             this.btnCustomersRemove.TabIndex = 0;
+            this.btnCustomersRemove.TabStop = false;
             this.btnCustomersRemove.Text = "Remove";
             this.btnCustomersRemove.UseVisualStyleBackColor = true;
             // 
@@ -191,8 +197,10 @@
             this.btnCustomersEdit.Name = "btnCustomersEdit";
             this.btnCustomersEdit.Size = new System.Drawing.Size(135, 23);
             this.btnCustomersEdit.TabIndex = 0;
+            this.btnCustomersEdit.TabStop = false;
             this.btnCustomersEdit.Text = "Edit";
             this.btnCustomersEdit.UseVisualStyleBackColor = true;
+            this.btnCustomersEdit.Click += new System.EventHandler(this.btnCustomersEdit_Click);
             // 
             // btnCustomersAdd
             // 
@@ -202,8 +210,10 @@
             this.btnCustomersAdd.Name = "btnCustomersAdd";
             this.btnCustomersAdd.Size = new System.Drawing.Size(135, 23);
             this.btnCustomersAdd.TabIndex = 0;
+            this.btnCustomersAdd.TabStop = false;
             this.btnCustomersAdd.Text = "Add";
             this.btnCustomersAdd.UseVisualStyleBackColor = true;
+            this.btnCustomersAdd.Click += new System.EventHandler(this.btnCustomersAdd_Click);
             // 
             // tabInvoices
             // 
@@ -227,7 +237,8 @@
             this.dataGridViewInvoices.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewInvoices.Name = "dataGridViewInvoices";
             this.dataGridViewInvoices.Size = new System.Drawing.Size(833, 437);
-            this.dataGridViewInvoices.TabIndex = 7;
+            this.dataGridViewInvoices.TabIndex = 0;
+            this.dataGridViewInvoices.TabStop = false;
             // 
             // groupBoxInvoices
             // 
@@ -240,7 +251,7 @@
             this.groupBoxInvoices.Location = new System.Drawing.Point(843, 6);
             this.groupBoxInvoices.Name = "groupBoxInvoices";
             this.groupBoxInvoices.Size = new System.Drawing.Size(147, 137);
-            this.groupBoxInvoices.TabIndex = 4;
+            this.groupBoxInvoices.TabIndex = 0;
             this.groupBoxInvoices.TabStop = false;
             this.groupBoxInvoices.Text = "Menu";
             // 
@@ -248,10 +259,14 @@
             // 
             this.comboBoxPayedStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPayedStatus.FormattingEnabled = true;
+            this.comboBoxPayedStatus.Items.AddRange(new object[] {
+            "Unpayed",
+            "Payed"});
             this.comboBoxPayedStatus.Location = new System.Drawing.Point(49, 106);
             this.comboBoxPayedStatus.Name = "comboBoxPayedStatus";
             this.comboBoxPayedStatus.Size = new System.Drawing.Size(92, 21);
-            this.comboBoxPayedStatus.TabIndex = 8;
+            this.comboBoxPayedStatus.TabIndex = 0;
+            this.comboBoxPayedStatus.TabStop = false;
             // 
             // lblPayedStatus
             // 
@@ -259,7 +274,7 @@
             this.lblPayedStatus.Location = new System.Drawing.Point(6, 110);
             this.lblPayedStatus.Name = "lblPayedStatus";
             this.lblPayedStatus.Size = new System.Drawing.Size(40, 13);
-            this.lblPayedStatus.TabIndex = 9;
+            this.lblPayedStatus.TabIndex = 0;
             this.lblPayedStatus.Text = "Status:";
             // 
             // btnInvoicesRemove
@@ -270,6 +285,7 @@
             this.btnInvoicesRemove.Name = "btnInvoicesRemove";
             this.btnInvoicesRemove.Size = new System.Drawing.Size(135, 23);
             this.btnInvoicesRemove.TabIndex = 0;
+            this.btnInvoicesRemove.TabStop = false;
             this.btnInvoicesRemove.Text = "Remove";
             this.btnInvoicesRemove.UseVisualStyleBackColor = true;
             // 
@@ -281,8 +297,10 @@
             this.btnInvoicesEdit.Name = "btnInvoicesEdit";
             this.btnInvoicesEdit.Size = new System.Drawing.Size(135, 23);
             this.btnInvoicesEdit.TabIndex = 0;
+            this.btnInvoicesEdit.TabStop = false;
             this.btnInvoicesEdit.Text = "Edit";
             this.btnInvoicesEdit.UseVisualStyleBackColor = true;
+            this.btnInvoicesEdit.Click += new System.EventHandler(this.btnInvoicesEdit_Click);
             // 
             // btnInvoicesAdd
             // 
@@ -292,8 +310,10 @@
             this.btnInvoicesAdd.Name = "btnInvoicesAdd";
             this.btnInvoicesAdd.Size = new System.Drawing.Size(135, 23);
             this.btnInvoicesAdd.TabIndex = 0;
+            this.btnInvoicesAdd.TabStop = false;
             this.btnInvoicesAdd.Text = "Add";
             this.btnInvoicesAdd.UseVisualStyleBackColor = true;
+            this.btnInvoicesAdd.Click += new System.EventHandler(this.btnInvoicesAdd_Click);
             // 
             // tabProjects
             // 
@@ -317,53 +337,32 @@
             this.dataGridViewProjects.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewProjects.Name = "dataGridViewProjects";
             this.dataGridViewProjects.Size = new System.Drawing.Size(833, 437);
-            this.dataGridViewProjects.TabIndex = 6;
+            this.dataGridViewProjects.TabIndex = 0;
+            this.dataGridViewProjects.TabStop = false;
             // 
             // groupBoxProjects
             // 
             this.groupBoxProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxProjects.Controls.Add(this.btnProjectsRemove);
-            this.groupBoxProjects.Controls.Add(this.btnProjectsEdit);
-            this.groupBoxProjects.Controls.Add(this.btnProjectsAdd);
+            this.groupBoxProjects.Controls.Add(this.btnProjectsView);
             this.groupBoxProjects.Location = new System.Drawing.Point(843, 6);
             this.groupBoxProjects.Name = "groupBoxProjects";
-            this.groupBoxProjects.Size = new System.Drawing.Size(147, 107);
-            this.groupBoxProjects.TabIndex = 4;
+            this.groupBoxProjects.Size = new System.Drawing.Size(147, 50);
+            this.groupBoxProjects.TabIndex = 0;
             this.groupBoxProjects.TabStop = false;
             this.groupBoxProjects.Text = "Menu";
             // 
-            // btnProjectsRemove
+            // btnProjectsView
             // 
-            this.btnProjectsRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnProjectsView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProjectsRemove.Location = new System.Drawing.Point(6, 77);
-            this.btnProjectsRemove.Name = "btnProjectsRemove";
-            this.btnProjectsRemove.Size = new System.Drawing.Size(135, 23);
-            this.btnProjectsRemove.TabIndex = 0;
-            this.btnProjectsRemove.Text = "Remove";
-            this.btnProjectsRemove.UseVisualStyleBackColor = true;
-            // 
-            // btnProjectsEdit
-            // 
-            this.btnProjectsEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProjectsEdit.Location = new System.Drawing.Point(6, 48);
-            this.btnProjectsEdit.Name = "btnProjectsEdit";
-            this.btnProjectsEdit.Size = new System.Drawing.Size(135, 23);
-            this.btnProjectsEdit.TabIndex = 0;
-            this.btnProjectsEdit.Text = "Edit";
-            this.btnProjectsEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnProjectsAdd
-            // 
-            this.btnProjectsAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProjectsAdd.Location = new System.Drawing.Point(6, 19);
-            this.btnProjectsAdd.Name = "btnProjectsAdd";
-            this.btnProjectsAdd.Size = new System.Drawing.Size(135, 23);
-            this.btnProjectsAdd.TabIndex = 0;
-            this.btnProjectsAdd.Text = "Add";
-            this.btnProjectsAdd.UseVisualStyleBackColor = true;
+            this.btnProjectsView.Location = new System.Drawing.Point(6, 19);
+            this.btnProjectsView.Name = "btnProjectsView";
+            this.btnProjectsView.Size = new System.Drawing.Size(135, 23);
+            this.btnProjectsView.TabIndex = 0;
+            this.btnProjectsView.TabStop = false;
+            this.btnProjectsView.Text = "View Projects";
+            this.btnProjectsView.UseVisualStyleBackColor = true;
+            this.btnProjectsView.Click += new System.EventHandler(this.btnProjectsView_Click);
             // 
             // tabMeetings
             // 
@@ -387,20 +386,35 @@
             this.dataGridViewMeetings.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewMeetings.Name = "dataGridViewMeetings";
             this.dataGridViewMeetings.Size = new System.Drawing.Size(833, 437);
-            this.dataGridViewMeetings.TabIndex = 5;
+            this.dataGridViewMeetings.TabIndex = 0;
+            this.dataGridViewMeetings.TabStop = false;
             // 
             // groupBoxMeetings
             // 
             this.groupBoxMeetings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxMeetings.Controls.Add(this.btnCalendar);
             this.groupBoxMeetings.Controls.Add(this.btnMeetingsRemove);
             this.groupBoxMeetings.Controls.Add(this.btnMeetingsEdit);
             this.groupBoxMeetings.Controls.Add(this.btnMeetingsAdd);
             this.groupBoxMeetings.Location = new System.Drawing.Point(843, 6);
             this.groupBoxMeetings.Name = "groupBoxMeetings";
-            this.groupBoxMeetings.Size = new System.Drawing.Size(147, 107);
-            this.groupBoxMeetings.TabIndex = 4;
+            this.groupBoxMeetings.Size = new System.Drawing.Size(147, 137);
+            this.groupBoxMeetings.TabIndex = 0;
             this.groupBoxMeetings.TabStop = false;
             this.groupBoxMeetings.Text = "Menu";
+            // 
+            // btnCalendar
+            // 
+            this.btnCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalendar.Location = new System.Drawing.Point(6, 106);
+            this.btnCalendar.Name = "btnCalendar";
+            this.btnCalendar.Size = new System.Drawing.Size(135, 23);
+            this.btnCalendar.TabIndex = 0;
+            this.btnCalendar.TabStop = false;
+            this.btnCalendar.Text = "Calendar";
+            this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
             // btnMeetingsRemove
             // 
@@ -410,6 +424,7 @@
             this.btnMeetingsRemove.Name = "btnMeetingsRemove";
             this.btnMeetingsRemove.Size = new System.Drawing.Size(135, 23);
             this.btnMeetingsRemove.TabIndex = 0;
+            this.btnMeetingsRemove.TabStop = false;
             this.btnMeetingsRemove.Text = "Remove";
             this.btnMeetingsRemove.UseVisualStyleBackColor = true;
             // 
@@ -421,8 +436,10 @@
             this.btnMeetingsEdit.Name = "btnMeetingsEdit";
             this.btnMeetingsEdit.Size = new System.Drawing.Size(135, 23);
             this.btnMeetingsEdit.TabIndex = 0;
+            this.btnMeetingsEdit.TabStop = false;
             this.btnMeetingsEdit.Text = "Edit";
             this.btnMeetingsEdit.UseVisualStyleBackColor = true;
+            this.btnMeetingsEdit.Click += new System.EventHandler(this.btnMeetingsEdit_Click);
             // 
             // btnMeetingsAdd
             // 
@@ -432,8 +449,10 @@
             this.btnMeetingsAdd.Name = "btnMeetingsAdd";
             this.btnMeetingsAdd.Size = new System.Drawing.Size(135, 23);
             this.btnMeetingsAdd.TabIndex = 0;
+            this.btnMeetingsAdd.TabStop = false;
             this.btnMeetingsAdd.Text = "Add";
             this.btnMeetingsAdd.UseVisualStyleBackColor = true;
+            this.btnMeetingsAdd.Click += new System.EventHandler(this.btnMeetingsAdd_Click);
             // 
             // frmMain
             // 
@@ -486,9 +505,7 @@
         private System.Windows.Forms.Button btnInvoicesEdit;
         private System.Windows.Forms.Button btnInvoicesAdd;
         private System.Windows.Forms.GroupBox groupBoxProjects;
-        private System.Windows.Forms.Button btnProjectsRemove;
-        private System.Windows.Forms.Button btnProjectsEdit;
-        private System.Windows.Forms.Button btnProjectsAdd;
+        private System.Windows.Forms.Button btnProjectsView;
         private System.Windows.Forms.GroupBox groupBoxMeetings;
         private System.Windows.Forms.Button btnMeetingsRemove;
         private System.Windows.Forms.Button btnMeetingsEdit;
@@ -500,7 +517,6 @@
         private System.Windows.Forms.ComboBox comboBoxPayedStatus;
         private System.Windows.Forms.Label lblPayedStatus;
         private System.Windows.Forms.Button btnPrintInfo;
-
-
+        private System.Windows.Forms.Button btnCalendar;
     }
 }
