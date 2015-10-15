@@ -1,6 +1,6 @@
 ﻿namespace BarrocIT
 {
-    partial class FRMLogin
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmbUsername = new System.Windows.Forms.ComboBox();
@@ -37,7 +37,6 @@
             this.picDepartments = new System.Windows.Forms.PictureBox();
             this.picPassword = new System.Windows.Forms.PictureBox();
             this.txtAssembly = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPassword)).BeginInit();
@@ -45,13 +44,16 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(172, 193);
+            this.btnLogin.Image = global::BarrocIT.Properties.Resources.Key;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogin.Location = new System.Drawing.Point(218, 194);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(124, 23);
+            this.btnLogin.Size = new System.Drawing.Size(78, 23);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.TabStop = false;
-            this.btnLogin.Text = "Sign In";
+            this.btnLogin.Text = "  Sign In";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
@@ -68,12 +70,11 @@
             // cmbUsername
             // 
             this.cmbUsername.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbUsername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsername.FormattingEnabled = true;
             this.cmbUsername.Items.AddRange(new object[] {
+            "Sales",
             "Development",
-            "Finance",
-            "Sales"});
+            "Finance"});
             this.cmbUsername.Location = new System.Drawing.Point(35, 141);
             this.cmbUsername.Name = "cmbUsername";
             this.cmbUsername.Size = new System.Drawing.Size(261, 21);
@@ -83,9 +84,7 @@
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblInfo.Enabled = false;
             this.lblInfo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblInfo.Location = new System.Drawing.Point(9, 24);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(184, 46);
@@ -123,27 +122,18 @@
             // txtAssembly
             // 
             this.txtAssembly.AutoSize = true;
-            this.txtAssembly.Location = new System.Drawing.Point(10, 203);
+            this.txtAssembly.Location = new System.Drawing.Point(14, 200);
             this.txtAssembly.Name = "txtAssembly";
             this.txtAssembly.Size = new System.Drawing.Size(80, 13);
             this.txtAssembly.TabIndex = 8;
             this.txtAssembly.Text = "{Assembly Info}";
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(24, 233);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(194, 43);
-            this.listBox1.TabIndex = 9;
-            // 
-            // FRMLogin
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(308, 288);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(308, 222);
             this.Controls.Add(this.txtAssembly);
             this.Controls.Add(this.picPassword);
             this.Controls.Add(this.picDepartments);
@@ -155,7 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FRMLogin";
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barroc IT - Login";
             this.Load += new System.EventHandler(this.FRMLogin_Load);
@@ -171,13 +161,12 @@
 
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.ComboBox cmbUsername;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.PictureBox picDepartments;
         private System.Windows.Forms.PictureBox picPassword;
         private System.Windows.Forms.Label txtAssembly;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox cmbUsername;
     }
 }
 

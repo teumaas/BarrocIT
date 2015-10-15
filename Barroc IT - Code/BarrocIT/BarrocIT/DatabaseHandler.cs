@@ -5,6 +5,9 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data;
 
+//
+// Made by Tom Smits
+//
 public class DatabaseHandler
 {
     private string SQLConnString;
