@@ -37,6 +37,7 @@
             this.picDepartments = new System.Windows.Forms.PictureBox();
             this.picPassword = new System.Windows.Forms.PictureBox();
             this.txtAssembly = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPassword)).BeginInit();
@@ -128,12 +129,21 @@
             this.txtAssembly.TabIndex = 8;
             this.txtAssembly.Text = "{Assembly Info}";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(24, 233);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(194, 43);
+            this.listBox1.TabIndex = 9;
+            // 
             // FRMLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(308, 224);
+            this.ClientSize = new System.Drawing.Size(308, 288);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.txtAssembly);
             this.Controls.Add(this.picPassword);
             this.Controls.Add(this.picDepartments);
@@ -167,6 +177,7 @@
         private System.Windows.Forms.PictureBox picDepartments;
         private System.Windows.Forms.PictureBox picPassword;
         private System.Windows.Forms.Label txtAssembly;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
