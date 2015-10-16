@@ -58,22 +58,28 @@
             // 
             // btnSelect
             // 
+            this.btnSelect.Image = global::BarrocIT.Properties.Resources.Edit;
+            this.btnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSelect.Location = new System.Drawing.Point(190, 175);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(80, 23);
+            this.btnSelect.Size = new System.Drawing.Size(80, 25);
             this.btnSelect.TabIndex = 0;
             this.btnSelect.TabStop = false;
             this.btnSelect.Text = "Select";
+            this.btnSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSelect.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
+            this.btnCancel.Image = global::BarrocIT.Properties.Resources.Cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.Location = new System.Drawing.Point(281, 175);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(80, 23);
+            this.btnCancel.Size = new System.Drawing.Size(80, 25);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -92,7 +98,7 @@
             this.MinimizeBox = false;
             this.Name = "frmCalendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calendar";
+            this.Text = "Barroc IT - Calendar";
             this.ResumeLayout(false);
 
         }

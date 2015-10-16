@@ -68,24 +68,30 @@
             // 
             this.btnProjectRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProjectRemove.Image = global::BarrocIT.Properties.Resources.Remove;
+            this.btnProjectRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProjectRemove.Location = new System.Drawing.Point(6, 77);
             this.btnProjectRemove.Name = "btnProjectRemove";
-            this.btnProjectRemove.Size = new System.Drawing.Size(135, 23);
+            this.btnProjectRemove.Size = new System.Drawing.Size(135, 25);
             this.btnProjectRemove.TabIndex = 0;
             this.btnProjectRemove.TabStop = false;
             this.btnProjectRemove.Text = "Remove";
+            this.btnProjectRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProjectRemove.UseVisualStyleBackColor = true;
             // 
             // btnProjectEdit
             // 
             this.btnProjectEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProjectEdit.Image = global::BarrocIT.Properties.Resources.Edit;
+            this.btnProjectEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProjectEdit.Location = new System.Drawing.Point(6, 48);
             this.btnProjectEdit.Name = "btnProjectEdit";
-            this.btnProjectEdit.Size = new System.Drawing.Size(135, 23);
+            this.btnProjectEdit.Size = new System.Drawing.Size(135, 25);
             this.btnProjectEdit.TabIndex = 0;
             this.btnProjectEdit.TabStop = false;
             this.btnProjectEdit.Text = "Edit";
+            this.btnProjectEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProjectEdit.UseVisualStyleBackColor = true;
             this.btnProjectEdit.Click += new System.EventHandler(this.btnProjectEdit_Click);
             // 
@@ -93,12 +99,15 @@
             // 
             this.btnProjectAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProjectAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnProjectAdd.Image")));
+            this.btnProjectAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProjectAdd.Location = new System.Drawing.Point(6, 19);
             this.btnProjectAdd.Name = "btnProjectAdd";
-            this.btnProjectAdd.Size = new System.Drawing.Size(135, 23);
+            this.btnProjectAdd.Size = new System.Drawing.Size(135, 25);
             this.btnProjectAdd.TabIndex = 0;
             this.btnProjectAdd.TabStop = false;
             this.btnProjectAdd.Text = "Add";
+            this.btnProjectAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProjectAdd.UseVisualStyleBackColor = true;
             this.btnProjectAdd.Click += new System.EventHandler(this.btnProjectAdd_Click);
             // 
@@ -115,7 +124,7 @@
             this.MinimizeBox = false;
             this.Name = "frmProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Customer Projects";
+            this.Text = "Barroc IT - Customer Projects";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAddProject)).EndInit();
             this.groupBoxCustomers.ResumeLayout(false);
             this.ResumeLayout(false);

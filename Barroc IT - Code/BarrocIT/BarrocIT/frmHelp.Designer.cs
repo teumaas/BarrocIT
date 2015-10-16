@@ -41,7 +41,7 @@
             this.MaximizeBox = false;
             this.Name = "frmHelp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Help";
+            this.Text = "Barroc IT - Help";
             this.ResumeLayout(false);
 
         }

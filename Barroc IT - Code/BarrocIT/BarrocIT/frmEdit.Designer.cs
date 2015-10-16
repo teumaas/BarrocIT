@@ -35,22 +35,28 @@
             // 
             // btnSave
             // 
+            this.btnSave.Image = global::BarrocIT.Properties.Resources.Save;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.Location = new System.Drawing.Point(12, 426);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(115, 23);
+            this.btnSave.Size = new System.Drawing.Size(115, 25);
             this.btnSave.TabIndex = 0;
             this.btnSave.TabStop = false;
             this.btnSave.Text = "Save";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
+            this.btnCancel.Image = global::BarrocIT.Properties.Resources.Cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.Location = new System.Drawing.Point(197, 426);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(115, 23);
+            this.btnCancel.Size = new System.Drawing.Size(115, 25);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -67,7 +73,7 @@
             this.MinimizeBox = false;
             this.Name = "frmEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit";
+            this.Text = "Barroc IT - Edit - {ACTION}";
             this.ResumeLayout(false);
 
         }

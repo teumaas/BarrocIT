@@ -10,8 +10,8 @@ using System.Data;
 //
 public class DatabaseHandler
 {
-    private string SQLConnString;
     SqlConnection SQLConn;
+    private string SQLConnString;
 
 	public DatabaseHandler(string SQLConnString)
 	{
@@ -53,7 +53,7 @@ public class DatabaseHandler
         }
         catch (Exception exception)
         {
-            MessageBox.Show("There occurred a error!" + exception);
+            MessageBox.Show("An error occurred!" + exception);
         }
         finally
         {

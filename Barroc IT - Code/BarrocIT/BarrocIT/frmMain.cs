@@ -38,7 +38,7 @@ namespace BarrocIT
         private void btnCustomersAdd_Click(object sender, EventArgs e)
         {
             Add = new frmAdd();
-            Add.Show();
+            Add.Show(); 
         }
 
         private void btnInvoicesAdd_Click(object sender, EventArgs e)

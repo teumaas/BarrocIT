@@ -35,23 +35,29 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Image = global::BarrocIT.Properties.Resources.Cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.Location = new System.Drawing.Point(197, 426);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(115, 23);
+            this.btnCancel.Size = new System.Drawing.Size(115, 25);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnCreate
             // 
+            this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
+            this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreate.Location = new System.Drawing.Point(12, 426);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(115, 23);
+            this.btnCreate.Size = new System.Drawing.Size(115, 25);
             this.btnCreate.TabIndex = 0;
             this.btnCreate.TabStop = false;
             this.btnCreate.Text = "Create";
+            this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // frmAdd
@@ -67,7 +73,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add";
+            this.Text = "Barroc IT - Add - {ACTION}";
             this.ResumeLayout(false);
 
         }

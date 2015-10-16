@@ -45,13 +45,14 @@
             // btnLogin
             // 
             this.btnLogin.Image = global::BarrocIT.Properties.Resources.Key;
-            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.Location = new System.Drawing.Point(219, 194);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(78, 23);
+            this.btnLogin.Size = new System.Drawing.Size(78, 25);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.TabStop = false;
-            this.btnLogin.Text = "  Sign In";
+            this.btnLogin.Text = "Sign In";
+            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 

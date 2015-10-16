@@ -170,36 +170,45 @@
             // 
             this.btnPrintInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintInfo.Location = new System.Drawing.Point(6, 106);
+            this.btnPrintInfo.Image = global::BarrocIT.Properties.Resources.Print;
+            this.btnPrintInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintInfo.Location = new System.Drawing.Point(6, 107);
             this.btnPrintInfo.Name = "btnPrintInfo";
-            this.btnPrintInfo.Size = new System.Drawing.Size(135, 23);
+            this.btnPrintInfo.Size = new System.Drawing.Size(135, 25);
             this.btnPrintInfo.TabIndex = 0;
             this.btnPrintInfo.TabStop = false;
             this.btnPrintInfo.Text = "Print info";
+            this.btnPrintInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrintInfo.UseVisualStyleBackColor = true;
             // 
             // btnCustomersRemove
             // 
             this.btnCustomersRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCustomersRemove.Image = global::BarrocIT.Properties.Resources.Remove;
+            this.btnCustomersRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomersRemove.Location = new System.Drawing.Point(6, 77);
             this.btnCustomersRemove.Name = "btnCustomersRemove";
-            this.btnCustomersRemove.Size = new System.Drawing.Size(135, 23);
+            this.btnCustomersRemove.Size = new System.Drawing.Size(135, 25);
             this.btnCustomersRemove.TabIndex = 0;
             this.btnCustomersRemove.TabStop = false;
             this.btnCustomersRemove.Text = "Remove";
+            this.btnCustomersRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomersRemove.UseVisualStyleBackColor = true;
             // 
             // btnCustomersEdit
             // 
             this.btnCustomersEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCustomersEdit.Image = global::BarrocIT.Properties.Resources.Edit;
+            this.btnCustomersEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomersEdit.Location = new System.Drawing.Point(6, 48);
             this.btnCustomersEdit.Name = "btnCustomersEdit";
-            this.btnCustomersEdit.Size = new System.Drawing.Size(135, 23);
+            this.btnCustomersEdit.Size = new System.Drawing.Size(135, 25);
             this.btnCustomersEdit.TabIndex = 0;
             this.btnCustomersEdit.TabStop = false;
             this.btnCustomersEdit.Text = "Edit";
+            this.btnCustomersEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomersEdit.UseVisualStyleBackColor = true;
             this.btnCustomersEdit.Click += new System.EventHandler(this.btnCustomersEdit_Click);
             // 
@@ -207,12 +216,15 @@
             // 
             this.btnCustomersAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCustomersAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomersAdd.Image")));
+            this.btnCustomersAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomersAdd.Location = new System.Drawing.Point(6, 19);
             this.btnCustomersAdd.Name = "btnCustomersAdd";
-            this.btnCustomersAdd.Size = new System.Drawing.Size(135, 23);
+            this.btnCustomersAdd.Size = new System.Drawing.Size(135, 25);
             this.btnCustomersAdd.TabIndex = 0;
             this.btnCustomersAdd.TabStop = false;
             this.btnCustomersAdd.Text = "Add";
+            this.btnCustomersAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomersAdd.UseVisualStyleBackColor = true;
             this.btnCustomersAdd.Click += new System.EventHandler(this.btnCustomersAdd_Click);
             // 
@@ -282,24 +294,30 @@
             // 
             this.btnInvoicesRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInvoicesRemove.Image = global::BarrocIT.Properties.Resources.Remove;
+            this.btnInvoicesRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInvoicesRemove.Location = new System.Drawing.Point(6, 77);
             this.btnInvoicesRemove.Name = "btnInvoicesRemove";
-            this.btnInvoicesRemove.Size = new System.Drawing.Size(135, 23);
+            this.btnInvoicesRemove.Size = new System.Drawing.Size(135, 25);
             this.btnInvoicesRemove.TabIndex = 0;
             this.btnInvoicesRemove.TabStop = false;
             this.btnInvoicesRemove.Text = "Remove";
+            this.btnInvoicesRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInvoicesRemove.UseVisualStyleBackColor = true;
             // 
             // btnInvoicesEdit
             // 
             this.btnInvoicesEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInvoicesEdit.Image = global::BarrocIT.Properties.Resources.Edit;
+            this.btnInvoicesEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInvoicesEdit.Location = new System.Drawing.Point(6, 48);
             this.btnInvoicesEdit.Name = "btnInvoicesEdit";
-            this.btnInvoicesEdit.Size = new System.Drawing.Size(135, 23);
+            this.btnInvoicesEdit.Size = new System.Drawing.Size(135, 25);
             this.btnInvoicesEdit.TabIndex = 0;
             this.btnInvoicesEdit.TabStop = false;
             this.btnInvoicesEdit.Text = "Edit";
+            this.btnInvoicesEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInvoicesEdit.UseVisualStyleBackColor = true;
             this.btnInvoicesEdit.Click += new System.EventHandler(this.btnInvoicesEdit_Click);
             // 
@@ -307,12 +325,15 @@
             // 
             this.btnInvoicesAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInvoicesAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoicesAdd.Image")));
+            this.btnInvoicesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInvoicesAdd.Location = new System.Drawing.Point(6, 19);
             this.btnInvoicesAdd.Name = "btnInvoicesAdd";
-            this.btnInvoicesAdd.Size = new System.Drawing.Size(135, 23);
+            this.btnInvoicesAdd.Size = new System.Drawing.Size(135, 25);
             this.btnInvoicesAdd.TabIndex = 0;
             this.btnInvoicesAdd.TabStop = false;
             this.btnInvoicesAdd.Text = "Add";
+            this.btnInvoicesAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInvoicesAdd.UseVisualStyleBackColor = true;
             this.btnInvoicesAdd.Click += new System.EventHandler(this.btnInvoicesAdd_Click);
             // 
@@ -356,12 +377,15 @@
             // 
             this.btnProjectsView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProjectsView.Image = global::BarrocIT.Properties.Resources.Project;
+            this.btnProjectsView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProjectsView.Location = new System.Drawing.Point(6, 19);
             this.btnProjectsView.Name = "btnProjectsView";
-            this.btnProjectsView.Size = new System.Drawing.Size(135, 23);
+            this.btnProjectsView.Size = new System.Drawing.Size(135, 25);
             this.btnProjectsView.TabIndex = 0;
             this.btnProjectsView.TabStop = false;
             this.btnProjectsView.Text = "View Projects";
+            this.btnProjectsView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProjectsView.UseVisualStyleBackColor = true;
             this.btnProjectsView.Click += new System.EventHandler(this.btnProjectsView_Click);
             // 
@@ -408,12 +432,15 @@
             // 
             this.btnCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalendar.Image = global::BarrocIT.Properties.Resources.Calendar;
+            this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCalendar.Location = new System.Drawing.Point(6, 106);
             this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(135, 23);
+            this.btnCalendar.Size = new System.Drawing.Size(135, 25);
             this.btnCalendar.TabIndex = 0;
             this.btnCalendar.TabStop = false;
             this.btnCalendar.Text = "Calendar";
+            this.btnCalendar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCalendar.UseVisualStyleBackColor = true;
             this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
             // 
@@ -421,24 +448,30 @@
             // 
             this.btnMeetingsRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMeetingsRemove.Image = global::BarrocIT.Properties.Resources.Remove;
+            this.btnMeetingsRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMeetingsRemove.Location = new System.Drawing.Point(6, 77);
             this.btnMeetingsRemove.Name = "btnMeetingsRemove";
-            this.btnMeetingsRemove.Size = new System.Drawing.Size(135, 23);
+            this.btnMeetingsRemove.Size = new System.Drawing.Size(135, 25);
             this.btnMeetingsRemove.TabIndex = 0;
             this.btnMeetingsRemove.TabStop = false;
             this.btnMeetingsRemove.Text = "Remove";
+            this.btnMeetingsRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMeetingsRemove.UseVisualStyleBackColor = true;
             // 
             // btnMeetingsEdit
             // 
             this.btnMeetingsEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMeetingsEdit.Image = global::BarrocIT.Properties.Resources.Edit;
+            this.btnMeetingsEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMeetingsEdit.Location = new System.Drawing.Point(6, 48);
             this.btnMeetingsEdit.Name = "btnMeetingsEdit";
-            this.btnMeetingsEdit.Size = new System.Drawing.Size(135, 23);
+            this.btnMeetingsEdit.Size = new System.Drawing.Size(135, 25);
             this.btnMeetingsEdit.TabIndex = 0;
             this.btnMeetingsEdit.TabStop = false;
             this.btnMeetingsEdit.Text = "Edit";
+            this.btnMeetingsEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMeetingsEdit.UseVisualStyleBackColor = true;
             this.btnMeetingsEdit.Click += new System.EventHandler(this.btnMeetingsEdit_Click);
             // 
@@ -446,12 +479,15 @@
             // 
             this.btnMeetingsAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMeetingsAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnMeetingsAdd.Image")));
+            this.btnMeetingsAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMeetingsAdd.Location = new System.Drawing.Point(6, 19);
             this.btnMeetingsAdd.Name = "btnMeetingsAdd";
-            this.btnMeetingsAdd.Size = new System.Drawing.Size(135, 23);
+            this.btnMeetingsAdd.Size = new System.Drawing.Size(135, 25);
             this.btnMeetingsAdd.TabIndex = 0;
             this.btnMeetingsAdd.TabStop = false;
             this.btnMeetingsAdd.Text = "Add";
+            this.btnMeetingsAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMeetingsAdd.UseVisualStyleBackColor = true;
             this.btnMeetingsAdd.Click += new System.EventHandler(this.btnMeetingsAdd_Click);
             // 
@@ -466,7 +502,7 @@
             this.Menu = this.menustripMain;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "{DEPARTMENT} - {SELECTED TAB}";
+            this.Text = "Barroc IT - {DEPARTMENT} - {SELECTED TAB}";
             this.tabConDepartments.ResumeLayout(false);
             this.tabCustomers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();
