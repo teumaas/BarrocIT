@@ -67,5 +67,15 @@ namespace BarrocIT
             mainForm.Show();
             this.Hide();
         }
+
+        private void cmbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbUsername_Enter(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
     }
 }

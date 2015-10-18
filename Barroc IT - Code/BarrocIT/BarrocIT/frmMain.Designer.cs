@@ -32,9 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menustripMain = new System.Windows.Forms.MainMenu(this.components);
             this.menuFile = new System.Windows.Forms.MenuItem();
+            this.itemRefresh = new System.Windows.Forms.MenuItem();
             this.itemSignout = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.itemExit = new System.Windows.Forms.MenuItem();
             this.menuHelp = new System.Windows.Forms.MenuItem();
+            this.itemInfo = new System.Windows.Forms.MenuItem();
             this.tabConDepartments = new System.Windows.Forms.TabControl();
             this.tabCustomers = new System.Windows.Forms.TabPage();
             this.dataGridViewCustomers = new System.Windows.Forms.DataGridView();
@@ -87,20 +90,34 @@
             // 
             this.menuFile.Index = 0;
             this.menuFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.itemRefresh,
             this.itemSignout,
+            this.menuItem1,
             this.itemExit});
             this.menuFile.Text = "File";
             // 
+            // itemRefresh
+            // 
+            this.itemRefresh.Index = 0;
+            this.itemRefresh.Shortcut = System.Windows.Forms.Shortcut.F5;
+            this.itemRefresh.Tag = "This refreshes the Database.";
+            this.itemRefresh.Text = "Refresh";
+            // 
             // itemSignout
             // 
-            this.itemSignout.Index = 0;
+            this.itemSignout.Index = 1;
             this.itemSignout.Shortcut = System.Windows.Forms.Shortcut.CtrlL;
             this.itemSignout.Text = "&Sign out";
             this.itemSignout.Click += new System.EventHandler(this.itemSignout_Click);
             // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 2;
+            this.menuItem1.Text = "-";
+            // 
             // itemExit
             // 
-            this.itemExit.Index = 1;
+            this.itemExit.Index = 3;
             this.itemExit.Shortcut = System.Windows.Forms.Shortcut.AltF4;
             this.itemExit.Text = "Exit";
             this.itemExit.Click += new System.EventHandler(this.itemExit_Click);
@@ -108,9 +125,16 @@
             // menuHelp
             // 
             this.menuHelp.Index = 1;
-            this.menuHelp.Shortcut = System.Windows.Forms.Shortcut.CtrlH;
-            this.menuHelp.Text = "&Help";
-            this.menuHelp.Click += new System.EventHandler(this.menuHelp_Click);
+            this.menuHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.itemInfo});
+            this.menuHelp.Text = "Help";
+            // 
+            // itemInfo
+            // 
+            this.itemInfo.Index = 0;
+            this.itemInfo.Shortcut = System.Windows.Forms.Shortcut.CtrlI;
+            this.itemInfo.Text = "&Info";
+            this.itemInfo.Click += new System.EventHandler(this.itemInfo_Click);
             // 
             // tabConDepartments
             // 
@@ -555,5 +579,8 @@
         private System.Windows.Forms.Label lblPayedStatus;
         private System.Windows.Forms.Button btnPrintInfo;
         private System.Windows.Forms.Button btnCalendar;
+        private System.Windows.Forms.MenuItem itemRefresh;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem itemInfo;
     }
 }

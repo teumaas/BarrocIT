@@ -46,7 +46,7 @@
             // 
             this.btnLogin.Image = global::BarrocIT.Properties.Resources.Key;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLogin.Location = new System.Drawing.Point(219, 194);
+            this.btnLogin.Location = new System.Drawing.Point(219, 195);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(78, 25);
             this.btnLogin.TabIndex = 0;
@@ -80,13 +80,15 @@
             this.cmbUsername.Name = "cmbUsername";
             this.cmbUsername.Size = new System.Drawing.Size(261, 21);
             this.cmbUsername.TabIndex = 1;
+            this.cmbUsername.Enter += new System.EventHandler(this.cmbUsername_Enter);
+            this.cmbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUsername_KeyDown);
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.BackColor = System.Drawing.Color.Transparent;
             this.lblInfo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(9, 24);
+            this.lblInfo.Location = new System.Drawing.Point(11, 24);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(184, 46);
             this.lblInfo.TabIndex = 0;
@@ -123,7 +125,7 @@
             // txtAssembly
             // 
             this.txtAssembly.AutoSize = true;
-            this.txtAssembly.Location = new System.Drawing.Point(14, 200);
+            this.txtAssembly.Location = new System.Drawing.Point(8, 203);
             this.txtAssembly.Name = "txtAssembly";
             this.txtAssembly.Size = new System.Drawing.Size(80, 13);
             this.txtAssembly.TabIndex = 8;
@@ -134,7 +136,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(308, 222);
+            this.ClientSize = new System.Drawing.Size(308, 227);
             this.Controls.Add(this.txtAssembly);
             this.Controls.Add(this.picPassword);
             this.Controls.Add(this.picDepartments);

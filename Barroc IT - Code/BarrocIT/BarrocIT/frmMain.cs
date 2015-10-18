@@ -37,14 +37,12 @@ namespace BarrocIT
 
         private void btnCustomersAdd_Click(object sender, EventArgs e)
         {
-            Add = new frmAdd();
-            Add.Show(); 
+            AddEditForm(true);
         }
 
         private void btnInvoicesAdd_Click(object sender, EventArgs e)
         {
-            Add = new frmAdd();
-            Add.Show();
+            AddEditForm(true);
         }
 
         private void btnProjectsView_Click(object sender, EventArgs e)
@@ -55,38 +53,27 @@ namespace BarrocIT
 
         private void btnMeetingsAdd_Click(object sender, EventArgs e)
         {
-            Add = new frmAdd();
-            Add.Show();
+            AddEditForm(true);
         }
 
         private void btnCustomersEdit_Click(object sender, EventArgs e)
         {
-            Edit = new frmEdit();
-            Edit.Show();
+            AddEditForm(false);
         }
 
         private void btnInvoicesEdit_Click(object sender, EventArgs e)
         {
-            Edit = new frmEdit();
-            Edit.Show();
+            AddEditForm(false);
         }
 
         private void btnProjectsEdit_Click(object sender, EventArgs e)
         {
-            Edit = new frmEdit();
-            Edit.Show();
+            AddEditForm(false);
         }
 
         private void btnMeetingsEdit_Click(object sender, EventArgs e)
         {
-            Edit = new frmEdit();
-            Edit.Show();
-        }
-
-        private void menuHelp_Click(object sender, EventArgs e)
-        {
-            Help = new frmHelp();
-            Help.Show();
+            AddEditForm(false);
         }
 
         private void itemSignout_Click(object sender, EventArgs e)
@@ -94,6 +81,29 @@ namespace BarrocIT
             Login = new frmLogin();
             Login.Show();
             this.Close();
+        }
+
+        private void itemInfo_Click(object sender, EventArgs e)
+        {
+            Help = new frmHelp();
+            Help.Show();
+        }
+
+        private bool AddEditForm(bool addedit)
+        {
+            if (addedit == true)
+            {
+                Add = new frmAdd();
+                Add.Show();
+
+            }
+            else
+            {
+                Edit = new frmEdit();
+                Edit.Show();
+            }
+
+            return addedit;
         }
     }
 }
