@@ -12,6 +12,7 @@ namespace BarrocIT
 {
     public partial class frmMain : Form
     {
+        DatabaseHandler SQLHandler;
         frmLogin Login;
         frmProjects AddProject;
         frmCalendar Calendar;
@@ -51,11 +52,6 @@ namespace BarrocIT
             AddProject.Show();
         }
 
-        private void btnMeetingsAdd_Click(object sender, EventArgs e)
-        {
-            AddEditForm(true);
-        }
-
         private void btnCustomersEdit_Click(object sender, EventArgs e)
         {
             AddEditForm(false);
@@ -71,22 +67,28 @@ namespace BarrocIT
             AddEditForm(false);
         }
 
-        private void btnMeetingsEdit_Click(object sender, EventArgs e)
-        {
-            AddEditForm(false);
-        }
-
         private void itemSignout_Click(object sender, EventArgs e)
         {
             Login = new frmLogin();
-            Login.Show();
+            //SQLHandler.Close();
             this.Close();
+            Application.Restart();
         }
 
         private void itemInfo_Click(object sender, EventArgs e)
         {
             Help = new frmHelp();
             Help.Show();
+        }
+
+        private void btnAppointmentsAdd_Click(object sender, EventArgs e)
+        {
+            AddEditForm(true);
+        }
+
+        private void btnAppointmentsEdit_Click(object sender, EventArgs e)
+        {
+            AddEditForm(false);
         }
 
         private bool AddEditForm(bool addedit)

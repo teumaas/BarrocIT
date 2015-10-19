@@ -14,7 +14,7 @@ namespace BarrocIT
     public partial class frmLogin : Form
     {
         // Create Object here.
-        DatabaseHandler sqlHandler;
+        DatabaseHandler SQLHandler;
         frmMain mainForm;
 
         public frmLogin()
@@ -41,7 +41,6 @@ namespace BarrocIT
 
         private void FRMLogin_Load(object sender, EventArgs e)
         {
-
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)

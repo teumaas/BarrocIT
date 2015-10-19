@@ -125,7 +125,7 @@
             // txtAssembly
             // 
             this.txtAssembly.AutoSize = true;
-            this.txtAssembly.Location = new System.Drawing.Point(8, 203);
+            this.txtAssembly.Location = new System.Drawing.Point(11, 204);
             this.txtAssembly.Name = "txtAssembly";
             this.txtAssembly.Size = new System.Drawing.Size(80, 13);
             this.txtAssembly.TabIndex = 8;
