@@ -80,7 +80,7 @@ namespace BarrocIT
         private void itemSignout_Click(object sender, EventArgs e)
         {
             Login = new frmLogin();
-            //SQLHandler.Close();
+            SQLHandler.closeConnection();
             this.Close();
             Application.Restart();
         }
@@ -127,7 +127,7 @@ namespace BarrocIT
 
         private void LabelsProjects()
         {
-            dataGridViewProjects.Rows[CustomerID].HeaderCell.Value = "Some text";
+            
         }
     }
 }

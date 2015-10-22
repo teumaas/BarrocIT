@@ -39,5 +39,10 @@ namespace BarrocIT
         {
            
         }
+
+        private void btnProjectRemove_Click(object sender, EventArgs e)
+        {
+            SQLHandler.SQLCommand("DELETE * FROM tbl_projects WHERE CustomerID = '1';");
+        }
     }
 }

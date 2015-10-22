@@ -79,6 +79,7 @@
             this.btnProjectRemove.Text = "Remove";
             this.btnProjectRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProjectRemove.UseVisualStyleBackColor = true;
+            this.btnProjectRemove.Click += new System.EventHandler(this.btnProjectRemove_Click);
             // 
             // btnProjectEdit
             // 
