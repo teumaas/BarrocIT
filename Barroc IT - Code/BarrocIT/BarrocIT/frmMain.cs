@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace BarrocIT
 {
@@ -23,6 +26,13 @@ namespace BarrocIT
         public frmMain()
         {
             InitializeComponent();
+
+            SQLHandler = new DatabaseHandler();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            FillDataGrids();
         }
 
         private void itemExit_Click(object sender, EventArgs e)
@@ -38,7 +48,7 @@ namespace BarrocIT
 
         private void btnCustomersAdd_Click(object sender, EventArgs e)
         {
-            AddEditForm(true);
+            SQLHandler.testConnection();
         }
 
         private void btnInvoicesAdd_Click(object sender, EventArgs e)
@@ -97,7 +107,6 @@ namespace BarrocIT
             {
                 Add = new frmAdd();
                 Add.Show();
-
             }
             else
             {
@@ -106,6 +115,19 @@ namespace BarrocIT
             }
 
             return addedit;
+        }
+
+        private void FillDataGrids()
+        {
+            dataGridViewCustomers.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_customers;");
+            dataGridViewInvoices.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_invoices;");
+            dataGridViewProjects.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_customers;");
+            dataGridViewAppointments.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments;");
+        }
+
+        private void LabelsProjects()
+        {
+            dataGridViewProjects.Rows[CustomerID].HeaderCell.Value = "Some text";
         }
     }
 }
