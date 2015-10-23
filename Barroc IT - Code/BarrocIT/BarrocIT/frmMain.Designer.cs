@@ -173,6 +173,7 @@
             this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCustomers.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewCustomers.Name = "dataGridViewCustomers";
+            this.dataGridViewCustomers.ReadOnly = true;
             this.dataGridViewCustomers.Size = new System.Drawing.Size(833, 437);
             this.dataGridViewCustomers.TabIndex = 0;
             // 
@@ -273,6 +274,7 @@
             this.dataGridViewInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInvoices.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewInvoices.Name = "dataGridViewInvoices";
+            this.dataGridViewInvoices.ReadOnly = true;
             this.dataGridViewInvoices.Size = new System.Drawing.Size(833, 437);
             this.dataGridViewInvoices.TabIndex = 0;
             this.dataGridViewInvoices.TabStop = false;
@@ -382,6 +384,7 @@
             this.dataGridViewProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProjects.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewProjects.Name = "dataGridViewProjects";
+            this.dataGridViewProjects.ReadOnly = true;
             this.dataGridViewProjects.Size = new System.Drawing.Size(833, 437);
             this.dataGridViewProjects.TabIndex = 0;
             this.dataGridViewProjects.TabStop = false;
@@ -434,6 +437,7 @@
             this.dataGridViewAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAppointments.Location = new System.Drawing.Point(6, 13);
             this.dataGridViewAppointments.Name = "dataGridViewAppointments";
+            this.dataGridViewAppointments.ReadOnly = true;
             this.dataGridViewAppointments.Size = new System.Drawing.Size(833, 437);
             this.dataGridViewAppointments.TabIndex = 0;
             this.dataGridViewAppointments.TabStop = false;
@@ -527,6 +531,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barroc IT - {DEPARTMENT} - {SELECTED TAB}";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabConDepartments.ResumeLayout(false);
             this.tabCustomers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();

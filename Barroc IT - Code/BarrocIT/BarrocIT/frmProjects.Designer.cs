@@ -47,6 +47,7 @@
             this.dataGridAddProject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAddProject.Location = new System.Drawing.Point(12, 12);
             this.dataGridAddProject.Name = "dataGridAddProject";
+            this.dataGridAddProject.ReadOnly = true;
             this.dataGridAddProject.Size = new System.Drawing.Size(696, 363);
             this.dataGridAddProject.TabIndex = 0;
             this.dataGridAddProject.TabStop = false;
@@ -78,6 +79,7 @@
             this.btnProjectRemove.Text = "Remove";
             this.btnProjectRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProjectRemove.UseVisualStyleBackColor = true;
+            this.btnProjectRemove.Click += new System.EventHandler(this.btnProjectRemove_Click);
             // 
             // btnProjectEdit
             // 
@@ -125,6 +127,7 @@
             this.Name = "frmProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barroc IT - Customer Projects";
+            this.Load += new System.EventHandler(this.frmProjects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAddProject)).EndInit();
             this.groupBoxCustomers.ResumeLayout(false);
             this.ResumeLayout(false);
