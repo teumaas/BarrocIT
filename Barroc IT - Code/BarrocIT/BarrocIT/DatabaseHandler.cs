@@ -16,7 +16,11 @@ public class DatabaseHandler
 
     public DatabaseHandler()
     {
-        ConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Tom\Desktop\BarrocIT_DB.mdf;Integrated Security=True;Connect Timeout=30";
+        string DBFile = "BarrocIT_DB.mdf";
+
+        ConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" +
+                           Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 22) + DBFile +
+                           @";Integrated Security=True;Connect Timeout=30";
 
         SQLConn = new SqlConnection(ConnectionString);
     }
