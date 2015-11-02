@@ -46,7 +46,8 @@ namespace BarrocIT
             {
                 cmbUsername.Items.Add(departments[i]);
             }
-            
+
+            btnLogin.Enabled = false;
             txtPassword.Text = "Password";
 
             txtAssembly.ForeColor = SystemColors.ControlDarkDark;
@@ -55,10 +56,11 @@ namespace BarrocIT
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "Password" || txtPassword.Text == "Password invaild!")
+            if (txtPassword.Text == "Password" || txtPassword.Text == "Invaild Password!")
             {
                 txtPassword.Text = string.Empty;
                 txtPassword.UseSystemPasswordChar = true;
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             }
         }
 
@@ -68,6 +70,7 @@ namespace BarrocIT
             {
                 txtPassword.Text = "Password";
                 txtPassword.UseSystemPasswordChar = false;
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             }
         }
 
@@ -121,12 +124,34 @@ namespace BarrocIT
                 {
                     txtPassword.Text = string.Empty;
                     txtPassword.UseSystemPasswordChar = false;
-                    txtPassword.Text = "Password invaild!";
+                    txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+                    txtPassword.Text = "Invaild Password!";
                 }
             }
             catch
             {
                 
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtPassword.Text == "Invaild Password!")
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                txtPassword.Text = string.Empty;
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            }
+        }
+
+        private void cmbUsername_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (cmbUsername.SelectedIndex == i)
+                {
+                    btnLogin.Enabled = true;
+                } 
             }
         }
     }

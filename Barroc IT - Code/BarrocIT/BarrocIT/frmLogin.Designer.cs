@@ -67,6 +67,7 @@
             this.txtPassword.TabIndex = 1;
             this.txtPassword.TabStop = false;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // cmbUsername
@@ -78,6 +79,7 @@
             this.cmbUsername.Size = new System.Drawing.Size(261, 21);
             this.cmbUsername.TabIndex = 0;
             this.cmbUsername.TabStop = false;
+            this.cmbUsername.SelectedIndexChanged += new System.EventHandler(this.cmbUsername_SelectedIndexChanged);
             this.cmbUsername.Enter += new System.EventHandler(this.cmbUsername_Enter);
             this.cmbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUsername_KeyDown);
             // 
