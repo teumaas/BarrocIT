@@ -42,6 +42,7 @@
             this.Name = "frmHelp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barroc IT - Help";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHelp_FormClosing);
             this.ResumeLayout(false);
 
         }

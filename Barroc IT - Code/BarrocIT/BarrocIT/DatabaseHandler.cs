@@ -16,7 +16,7 @@ public class DatabaseHandler
 
     public DatabaseHandler()
     {
-        ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Tom\Desktop\BarrocIT_DB.mdf;Integrated Security=True;Connect Timeout=30";
+        ConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Tom\Desktop\BarrocIT_DB.mdf;Integrated Security=True;Connect Timeout=30";
 
         SQLConn = new SqlConnection(ConnectionString);
     }
@@ -31,7 +31,7 @@ public class DatabaseHandler
         SQLConn.Close();
     }
 
-    public SqlConnection getConection()
+    public SqlConnection getConnection()
     {
         return SQLConn;
     }
@@ -41,12 +41,35 @@ public class DatabaseHandler
         testConnection();
         openConnection();
 
-        SqlDataAdapter dataAdapter = new SqlDataAdapter(query, getConection());
+        SqlDataAdapter dataAdapter = new SqlDataAdapter(query, getConnection());
         DataTable dt = new DataTable();
         dataAdapter.Fill(dt);
 
         closeConnection();
         return dt;
+    }
+
+    public object GetFirstValue(string Query)
+    {
+        openConnection();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = getConnection();
+        cmd.CommandText = Query;
+        SqlDataReader reader = cmd.ExecuteReader();
+        object result = -1;
+
+        if (reader.HasRows)
+        {
+            reader.Close();
+            result = cmd.ExecuteScalar();
+        }
+        else
+        {
+            reader.Close();
+        }
+
+        closeConnection();
+        return result;
     }
 
     public void testConnection()

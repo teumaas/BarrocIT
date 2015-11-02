@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Made by Tom Smits..
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,17 @@ namespace BarrocIT
 {
     public partial class frmHelp : Form
     {
-        public frmHelp()
+        frmMain Main;
+
+        public frmHelp(frmMain Main)
         {
             InitializeComponent();
+            this.Main = Main;
+        }
+
+        private void frmHelp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Main.Enabled = true;
         }
     }
 }

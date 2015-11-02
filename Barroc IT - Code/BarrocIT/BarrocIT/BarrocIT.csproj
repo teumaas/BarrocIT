@@ -11,6 +11,7 @@
     <AssemblyName>BarrocIT</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -52,6 +52,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,11 +64,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseHandler.cs" />
-    <Compile Include="frmAdd.cs">
+    <Compile Include="frmAddAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdd.Designer.cs">
-      <DependentUpon>frmAdd.cs</DependentUpon>
+    <Compile Include="frmAddAppointments.designer.cs">
+      <DependentUpon>frmAddAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCustomers.designer.cs">
+      <DependentUpon>frmAddCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddInvoices.designer.cs">
+      <DependentUpon>frmAddInvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddProjects.designer.cs">
+      <DependentUpon>frmAddProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppointments.designer.cs">
+      <DependentUpon>frmAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCalendar.cs">
       <SubType>Form</SubType>
@@ -75,23 +100,47 @@
     <Compile Include="frmCalendar.Designer.cs">
       <DependentUpon>frmCalendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditAppointments.designer.cs">
+      <DependentUpon>frmEditAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditCustomers.designer.cs">
+      <DependentUpon>frmEditCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditInvoices.designer.cs">
+      <DependentUpon>frmEditInvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditProjects.designer.cs">
+      <DependentUpon>frmEditProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHelp.Designer.cs">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInvoices.designer.cs">
+      <DependentUpon>frmInvoices.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProjects.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProjects.Designer.cs">
       <DependentUpon>frmProjects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEdit.Designer.cs">
-      <DependentUpon>frmEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -107,20 +156,50 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdd.resx">
-      <DependentUpon>frmAdd.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddAppointments.resx">
+      <DependentUpon>frmAddAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCustomers.resx">
+      <DependentUpon>frmAddCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddInvoices.resx">
+      <DependentUpon>frmAddInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddProjects.resx">
+      <DependentUpon>frmAddProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppointments.resx">
+      <DependentUpon>frmAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalendar.resx">
       <DependentUpon>frmCalendar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditAppointments.resx">
+      <DependentUpon>frmEditAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCustomers.resx">
+      <DependentUpon>frmEditCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditInvoices.resx">
+      <DependentUpon>frmEditInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditProjects.resx">
+      <DependentUpon>frmEditProjects.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProjects.resx">
+    <EmbeddedResource Include="frmInvoices.af.resx">
+      <DependentUpon>frmInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInvoices.resx">
+      <DependentUpon>frmInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjects.af.resx">
       <DependentUpon>frmProjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEdit.resx">
-      <DependentUpon>frmEdit.cs</DependentUpon>
+    <EmbeddedResource Include="frmProjects.resx">
+      <DependentUpon>frmProjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -196,11 +275,19 @@
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Invoice.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,1 @@
+Maak een .MDF voer Query .sql file uit, en stop de .MDF in de main folder van het project dus Path -> (BarrocIT\BarrocIT) hierdoor hoeft de ConnectionString niet meer aangepast te worden.

@@ -47,37 +47,31 @@
             this.btnCustomersEdit = new System.Windows.Forms.Button();
             this.btnCustomersAdd = new System.Windows.Forms.Button();
             this.tabInvoices = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInvoicesView = new System.Windows.Forms.Button();
             this.dataGridViewInvoices = new System.Windows.Forms.DataGridView();
-            this.groupBoxInvoices = new System.Windows.Forms.GroupBox();
-            this.cmbCustomersStatus = new System.Windows.Forms.ComboBox();
-            this.lblCustomersStatus = new System.Windows.Forms.Label();
-            this.btnInvoicesRemove = new System.Windows.Forms.Button();
-            this.btnInvoicesEdit = new System.Windows.Forms.Button();
-            this.btnInvoicesAdd = new System.Windows.Forms.Button();
             this.tabProjects = new System.Windows.Forms.TabPage();
             this.dataGridViewProjects = new System.Windows.Forms.DataGridView();
             this.groupBoxProjects = new System.Windows.Forms.GroupBox();
             this.btnProjectsView = new System.Windows.Forms.Button();
             this.tabAppointments = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAppointmentsView = new System.Windows.Forms.Button();
             this.dataGridViewAppointments = new System.Windows.Forms.DataGridView();
-            this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
-            this.btnAppointmentsCalendar = new System.Windows.Forms.Button();
-            this.btnAppointmentsRemove = new System.Windows.Forms.Button();
-            this.btnAppointmentsEdit = new System.Windows.Forms.Button();
-            this.btnAppointmentsAdd = new System.Windows.Forms.Button();
+            this.lblWhoami = new System.Windows.Forms.Label();
             this.tabConDepartments.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).BeginInit();
             this.groupBoxCustomers.SuspendLayout();
             this.tabInvoices.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInvoices)).BeginInit();
-            this.groupBoxInvoices.SuspendLayout();
             this.tabProjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).BeginInit();
             this.groupBoxProjects.SuspendLayout();
             this.tabAppointments.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointments)).BeginInit();
-            this.groupBoxAppointments.SuspendLayout();
             this.SuspendLayout();
             // 
             // menustripMain
@@ -102,6 +96,7 @@
             this.itemRefresh.Shortcut = System.Windows.Forms.Shortcut.F5;
             this.itemRefresh.Tag = "This refreshes the Database.";
             this.itemRefresh.Text = "Refresh";
+            this.itemRefresh.Click += new System.EventHandler(this.itemRefresh_Click);
             // 
             // itemSignout
             // 
@@ -148,9 +143,11 @@
             this.tabConDepartments.Location = new System.Drawing.Point(9, 2);
             this.tabConDepartments.Name = "tabConDepartments";
             this.tabConDepartments.SelectedIndex = 0;
-            this.tabConDepartments.Size = new System.Drawing.Size(1004, 482);
+            this.tabConDepartments.Size = new System.Drawing.Size(1005, 460);
+            this.tabConDepartments.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabConDepartments.TabIndex = 0;
             this.tabConDepartments.TabStop = false;
+            this.tabConDepartments.SelectedIndexChanged += new System.EventHandler(this.tabConDepartments_SelectedIndexChanged);
             // 
             // tabCustomers
             // 
@@ -160,22 +157,35 @@
             this.tabCustomers.Location = new System.Drawing.Point(4, 22);
             this.tabCustomers.Name = "tabCustomers";
             this.tabCustomers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCustomers.Size = new System.Drawing.Size(996, 456);
+            this.tabCustomers.Size = new System.Drawing.Size(997, 434);
             this.tabCustomers.TabIndex = 0;
             this.tabCustomers.Text = "Customers";
             // 
             // dataGridViewCustomers
             // 
-            this.dataGridViewCustomers.AllowUserToOrderColumns = true;
+            this.dataGridViewCustomers.AllowUserToAddRows = false;
+            this.dataGridViewCustomers.AllowUserToDeleteRows = false;
+            this.dataGridViewCustomers.AllowUserToResizeRows = false;
             this.dataGridViewCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCustomers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewCustomers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewCustomers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewCustomers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewCustomers.Location = new System.Drawing.Point(6, 13);
+            this.dataGridViewCustomers.MultiSelect = false;
             this.dataGridViewCustomers.Name = "dataGridViewCustomers";
             this.dataGridViewCustomers.ReadOnly = true;
-            this.dataGridViewCustomers.Size = new System.Drawing.Size(833, 437);
+            this.dataGridViewCustomers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewCustomers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewCustomers.RowTemplate.Height = 32;
+            this.dataGridViewCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCustomers.Size = new System.Drawing.Size(835, 415);
+            this.dataGridViewCustomers.StandardTab = true;
             this.dataGridViewCustomers.TabIndex = 0;
+            this.dataGridViewCustomers.TabStop = false;
             // 
             // groupBoxCustomers
             // 
@@ -184,7 +194,7 @@
             this.groupBoxCustomers.Controls.Add(this.btnCustomersRemove);
             this.groupBoxCustomers.Controls.Add(this.btnCustomersEdit);
             this.groupBoxCustomers.Controls.Add(this.btnCustomersAdd);
-            this.groupBoxCustomers.Location = new System.Drawing.Point(843, 6);
+            this.groupBoxCustomers.Location = new System.Drawing.Point(845, 7);
             this.groupBoxCustomers.Name = "groupBoxCustomers";
             this.groupBoxCustomers.Size = new System.Drawing.Size(147, 137);
             this.groupBoxCustomers.TabIndex = 0;
@@ -195,6 +205,7 @@
             // 
             this.btnCustomersPrintInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCustomersPrintInfo.Enabled = false;
             this.btnCustomersPrintInfo.Image = global::BarrocIT.Properties.Resources.Print;
             this.btnCustomersPrintInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomersPrintInfo.Location = new System.Drawing.Point(6, 106);
@@ -220,6 +231,7 @@
             this.btnCustomersRemove.Text = "Remove";
             this.btnCustomersRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomersRemove.UseVisualStyleBackColor = true;
+            this.btnCustomersRemove.Click += new System.EventHandler(this.btnCustomersRemove_Click);
             // 
             // btnCustomersEdit
             // 
@@ -256,112 +268,67 @@
             // tabInvoices
             // 
             this.tabInvoices.BackColor = System.Drawing.SystemColors.Control;
+            this.tabInvoices.Controls.Add(this.groupBox1);
             this.tabInvoices.Controls.Add(this.dataGridViewInvoices);
-            this.tabInvoices.Controls.Add(this.groupBoxInvoices);
             this.tabInvoices.Location = new System.Drawing.Point(4, 22);
             this.tabInvoices.Name = "tabInvoices";
             this.tabInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInvoices.Size = new System.Drawing.Size(996, 456);
+            this.tabInvoices.Size = new System.Drawing.Size(997, 434);
             this.tabInvoices.TabIndex = 1;
             this.tabInvoices.Text = "Invoices";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnInvoicesView);
+            this.groupBox1.Location = new System.Drawing.Point(845, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(147, 50);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Menu";
+            // 
+            // btnInvoicesView
+            // 
+            this.btnInvoicesView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInvoicesView.Image = global::BarrocIT.Properties.Resources.Invoice;
+            this.btnInvoicesView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInvoicesView.Location = new System.Drawing.Point(6, 19);
+            this.btnInvoicesView.Name = "btnInvoicesView";
+            this.btnInvoicesView.Size = new System.Drawing.Size(135, 25);
+            this.btnInvoicesView.TabIndex = 0;
+            this.btnInvoicesView.TabStop = false;
+            this.btnInvoicesView.Text = "View Invoices";
+            this.btnInvoicesView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInvoicesView.UseVisualStyleBackColor = true;
+            this.btnInvoicesView.Click += new System.EventHandler(this.btnInvoicesView_Click);
+            // 
             // dataGridViewInvoices
             // 
-            this.dataGridViewInvoices.AllowUserToOrderColumns = true;
+            this.dataGridViewInvoices.AllowUserToAddRows = false;
+            this.dataGridViewInvoices.AllowUserToDeleteRows = false;
+            this.dataGridViewInvoices.AllowUserToResizeRows = false;
             this.dataGridViewInvoices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInvoices.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewInvoices.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewInvoices.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewInvoices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewInvoices.Location = new System.Drawing.Point(6, 13);
+            this.dataGridViewInvoices.MultiSelect = false;
             this.dataGridViewInvoices.Name = "dataGridViewInvoices";
             this.dataGridViewInvoices.ReadOnly = true;
-            this.dataGridViewInvoices.Size = new System.Drawing.Size(833, 437);
+            this.dataGridViewInvoices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewInvoices.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewInvoices.RowTemplate.Height = 32;
+            this.dataGridViewInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewInvoices.Size = new System.Drawing.Size(835, 415);
+            this.dataGridViewInvoices.StandardTab = true;
             this.dataGridViewInvoices.TabIndex = 0;
             this.dataGridViewInvoices.TabStop = false;
-            // 
-            // groupBoxInvoices
-            // 
-            this.groupBoxInvoices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxInvoices.Controls.Add(this.cmbCustomersStatus);
-            this.groupBoxInvoices.Controls.Add(this.lblCustomersStatus);
-            this.groupBoxInvoices.Controls.Add(this.btnInvoicesRemove);
-            this.groupBoxInvoices.Controls.Add(this.btnInvoicesEdit);
-            this.groupBoxInvoices.Controls.Add(this.btnInvoicesAdd);
-            this.groupBoxInvoices.Location = new System.Drawing.Point(843, 6);
-            this.groupBoxInvoices.Name = "groupBoxInvoices";
-            this.groupBoxInvoices.Size = new System.Drawing.Size(147, 137);
-            this.groupBoxInvoices.TabIndex = 0;
-            this.groupBoxInvoices.TabStop = false;
-            this.groupBoxInvoices.Text = "Menu";
-            // 
-            // cmbCustomersStatus
-            // 
-            this.cmbCustomersStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCustomersStatus.FormattingEnabled = true;
-            this.cmbCustomersStatus.Items.AddRange(new object[] {
-            "Unpayed",
-            "Payed"});
-            this.cmbCustomersStatus.Location = new System.Drawing.Point(48, 108);
-            this.cmbCustomersStatus.Name = "cmbCustomersStatus";
-            this.cmbCustomersStatus.Size = new System.Drawing.Size(92, 21);
-            this.cmbCustomersStatus.TabIndex = 0;
-            this.cmbCustomersStatus.TabStop = false;
-            // 
-            // lblCustomersStatus
-            // 
-            this.lblCustomersStatus.AutoSize = true;
-            this.lblCustomersStatus.Location = new System.Drawing.Point(6, 112);
-            this.lblCustomersStatus.Name = "lblCustomersStatus";
-            this.lblCustomersStatus.Size = new System.Drawing.Size(40, 13);
-            this.lblCustomersStatus.TabIndex = 0;
-            this.lblCustomersStatus.Text = "Status:";
-            // 
-            // btnInvoicesRemove
-            // 
-            this.btnInvoicesRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInvoicesRemove.Image = global::BarrocIT.Properties.Resources.Remove;
-            this.btnInvoicesRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInvoicesRemove.Location = new System.Drawing.Point(6, 77);
-            this.btnInvoicesRemove.Name = "btnInvoicesRemove";
-            this.btnInvoicesRemove.Size = new System.Drawing.Size(135, 25);
-            this.btnInvoicesRemove.TabIndex = 0;
-            this.btnInvoicesRemove.TabStop = false;
-            this.btnInvoicesRemove.Text = "Remove";
-            this.btnInvoicesRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInvoicesRemove.UseVisualStyleBackColor = true;
-            // 
-            // btnInvoicesEdit
-            // 
-            this.btnInvoicesEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInvoicesEdit.Image = global::BarrocIT.Properties.Resources.Edit;
-            this.btnInvoicesEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInvoicesEdit.Location = new System.Drawing.Point(6, 48);
-            this.btnInvoicesEdit.Name = "btnInvoicesEdit";
-            this.btnInvoicesEdit.Size = new System.Drawing.Size(135, 25);
-            this.btnInvoicesEdit.TabIndex = 0;
-            this.btnInvoicesEdit.TabStop = false;
-            this.btnInvoicesEdit.Text = "Edit";
-            this.btnInvoicesEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInvoicesEdit.UseVisualStyleBackColor = true;
-            this.btnInvoicesEdit.Click += new System.EventHandler(this.btnInvoicesEdit_Click);
-            // 
-            // btnInvoicesAdd
-            // 
-            this.btnInvoicesAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInvoicesAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoicesAdd.Image")));
-            this.btnInvoicesAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInvoicesAdd.Location = new System.Drawing.Point(6, 19);
-            this.btnInvoicesAdd.Name = "btnInvoicesAdd";
-            this.btnInvoicesAdd.Size = new System.Drawing.Size(135, 25);
-            this.btnInvoicesAdd.TabIndex = 0;
-            this.btnInvoicesAdd.TabStop = false;
-            this.btnInvoicesAdd.Text = "Add";
-            this.btnInvoicesAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInvoicesAdd.UseVisualStyleBackColor = true;
-            this.btnInvoicesAdd.Click += new System.EventHandler(this.btnInvoicesAdd_Click);
             // 
             // tabProjects
             // 
@@ -371,21 +338,33 @@
             this.tabProjects.Location = new System.Drawing.Point(4, 22);
             this.tabProjects.Name = "tabProjects";
             this.tabProjects.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProjects.Size = new System.Drawing.Size(996, 456);
+            this.tabProjects.Size = new System.Drawing.Size(997, 434);
             this.tabProjects.TabIndex = 2;
             this.tabProjects.Text = "Projects";
             // 
             // dataGridViewProjects
             // 
-            this.dataGridViewProjects.AllowUserToOrderColumns = true;
+            this.dataGridViewProjects.AllowUserToAddRows = false;
+            this.dataGridViewProjects.AllowUserToDeleteRows = false;
+            this.dataGridViewProjects.AllowUserToResizeRows = false;
             this.dataGridViewProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProjects.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewProjects.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewProjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewProjects.Location = new System.Drawing.Point(6, 13);
+            this.dataGridViewProjects.MultiSelect = false;
             this.dataGridViewProjects.Name = "dataGridViewProjects";
             this.dataGridViewProjects.ReadOnly = true;
-            this.dataGridViewProjects.Size = new System.Drawing.Size(833, 437);
+            this.dataGridViewProjects.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewProjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewProjects.RowTemplate.Height = 32;
+            this.dataGridViewProjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewProjects.Size = new System.Drawing.Size(835, 415);
+            this.dataGridViewProjects.StandardTab = true;
             this.dataGridViewProjects.TabIndex = 0;
             this.dataGridViewProjects.TabStop = false;
             // 
@@ -393,7 +372,7 @@
             // 
             this.groupBoxProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxProjects.Controls.Add(this.btnProjectsView);
-            this.groupBoxProjects.Location = new System.Drawing.Point(843, 6);
+            this.groupBoxProjects.Location = new System.Drawing.Point(845, 7);
             this.groupBoxProjects.Name = "groupBoxProjects";
             this.groupBoxProjects.Size = new System.Drawing.Size(147, 50);
             this.groupBoxProjects.TabIndex = 0;
@@ -419,134 +398,109 @@
             // tabAppointments
             // 
             this.tabAppointments.BackColor = System.Drawing.SystemColors.Control;
+            this.tabAppointments.Controls.Add(this.groupBox2);
             this.tabAppointments.Controls.Add(this.dataGridViewAppointments);
-            this.tabAppointments.Controls.Add(this.groupBoxAppointments);
             this.tabAppointments.Location = new System.Drawing.Point(4, 22);
             this.tabAppointments.Name = "tabAppointments";
             this.tabAppointments.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAppointments.Size = new System.Drawing.Size(996, 456);
+            this.tabAppointments.Size = new System.Drawing.Size(997, 434);
             this.tabAppointments.TabIndex = 3;
             this.tabAppointments.Text = "Appointments";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnAppointmentsView);
+            this.groupBox2.Location = new System.Drawing.Point(845, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(147, 50);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Menu";
+            // 
+            // btnAppointmentsView
+            // 
+            this.btnAppointmentsView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppointmentsView.Image = global::BarrocIT.Properties.Resources.Calendar;
+            this.btnAppointmentsView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAppointmentsView.Location = new System.Drawing.Point(6, 19);
+            this.btnAppointmentsView.Name = "btnAppointmentsView";
+            this.btnAppointmentsView.Size = new System.Drawing.Size(135, 25);
+            this.btnAppointmentsView.TabIndex = 0;
+            this.btnAppointmentsView.TabStop = false;
+            this.btnAppointmentsView.Text = "View Appointments";
+            this.btnAppointmentsView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAppointmentsView.UseVisualStyleBackColor = true;
+            this.btnAppointmentsView.Click += new System.EventHandler(this.btnAppointmentsView_Click);
+            // 
             // dataGridViewAppointments
             // 
-            this.dataGridViewAppointments.AllowUserToOrderColumns = true;
+            this.dataGridViewAppointments.AllowUserToAddRows = false;
+            this.dataGridViewAppointments.AllowUserToDeleteRows = false;
+            this.dataGridViewAppointments.AllowUserToResizeRows = false;
             this.dataGridViewAppointments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewAppointments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewAppointments.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewAppointments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewAppointments.Location = new System.Drawing.Point(6, 13);
+            this.dataGridViewAppointments.MultiSelect = false;
             this.dataGridViewAppointments.Name = "dataGridViewAppointments";
             this.dataGridViewAppointments.ReadOnly = true;
-            this.dataGridViewAppointments.Size = new System.Drawing.Size(833, 437);
+            this.dataGridViewAppointments.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewAppointments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewAppointments.RowTemplate.Height = 32;
+            this.dataGridViewAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAppointments.Size = new System.Drawing.Size(835, 415);
+            this.dataGridViewAppointments.StandardTab = true;
             this.dataGridViewAppointments.TabIndex = 0;
             this.dataGridViewAppointments.TabStop = false;
             // 
-            // groupBoxAppointments
+            // lblWhoami
             // 
-            this.groupBoxAppointments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAppointments.Controls.Add(this.btnAppointmentsCalendar);
-            this.groupBoxAppointments.Controls.Add(this.btnAppointmentsRemove);
-            this.groupBoxAppointments.Controls.Add(this.btnAppointmentsEdit);
-            this.groupBoxAppointments.Controls.Add(this.btnAppointmentsAdd);
-            this.groupBoxAppointments.Location = new System.Drawing.Point(843, 6);
-            this.groupBoxAppointments.Name = "groupBoxAppointments";
-            this.groupBoxAppointments.Size = new System.Drawing.Size(147, 137);
-            this.groupBoxAppointments.TabIndex = 0;
-            this.groupBoxAppointments.TabStop = false;
-            this.groupBoxAppointments.Text = "Menu";
-            // 
-            // btnAppointmentsCalendar
-            // 
-            this.btnAppointmentsCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppointmentsCalendar.Image = global::BarrocIT.Properties.Resources.Calendar;
-            this.btnAppointmentsCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAppointmentsCalendar.Location = new System.Drawing.Point(6, 106);
-            this.btnAppointmentsCalendar.Name = "btnAppointmentsCalendar";
-            this.btnAppointmentsCalendar.Size = new System.Drawing.Size(135, 25);
-            this.btnAppointmentsCalendar.TabIndex = 0;
-            this.btnAppointmentsCalendar.TabStop = false;
-            this.btnAppointmentsCalendar.Text = "Calendar";
-            this.btnAppointmentsCalendar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAppointmentsCalendar.UseVisualStyleBackColor = true;
-            this.btnAppointmentsCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
-            // 
-            // btnAppointmentsRemove
-            // 
-            this.btnAppointmentsRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppointmentsRemove.Image = global::BarrocIT.Properties.Resources.Remove;
-            this.btnAppointmentsRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAppointmentsRemove.Location = new System.Drawing.Point(6, 77);
-            this.btnAppointmentsRemove.Name = "btnAppointmentsRemove";
-            this.btnAppointmentsRemove.Size = new System.Drawing.Size(135, 25);
-            this.btnAppointmentsRemove.TabIndex = 0;
-            this.btnAppointmentsRemove.TabStop = false;
-            this.btnAppointmentsRemove.Text = "Remove";
-            this.btnAppointmentsRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAppointmentsRemove.UseVisualStyleBackColor = true;
-            // 
-            // btnAppointmentsEdit
-            // 
-            this.btnAppointmentsEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppointmentsEdit.Image = global::BarrocIT.Properties.Resources.Edit;
-            this.btnAppointmentsEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAppointmentsEdit.Location = new System.Drawing.Point(6, 48);
-            this.btnAppointmentsEdit.Name = "btnAppointmentsEdit";
-            this.btnAppointmentsEdit.Size = new System.Drawing.Size(135, 25);
-            this.btnAppointmentsEdit.TabIndex = 0;
-            this.btnAppointmentsEdit.TabStop = false;
-            this.btnAppointmentsEdit.Text = "Edit";
-            this.btnAppointmentsEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAppointmentsEdit.UseVisualStyleBackColor = true;
-            this.btnAppointmentsEdit.Click += new System.EventHandler(this.btnAppointmentsEdit_Click);
-            // 
-            // btnAppointmentsAdd
-            // 
-            this.btnAppointmentsAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppointmentsAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAppointmentsAdd.Image")));
-            this.btnAppointmentsAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAppointmentsAdd.Location = new System.Drawing.Point(6, 19);
-            this.btnAppointmentsAdd.Name = "btnAppointmentsAdd";
-            this.btnAppointmentsAdd.Size = new System.Drawing.Size(135, 25);
-            this.btnAppointmentsAdd.TabIndex = 0;
-            this.btnAppointmentsAdd.TabStop = false;
-            this.btnAppointmentsAdd.Text = "Add";
-            this.btnAppointmentsAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAppointmentsAdd.UseVisualStyleBackColor = true;
-            this.btnAppointmentsAdd.Click += new System.EventHandler(this.btnAppointmentsAdd_Click);
+            this.lblWhoami.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWhoami.AutoSize = true;
+            this.lblWhoami.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblWhoami.Location = new System.Drawing.Point(873, 5);
+            this.lblWhoami.Name = "lblWhoami";
+            this.lblWhoami.Size = new System.Drawing.Size(74, 13);
+            this.lblWhoami.TabIndex = 0;
+            this.lblWhoami.Text = "Logged in as: ";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 489);
+            this.ClientSize = new System.Drawing.Size(1022, 468);
+            this.Controls.Add(this.lblWhoami);
             this.Controls.Add(this.tabConDepartments);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.menustripMain;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Barroc IT - {DEPARTMENT} - {SELECTED TAB}";
-            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Text = "Barroc IT - Customers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.tabConDepartments.ResumeLayout(false);
             this.tabCustomers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();
             this.groupBoxCustomers.ResumeLayout(false);
             this.tabInvoices.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInvoices)).EndInit();
-            this.groupBoxInvoices.ResumeLayout(false);
-            this.groupBoxInvoices.PerformLayout();
             this.tabProjects.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).EndInit();
             this.groupBoxProjects.ResumeLayout(false);
             this.tabAppointments.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAppointments)).EndInit();
-            this.groupBoxAppointments.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -566,26 +520,20 @@
         private System.Windows.Forms.Button btnCustomersRemove;
         private System.Windows.Forms.Button btnCustomersEdit;
         private System.Windows.Forms.Button btnCustomersAdd;
-        private System.Windows.Forms.GroupBox groupBoxInvoices;
-        private System.Windows.Forms.Button btnInvoicesRemove;
-        private System.Windows.Forms.Button btnInvoicesEdit;
-        private System.Windows.Forms.Button btnInvoicesAdd;
         private System.Windows.Forms.GroupBox groupBoxProjects;
         private System.Windows.Forms.Button btnProjectsView;
-        private System.Windows.Forms.GroupBox groupBoxAppointments;
-        private System.Windows.Forms.Button btnAppointmentsRemove;
-        private System.Windows.Forms.Button btnAppointmentsEdit;
-        private System.Windows.Forms.Button btnAppointmentsAdd;
         private System.Windows.Forms.DataGridView dataGridViewInvoices;
-        private System.Windows.Forms.DataGridView dataGridViewProjects;
         private System.Windows.Forms.DataGridView dataGridViewAppointments;
         private System.Windows.Forms.DataGridView dataGridViewCustomers;
-        private System.Windows.Forms.ComboBox cmbCustomersStatus;
-        private System.Windows.Forms.Label lblCustomersStatus;
         private System.Windows.Forms.Button btnCustomersPrintInfo;
-        private System.Windows.Forms.Button btnAppointmentsCalendar;
         private System.Windows.Forms.MenuItem itemRefresh;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem itemInfo;
+        private System.Windows.Forms.DataGridView dataGridViewProjects;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnInvoicesView;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnAppointmentsView;
+        private System.Windows.Forms.Label lblWhoami;
     }
 }

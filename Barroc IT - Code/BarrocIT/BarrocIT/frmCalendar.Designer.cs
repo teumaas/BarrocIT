@@ -29,85 +29,88 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalendar));
-            this.Calendar = new System.Windows.Forms.MonthCalendar();
-            this.listBoxMeetings = new System.Windows.Forms.ListBox();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.mcCalendar = new System.Windows.Forms.MonthCalendar();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.dataGridViewCalendar = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).BeginInit();
             this.SuspendLayout();
             // 
-            // Calendar
+            // mcCalendar
             // 
-            this.Calendar.Location = new System.Drawing.Point(7, 6);
-            this.Calendar.Name = "Calendar";
-            this.Calendar.TabIndex = 0;
-            this.Calendar.TabStop = false;
+            this.mcCalendar.Location = new System.Drawing.Point(7, 6);
+            this.mcCalendar.Name = "mcCalendar";
+            this.mcCalendar.TabIndex = 0;
+            this.mcCalendar.TabStop = false;
+            this.mcCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Calendar_DateChanged);
             // 
-            // listBoxMeetings
+            // btnClose
             // 
-            this.listBoxMeetings.FormattingEnabled = true;
-            this.listBoxMeetings.Items.AddRange(new object[] {
-            "Placeholder meeting 00-00-0000",
-            "Placeholder meeting 00-00-0000",
-            "Placeholder meeting 00-00-0000",
-            "Placeholder meeting 00-00-0000"});
-            this.listBoxMeetings.Location = new System.Drawing.Point(190, 6);
-            this.listBoxMeetings.Name = "listBoxMeetings";
-            this.listBoxMeetings.Size = new System.Drawing.Size(171, 160);
-            this.listBoxMeetings.TabIndex = 0;
-            this.listBoxMeetings.TabStop = false;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Image = global::BarrocIT.Properties.Resources.Cancel;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.Location = new System.Drawing.Point(548, 174);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(80, 25);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.TabStop = false;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnSelect
+            // dataGridViewCalendar
             // 
-            this.btnSelect.Image = global::BarrocIT.Properties.Resources.Edit;
-            this.btnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSelect.Location = new System.Drawing.Point(190, 175);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(80, 25);
-            this.btnSelect.TabIndex = 0;
-            this.btnSelect.TabStop = false;
-            this.btnSelect.Text = "Select";
-            this.btnSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSelect.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Image = global::BarrocIT.Properties.Resources.Cancel;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(281, 175);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(80, 25);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.dataGridViewCalendar.AllowUserToAddRows = false;
+            this.dataGridViewCalendar.AllowUserToDeleteRows = false;
+            this.dataGridViewCalendar.AllowUserToResizeRows = false;
+            this.dataGridViewCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCalendar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewCalendar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewCalendar.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewCalendar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewCalendar.Location = new System.Drawing.Point(184, 6);
+            this.dataGridViewCalendar.MultiSelect = false;
+            this.dataGridViewCalendar.Name = "dataGridViewCalendar";
+            this.dataGridViewCalendar.ReadOnly = true;
+            this.dataGridViewCalendar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewCalendar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewCalendar.RowTemplate.Height = 32;
+            this.dataGridViewCalendar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCalendar.Size = new System.Drawing.Size(444, 162);
+            this.dataGridViewCalendar.StandardTab = true;
+            this.dataGridViewCalendar.TabIndex = 0;
+            this.dataGridViewCalendar.TabStop = false;
             // 
             // frmCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 208);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.listBoxMeetings);
-            this.Controls.Add(this.Calendar);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(634, 205);
+            this.Controls.Add(this.dataGridViewCalendar);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.mcCalendar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCalendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Barroc IT - Calendar";
+            this.Text = "Barroc IT - Calendar - Appointments";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCalendar_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalendar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar Calendar;
-        private System.Windows.Forms.ListBox listBoxMeetings;
-        private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.MonthCalendar mcCalendar;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridView dataGridViewCalendar;
     }
 }

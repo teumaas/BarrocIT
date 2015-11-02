@@ -32,36 +32,37 @@ CREATE TABLE [dbo].[tbl_projects] (
 );
 
 CREATE TABLE [dbo].[tbl_invoices] (
-    [InvoiceID]       INT           NOT NULL,
-	[CustomerID]      INT           NOT NULL,
-	[ProjectID]       INT           NOT NULL,
-    [InvoiceData]     DATETIME      NOT NULL,
+    [InvoiceID]       INT           IDENTITY (1, 1) NOT NULL,
+    [CustomerID]      INT           NOT NULL,
+    [ProjectID]       INT           NOT NULL,
+    [InvoiceDate]     DATE          NOT NULL,
     [InvoicePaid]     BIT           NOT NULL,
     [InvoiceSent]     BIT           NOT NULL,
     [InvoiceStatus]   BIT           NOT NULL,
     [InvoiceTerms]    NVARCHAR (25) NOT NULL,
-    [LastContactDate] DATETIME      NOT NULL,
+    [LastContactDate] DATE          NOT NULL,
     [LedgerAccNum]    NVARCHAR (25) NOT NULL,
     [TaxCode]         NVARCHAR (25) NOT NULL,
-	CONSTRAINT [FK_tbl_customers3] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[tbl_customers] ([CustomerID]),
-	CONSTRAINT [FK_tbl_projects] FOREIGN KEY ([ProjectID]) REFERENCES [dbo].[tbl_projects] ([ProjectID]),
-    PRIMARY KEY CLUSTERED ([InvoiceID] ASC)
+    PRIMARY KEY CLUSTERED ([InvoiceID] ASC),
+    CONSTRAINT [FK_tbl_projects] FOREIGN KEY ([ProjectID]) REFERENCES [dbo].[tbl_projects] ([ProjectID]),
+    CONSTRAINT [FK_tbl_customers3] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[tbl_customers] ([CustomerID])
 );
 
 CREATE TABLE [dbo].[tbl_appointments] (
-    [AppointmentID]       INT           NOT NULL,
-    [CustomerID]          INT           NOT NULL,
-    [AppointmentSubject]  NVARCHAR (50) NOT NULL,
-    [AppointmentDate]     DATE          NOT NULL,
-    [AppointmentLocation] NVARCHAR (25) NOT NULL,
-    [AppointmentAdress]   NVARCHAR (25) NOT NULL,
-    [AppointmentTime]     DATETIME      NOT NULL,
-	CONSTRAINT [FK_tbl_customers2] FOREIGN KEY ([CustomerID]) REFERENCES [tbl_customers]([CustomerID]),
-	PRIMARY KEY CLUSTERED ([AppointmentID] ASC)
+    [AppointmentID]            INT           IDENTITY (1, 1) NOT NULL,
+    [CustomerID]               INT           NOT NULL,
+    [AppointmentSubject]       NVARCHAR (50) NOT NULL,
+    [AppointmentDate]          DATE          NOT NULL,
+    [AppointmentLocation]      NVARCHAR (25) NOT NULL,
+    [AppointmentAdress]        NVARCHAR (25) NOT NULL,
+    [AppointmentAdressZipCode] NVARCHAR (25) NOT NULL,
+    [AppointmentTime]          TIME (7)      NOT NULL,
+    PRIMARY KEY CLUSTERED ([AppointmentID] ASC),
+    CONSTRAINT [FK_tbl_customers2] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[tbl_customers] ([CustomerID])
 );
 
 CREATE TABLE [dbo].[tbl_users] (
-    [UserID]   INT           NOT NULL,
+    [UserID]   INT  IDENTITY (1, 1) NOT NULL,
     [Username] NVARCHAR (15) NOT NULL,
     [Password] NVARCHAR (25) NOT NULL,
     PRIMARY KEY CLUSTERED ([UserID] ASC)

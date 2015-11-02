@@ -64,7 +64,8 @@
             this.txtPassword.MaxLength = 24;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(261, 20);
-            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.TabStop = false;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
@@ -72,14 +73,11 @@
             // 
             this.cmbUsername.BackColor = System.Drawing.SystemColors.Window;
             this.cmbUsername.FormattingEnabled = true;
-            this.cmbUsername.Items.AddRange(new object[] {
-            "Sales",
-            "Development",
-            "Finance"});
             this.cmbUsername.Location = new System.Drawing.Point(35, 141);
             this.cmbUsername.Name = "cmbUsername";
             this.cmbUsername.Size = new System.Drawing.Size(261, 21);
-            this.cmbUsername.TabIndex = 1;
+            this.cmbUsername.TabIndex = 0;
+            this.cmbUsername.TabStop = false;
             this.cmbUsername.Enter += new System.EventHandler(this.cmbUsername_Enter);
             this.cmbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUsername_KeyDown);
             // 
@@ -133,6 +131,7 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -147,11 +146,11 @@
             this.Controls.Add(this.picLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barroc IT - Login";
-            this.Load += new System.EventHandler(this.FRMLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDepartments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPassword)).EndInit();
