@@ -1,0 +1,58 @@
+ try
+            {
+            SQLCommand = new SqlCommand("INSERT INTO tbl_projects (CustomerID, CustomerName, Adress1, Adress2, City1, City2, FaxNum, ContactPerson, Email, BankNum, CreditWorthy, BKRCheck, PotentialCustomer)VALUES (@CustomerID, @CustomerName, @Adress1, @Adress2, @City1, @City2, @FaxNum, @ContactPerson, @Email, @BankNum, @CreditWorthy, @BKRCheck, @PotentialCustomer)", SQLHandler.getConnection());
+
+            CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            CustomerName = txtCustomerName.Text;
+			Adress1 = txtCustomerAdress1.Text;
+			Adress2 = txtCustomerAdress2.Text;
+			City1 = txtCustomerCity1.Text;
+			City2 = txtCustomerCity2.Text;
+			PhoneNum1 = txtCustomerPhone1.Text;
+			PhoneNum2 = txtCustomerPhone2.Text;
+			ZipCode1 = txtCustomerZip1.Text;
+			ZipCode2 = txtCustomerZip2.Text;
+			FaxNum = txtCustomerFax.Text;
+			ContactPerson = txtCustomer.Text;
+			Email = txtCustomerEmail.Text;
+			BankNum = txtCustomerBank.Text;
+			CreditWorthy = Convert.ToBoolean(txtCustomerCredit.Text);
+			BKRCheck = Convert.ToBoolean(txtCustomerBKR.Text);
+			PotentialCustomer = Convert.ToBoolean(txtCustomerPotential.Text);
+		  
+            SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
+			SQLCommand.Parameters.AddWithValue("@CustomerName", CustomerName);
+			SQLCommand.Parameters.AddWithValue("@Adress1", Adress1);
+			SQLCommand.Parameters.AddWithValue("@Adress2", Adress2);
+			SQLCommand.Parameters.AddWithValue("@City1", City1);
+			SQLCommand.Parameters.AddWithValue("@City2", City2);
+			SQLCommand.Parameters.AddWithValue("@PhoneNum1", PhoneNum1);
+			SQLCommand.Parameters.AddWithValue("@PhoneNum2", PhoneNum2);
+			SQLCommand.Parameters.AddWithValue("@ZipCode1", ZipCode1);
+			SQLCommand.Parameters.AddWithValue("@ZipCode2", ZipCode2);
+			SQLCommand.Parameters.AddWithValue("@FaxNum", FaxNum);
+			SQLCommand.Parameters.AddWithValue("@ContactPerson", ContactPerson);
+			SQLCommand.Parameters.AddWithValue("@Email", Email);
+			SQLCommand.Parameters.AddWithValue("@BankNum", BankNum);
+			SQLCommand.Parameters.AddWithValue("@CreditWorthy", CreditWorthy);
+			SQLCommand.Parameters.AddWithValue("@BKRCheck", BKRCheck);
+			SQLCommand.Parameters.AddWithValue("@PotentialCustomer", PotentialCustomer);
+			
+            SQLCommand.Parameters.AddWithValue("@ProjectID", ProjectID);
+            SQLCommand.Parameters.AddWithValue("@ProjectName", ProjectName);
+            SQLCommand.Parameters.AddWithValue("@ProjectStatus", ProjectStatus);
+            SQLCommand.Parameters.AddWithValue("@ProjectPrice", ProjectPrice);
+            SQLCommand.Parameters.AddWithValue("@ProjectLimit", ProjectLimit);
+            SQLCommand.Parameters.AddWithValue("@MaintenanceContact", MaintenanceContact);
+
+            SQLHandler.openConnection();
+            SQLCommand.ExecuteNonQuery();
+            SQLHandler.closeConnection();
+            
+            frmproject.refreshDataGridView();
+            this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Please make sure everything is entered correctly!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
