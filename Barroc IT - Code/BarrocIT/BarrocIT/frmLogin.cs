@@ -24,13 +24,14 @@ namespace BarrocIT
         frmMain main;
 
         private string Username, Password;
+        bool txtPasswordWrong;
 
         public frmLogin()
         {
             InitializeComponent();
 
             //txtInfo - Color
-            var pos = this.PointToScreen(lblInfo.Location);
+            Point pos = this.PointToScreen(lblInfo.Location);
             pos = picLogo.PointToClient(pos);
             lblInfo.Parent = picLogo;
             lblInfo.Location = pos;
@@ -39,8 +40,8 @@ namespace BarrocIT
             string[] departments = new string[4] { "Sales", "Finance", "Development", "Administration" };
 
             //Textboxes Properties
-            
             cmbUsername.Text = "Select department...";
+            
 
             for (int i = 0; i < 4; i++)
             {
@@ -48,6 +49,9 @@ namespace BarrocIT
             }
 
             btnLogin.Enabled = false;
+            txtPassword.Enabled = false;
+            txtPassword.BorderStyle = BorderStyle.Fixed3D;
+
             txtPassword.Text = "Password";
 
             txtAssembly.ForeColor = SystemColors.ControlDarkDark;
@@ -60,7 +64,10 @@ namespace BarrocIT
             {
                 txtPassword.Text = string.Empty;
                 txtPassword.UseSystemPasswordChar = true;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+                txtPasswordWrong = false;
+                this.Refresh();
+                txtPassword.BorderStyle = BorderStyle.FixedSingle;
             }
         }
 
@@ -70,7 +77,10 @@ namespace BarrocIT
             {
                 txtPassword.Text = "Password";
                 txtPassword.UseSystemPasswordChar = false;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+                txtPasswordWrong = false;
+                this.Refresh();
+                txtPassword.BorderStyle = BorderStyle.Fixed3D;
             }
         }
 
@@ -124,8 +134,10 @@ namespace BarrocIT
                 {
                     txtPassword.Text = string.Empty;
                     txtPassword.UseSystemPasswordChar = false;
-                    txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic | FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
                     txtPassword.Text = "Invaild Password!";
+                    txtPasswordWrong = true;
+                    this.Refresh();
+                    txtPassword.SelectionStart = 0;
                 }
             }
             catch
@@ -140,8 +152,33 @@ namespace BarrocIT
             {
                 txtPassword.UseSystemPasswordChar = true;
                 txtPassword.Text = string.Empty;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+                txtPasswordWrong = false;
+                this.Refresh();
             }
+        }
+
+        private void frmLogin_Paint(object sender, PaintEventArgs e)
+        {
+            if (txtPasswordWrong)
+            {
+                txtPassword.BorderStyle = BorderStyle.FixedSingle;
+                Pen p = new Pen(Color.Red);
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+                Graphics g = e.Graphics;
+                int variance = 1;
+                txtPassword.SelectionStart = 0;
+                g.DrawRectangle(p, new Rectangle(txtPassword.Location.X - variance, txtPassword.Location.Y - variance, txtPassword.Width + variance, txtPassword.Height + variance));
+            }
+            else
+            {
+                txtPassword.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+
+        private void cmbUsername_Click(object sender, EventArgs e)
+        {
+            cmbUsername.DroppedDown = true;
         }
 
         private void cmbUsername_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,6 +188,7 @@ namespace BarrocIT
                 if (cmbUsername.SelectedIndex == i)
                 {
                     btnLogin.Enabled = true;
+                    txtPassword.Enabled = true;
                 } 
             }
         }

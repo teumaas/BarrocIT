@@ -65,7 +65,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(261, 20);
             this.txtPassword.TabIndex = 1;
-            this.txtPassword.TabStop = false;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
@@ -80,6 +79,7 @@
             this.cmbUsername.TabIndex = 0;
             this.cmbUsername.TabStop = false;
             this.cmbUsername.SelectedIndexChanged += new System.EventHandler(this.cmbUsername_SelectedIndexChanged);
+            this.cmbUsername.Click += new System.EventHandler(this.cmbUsername_Click);
             this.cmbUsername.Enter += new System.EventHandler(this.cmbUsername_Enter);
             this.cmbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbUsername_KeyDown);
             // 
@@ -153,6 +153,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barroc IT - Login";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmLogin_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDepartments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPassword)).EndInit();

@@ -67,6 +67,10 @@ namespace BarrocIT
                 btnCustomersEdit.Enabled = false;
                 btnCustomersRemove.Enabled = false;
             }
+            if (Username == "Sales" || Username == "Development")
+            {
+                tabConDepartments.TabPages.Remove(tabInvoices);
+            }
 
             // Labels toevoegen??
             //dataGridViewCustomers.Columns[1].HeaderText = "Customer Name";
@@ -114,22 +118,16 @@ namespace BarrocIT
 
         private void btnCustomersRemove_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int CustomerID = (int)dataGridViewCustomers.CurrentRow.Cells[0].Value;
+                object CustomerID = dataGridViewCustomers.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_customers WHERE CustomerID = '" + CustomerID + "'", SQLHandler.getConnection());
+                SQLCommand = new SqlCommand("DELETE FROM tbl_customers WHERE CustomerID = @CustomerID", SQLHandler.getConnection());
+
+                SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
 
                 SQLHandler.openConnection();
                 SQLCommand.ExecuteNonQuery();
                 SQLHandler.closeConnection();
-
                 FillDataGrids();
-                SQLHandler.closeConnection();
-            }
-            catch
-            {
-            }
         }
 
         private void btnInvoicesView_Click(object sender, EventArgs e)

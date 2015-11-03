@@ -97,9 +97,12 @@ namespace BarrocIT
         {
             try
             {
-                int InvoiceID = (int)dataGridAddInvoice.CurrentRow.Cells[0].Value;
+                object InvoiceID = dataGridAddInvoice.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_Invoices WHERE InvoiceID = '" + InvoiceID + "'", SQLHandler.getConnection());
+                SQLHandler = new DatabaseHandler();
+                SQLCommand = new SqlCommand("DELETE FROM tbl_Invoices WHERE InvoiceID = @InvoiceID", SQLHandler.getConnection());
+
+                SQLCommand.Parameters.AddWithValue("@InvoiceID", InvoiceID);
 
                 SQLHandler.openConnection();
                 SQLCommand.ExecuteNonQuery();

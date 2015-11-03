@@ -90,15 +90,18 @@ namespace BarrocIT
         {
             try
             {
-                int ProjectID = (int)dataGridAddProject.CurrentRow.Cells[0].Value;
+                object ProjectID = dataGridAddProject.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_projects WHERE ProjectID = '" + ProjectID + "'", SQLHandler.getConnection());
+                SQLCommand = new SqlCommand("DELETE FROM tbl_projects WHERE ProjectID = @ProjectID", SQLHandler.getConnection());
+
+                SQLCommand.Parameters.AddWithValue("@ProjectID", ProjectID);
+                SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
 
                 SQLHandler.openConnection();
                 SQLCommand.ExecuteNonQuery();
                 SQLHandler.closeConnection();
 
-                dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '" + this.CustomerID + "';");
+                dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = @CustomerID;");
                 SQLHandler.closeConnection();
             }
             catch

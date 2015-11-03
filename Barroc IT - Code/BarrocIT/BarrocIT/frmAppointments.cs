@@ -76,15 +76,18 @@ namespace BarrocIT
         {
             try
             {
-                int AppointmentID = (int)dataGridAddAppointment.CurrentRow.Cells[0].Value;
+                object AppointmentID = dataGridAddAppointment.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_appointments WHERE AppointmentID = '" + AppointmentID + "'", SQLHandler.getConnection());
+                SQLCommand = new SqlCommand("DELETE FROM tbl_appointments WHERE AppointmentID = @AppointmentID", SQLHandler.getConnection());
+
+                SQLCommand.Parameters.AddWithValue("@AppointmentID", AppointmentID);
+                SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
 
                 SQLHandler.openConnection();
                 SQLCommand.ExecuteNonQuery();
                 SQLHandler.closeConnection();
 
-                dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = '" + CustomerID + "';");
+                dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = @CustomerID;");
                 SQLHandler.closeConnection();
             }
             catch
