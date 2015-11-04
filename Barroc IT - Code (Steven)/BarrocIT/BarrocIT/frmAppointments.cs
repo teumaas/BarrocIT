@@ -86,6 +86,7 @@ namespace BarrocIT
                 SQLHandler.openConnection();
                 SQLCommand.ExecuteNonQuery();
                 SQLHandler.closeConnection();
+
                 refreshDataGridView();
             }
             catch
