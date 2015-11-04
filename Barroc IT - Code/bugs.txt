@@ -8,6 +8,7 @@ factuur van niet bestaande klant niet meer toegankelijk.(moet blijven staan)
 project van niet bestaande klant nnog zichtbaar (moet aut. verwijderd worden)
 afspraken van nietbestaande klant nog zichtbaar (moet aut. verwijderd worden)
 
+
 zorg dat versienummer word aangepast
 
 FEATURES:
