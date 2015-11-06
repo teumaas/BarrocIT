@@ -46,7 +46,7 @@ namespace BarrocIT
             this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtAppointmentLocation = new System.Windows.Forms.TextBox();
-            this.txtAppointmentAdres = new System.Windows.Forms.TextBox();
+            this.txtAppointmentAdress = new System.Windows.Forms.TextBox();
             this.txtAppointmentAdressZipcode = new System.Windows.Forms.TextBox();
             this.dtpAppointmentTime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
@@ -81,6 +81,7 @@ namespace BarrocIT
             this.txtAppointmentSubject.Name = "txtAppointmentSubject";
             this.txtAppointmentSubject.Size = new System.Drawing.Size(197, 20);
             this.txtAppointmentSubject.TabIndex = 3;
+            this.txtAppointmentSubject.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAppointmentSubject_KeyDown);
             // 
             // lblAppointmentAdressZipcode
             // 
@@ -189,13 +190,15 @@ namespace BarrocIT
             this.txtAppointmentLocation.Name = "txtAppointmentLocation";
             this.txtAppointmentLocation.Size = new System.Drawing.Size(196, 20);
             this.txtAppointmentLocation.TabIndex = 5;
+            this.txtAppointmentLocation.TextChanged += new System.EventHandler(this.txtAppointmentLocation_TextChanged);
             // 
-            // txtAppointmentAdres
+            // txtAppointmentAdress
             // 
-            this.txtAppointmentAdres.Location = new System.Drawing.Point(116, 142);
-            this.txtAppointmentAdres.Name = "txtAppointmentAdres";
-            this.txtAppointmentAdres.Size = new System.Drawing.Size(196, 20);
-            this.txtAppointmentAdres.TabIndex = 6;
+            this.txtAppointmentAdress.Location = new System.Drawing.Point(116, 142);
+            this.txtAppointmentAdress.Name = "txtAppointmentAdress";
+            this.txtAppointmentAdress.Size = new System.Drawing.Size(196, 20);
+            this.txtAppointmentAdress.TabIndex = 6;
+            this.txtAppointmentAdress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAppointmentAdress_KeyDown);
             // 
             // txtAppointmentAdressZipcode
             // 
@@ -203,6 +206,7 @@ namespace BarrocIT
             this.txtAppointmentAdressZipcode.Name = "txtAppointmentAdressZipcode";
             this.txtAppointmentAdressZipcode.Size = new System.Drawing.Size(161, 20);
             this.txtAppointmentAdressZipcode.TabIndex = 7;
+            this.txtAppointmentAdressZipcode.TextChanged += new System.EventHandler(this.txtAppointmentAdressZipcode_TextChanged);
             // 
             // dtpAppointmentTime
             // 
@@ -226,7 +230,7 @@ namespace BarrocIT
             this.Controls.Add(this.dtpAppointmentDate);
             this.Controls.Add(this.lblAppointmentSubject);
             this.Controls.Add(this.txtAppointmentAdressZipcode);
-            this.Controls.Add(this.txtAppointmentAdres);
+            this.Controls.Add(this.txtAppointmentAdress);
             this.Controls.Add(this.txtAppointmentLocation);
             this.Controls.Add(this.txtAppointmentSubject);
             this.Controls.Add(this.lblLastContactDate);
@@ -269,7 +273,7 @@ namespace BarrocIT
         private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.TextBox txtAppointmentLocation;
-        private System.Windows.Forms.TextBox txtAppointmentAdres;
+        private System.Windows.Forms.TextBox txtAppointmentAdress;
         private System.Windows.Forms.TextBox txtAppointmentAdressZipcode;
         private System.Windows.Forms.DateTimePicker dtpAppointmentTime;
     }

@@ -17,11 +17,11 @@ namespace BarrocIT
 {
     public partial class frmProjects : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmAddProjects Add;
-        frmEditProjects Edit;
-        frmMain Main;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmAddProjects Add;
+        private frmEditProjects Edit;
+        private frmMain Main;
 
         private int CustomerID;
         private string Username;
@@ -35,7 +35,7 @@ namespace BarrocIT
 
             SQLHandler = new DatabaseHandler();
 
-            dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '"+ CustomerID + "';");
+            refreshDataGridView();
 
             for (int i = 0; i <= 6; i++)
             {
@@ -92,17 +92,8 @@ namespace BarrocIT
             {
                 object ProjectID = dataGridAddProject.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_projects WHERE ProjectID = @ProjectID", SQLHandler.getConnection());
-
-                SQLCommand.Parameters.AddWithValue("@ProjectID", ProjectID);
-                SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
-
-                SQLHandler.openConnection();
-                SQLCommand.ExecuteNonQuery();
-                SQLHandler.closeConnection();
-
-                dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = @CustomerID;");
-                SQLHandler.closeConnection();
+                SQLHandler.deleteFROMbyObject(ProjectID, "ProjectID", "tbl_projects");
+                refreshDataGridView();
             }
             catch
             {
@@ -111,16 +102,17 @@ namespace BarrocIT
 
         private void frmProjects_Validated(object sender, EventArgs e)
         {
-            dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '" + CustomerID + "';");
-        }
-        public void refreshDataGridView()
-        {
-            dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '" + CustomerID + "';");
+            refreshDataGridView();
         }
 
         private void frmProjects_FormClosing(object sender, FormClosingEventArgs e)
         {
             Main.Enabled = true;
+        }
+
+        public void refreshDataGridView()
+        {
+            dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '" + CustomerID + "';");
         }
     }
 }

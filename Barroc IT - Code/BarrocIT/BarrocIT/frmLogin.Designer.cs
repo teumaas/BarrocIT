@@ -36,7 +36,8 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.picDepartments = new System.Windows.Forms.PictureBox();
             this.picPassword = new System.Windows.Forms.PictureBox();
-            this.txtAssembly = new System.Windows.Forms.Label();
+            this.lblAssembly = new System.Windows.Forms.Label();
+            this.lblDeveloped = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPassword)).BeginInit();
@@ -122,14 +123,26 @@
             this.picPassword.TabIndex = 7;
             this.picPassword.TabStop = false;
             // 
-            // txtAssembly
+            // lblAssembly
             // 
-            this.txtAssembly.AutoSize = true;
-            this.txtAssembly.Location = new System.Drawing.Point(11, 204);
-            this.txtAssembly.Name = "txtAssembly";
-            this.txtAssembly.Size = new System.Drawing.Size(80, 13);
-            this.txtAssembly.TabIndex = 8;
-            this.txtAssembly.Text = "{Assembly Info}";
+            this.lblAssembly.AutoSize = true;
+            this.lblAssembly.Enabled = false;
+            this.lblAssembly.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAssembly.Location = new System.Drawing.Point(11, 204);
+            this.lblAssembly.Name = "lblAssembly";
+            this.lblAssembly.Size = new System.Drawing.Size(80, 13);
+            this.lblAssembly.TabIndex = 0;
+            this.lblAssembly.Text = "{Assembly Info}";
+            // 
+            // lblDeveloped
+            // 
+            this.lblDeveloped.AutoSize = true;
+            this.lblDeveloped.Enabled = false;
+            this.lblDeveloped.Location = new System.Drawing.Point(96, 204);
+            this.lblDeveloped.Name = "lblDeveloped";
+            this.lblDeveloped.Size = new System.Drawing.Size(90, 13);
+            this.lblDeveloped.TabIndex = 0;
+            this.lblDeveloped.Text = "{Developers Info}";
             // 
             // frmLogin
             // 
@@ -138,7 +151,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(308, 227);
-            this.Controls.Add(this.txtAssembly);
+            this.Controls.Add(this.lblDeveloped);
+            this.Controls.Add(this.lblAssembly);
             this.Controls.Add(this.picPassword);
             this.Controls.Add(this.picDepartments);
             this.Controls.Add(this.lblInfo);
@@ -170,8 +184,9 @@
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.PictureBox picDepartments;
         private System.Windows.Forms.PictureBox picPassword;
-        private System.Windows.Forms.Label txtAssembly;
+        private System.Windows.Forms.Label lblAssembly;
         private System.Windows.Forms.ComboBox cmbUsername;
+        private System.Windows.Forms.Label lblDeveloped;
     }
 }
 

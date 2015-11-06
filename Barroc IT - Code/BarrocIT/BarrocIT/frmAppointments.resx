@@ -153,42 +153,6 @@
   <data name="groupBoxAppointments.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <metadata name="btnAppointmentsCalendar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="btnAppointmentsCalendar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="btnAppointmentsCalendar.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="btnAppointmentsCalendar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 106</value>
-  </data>
-  <data name="btnAppointmentsCalendar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 25</value>
-  </data>
-  <data name="btnAppointmentsCalendar.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="btnAppointmentsCalendar.Text" xml:space="preserve">
-    <value>Calendar</value>
-  </data>
-  <data name="btnAppointmentsCalendar.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;btnAppointmentsCalendar.Name" xml:space="preserve">
-    <value>btnAppointmentsCalendar</value>
-  </data>
-  <data name="&gt;&gt;btnAppointmentsCalendar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAppointmentsCalendar.Parent" xml:space="preserve">
-    <value>groupBoxAppointments</value>
-  </data>
-  <data name="&gt;&gt;btnAppointmentsCalendar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="btnAppointmentsRemove.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -223,7 +187,7 @@
     <value>groupBoxAppointments</value>
   </data>
   <data name="&gt;&gt;btnAppointmentsRemove.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <metadata name="btnAppointmentsEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -259,7 +223,7 @@
     <value>groupBoxAppointments</value>
   </data>
   <data name="&gt;&gt;btnAppointmentsEdit.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <metadata name="btnAppointmentsAdd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -303,13 +267,13 @@
     <value>groupBoxAppointments</value>
   </data>
   <data name="&gt;&gt;btnAppointmentsAdd.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="groupBoxAppointments.Location" type="System.Drawing.Point, System.Drawing">
     <value>714, 6</value>
   </data>
   <data name="groupBoxAppointments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 137</value>
+    <value>147, 107</value>
   </data>
   <data name="groupBoxAppointments.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

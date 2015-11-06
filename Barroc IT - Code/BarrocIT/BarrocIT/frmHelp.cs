@@ -14,7 +14,7 @@ namespace BarrocIT
 {
     public partial class frmHelp : Form
     {
-        frmMain Main;
+        private frmMain Main;
 
         public frmHelp(frmMain Main)
         {

@@ -16,9 +16,9 @@ namespace BarrocIT
 {
     public partial class frmEditInvoices : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmInvoices frminvoices;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmInvoices frminvoices;
 
         private int InvoiceID;
         private int CustomerID;
@@ -49,8 +49,6 @@ namespace BarrocIT
             LedgerAccountNumber = LAN;
             TaxCode = TCode;
 
-            try
-            {
                 txtInvoiceID.Text = Convert.ToString(InvoiceID);
                 txtCustomerID.Text = Convert.ToString(CustomerID);
                 txtProjectID.Text = Convert.ToString(ProjectID);
@@ -62,8 +60,7 @@ namespace BarrocIT
                 dtpLastContactDate.Text = Convert.ToString(LastContactDate);
                 txtLedgerContactNumber.Text = Convert.ToString(LedgerAccountNumber);
                 txtTaxCode.Text = Convert.ToString(TaxCode);
-            }
-            catch {}            
+             
         }
 
         private void btnSave_Click(object sender, EventArgs e)

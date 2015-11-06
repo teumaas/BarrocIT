@@ -1,0 +1,13 @@
+Barroc IT
+
+Factuur nummer:                 1
+Klant nummer:                   
+Project nummer:                 
+Aanmaak datum van offerte:      
+de factuur is betaald:          
+factuur is verzonden:           
+status van de factuur:          
+Factuur termijnen:              
+laatste datum van contact:     
+ledgerAccount:                 
+BTW code:                      

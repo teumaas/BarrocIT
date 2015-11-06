@@ -11,14 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlTypes;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace BarrocIT
 {
     public partial class frmAddAppointments : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmAppointments frmappointments;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmAppointments frmappointments;
+        private Regex Validator;
 
         private int AppointmentID;
         private int CustomerID;
@@ -40,6 +42,7 @@ namespace BarrocIT
 
             SQLHandler = new DatabaseHandler();
             SQLCommand = new SqlCommand("SELECT MAX(AppointmentID) FROM tbl_appointments", SQLHandler.getConnection());
+            Validator = new Regex(@"[(a-z)(A-Z)(0-9)\s]");
 
             int AID;
             int.TryParse(SQLHandler.GetFirstValue("SELECT MAX(AppointmentID) FROM tbl_appointments").ToString(), out AID);
@@ -55,18 +58,35 @@ namespace BarrocIT
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            try
+            if (!Validator.Match(txtAppointmentSubject.Text).Success)
             {
+                txtAppointmentSubject.BackColor = Color.IndianRed;
+            }
+            if(!Validator.Match(txtAppointmentLocation.Text).Success)
+            {
+                txtAppointmentLocation.BackColor = Color.IndianRed;
+            }
+            if(!Validator.Match(txtAppointmentAdress.Text).Success)
+            {
+                txtAppointmentAdress.BackColor = Color.IndianRed;
+            }
+            if(!Validator.Match(txtAppointmentAdressZipcode.Text).Success)
+            {
+                txtAppointmentAdressZipcode.BackColor = Color.IndianRed;
+            }
+            if (Validator.Match(txtAppointmentSubject.Text).Success && Validator.Match(txtAppointmentLocation.Text).Success && Validator.Match(txtAppointmentAdress.Text).Success && Validator.Match(txtAppointmentAdressZipcode.Text).Success)
+            {
+                SQLHandler = new DatabaseHandler();
                 SQLCommand = new SqlCommand("INSERT INTO tbl_appointments (CustomerID, AppointmentSubject, AppointmentDate, AppointmentLocation, AppointmentAdress, AppointmentAdressZipcode, AppointmentTime) VALUES (@CustomerID, @AppointmentSubject, @AppointmentDate, @AppointmentLocation, @AppointmentAdress, @AppointmentAdressZipcode, @AppointmentTime)", SQLHandler.getConnection());
 
                 AppointmentID = Convert.ToInt32(txtAppointmentID.Text);
                 CustomerID = Convert.ToInt32(txtCustomerID.Text);
-                AppointmentSubject = txtAppointmentSubject.Text;
-                AppointmentDate = Convert.ToDateTime(dtpAppointmentDate.Text);
-                AppointmentLocation = txtAppointmentLocation.Text;
-                AppointmentAdress = txtAppointmentAdres.Text;
-                AppointmentAdressZipcode = txtAppointmentAdressZipcode.Text;
+                AppointmentSubject = Convert.ToString(txtAppointmentSubject.Text);
+                AppointmentLocation = Convert.ToString(txtAppointmentLocation.Text);
+                AppointmentAdress = Convert.ToString(txtAppointmentAdress.Text);
+                AppointmentAdressZipcode = Convert.ToString(txtAppointmentAdressZipcode.Text);
                 AppointmentTime = Convert.ToDateTime(dtpAppointmentTime.Text);
+                AppointmentDate = Convert.ToDateTime(dtpAppointmentDate.Text);
 
                 SQLCommand.Parameters.AddWithValue("@AppointmentID", AppointmentID);
                 SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
@@ -84,10 +104,6 @@ namespace BarrocIT
                 frmappointments.refreshDataGridView();
                 frmappointments.Enabled = true;
                 this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Please make sure everything is entered correctly!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -109,6 +125,38 @@ namespace BarrocIT
         private void frmAddAppointments_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmappointments.Enabled = true;
+        }
+
+        private void txtAppointmentSubject_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtAppointmentSubject.Text != string.Empty)
+            {
+                txtAppointmentSubject.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void txtAppointmentLocation_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAppointmentLocation.Text != string.Empty)
+            {
+                txtAppointmentLocation.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void txtAppointmentAdress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtAppointmentAdress.Text != string.Empty)
+            {
+                txtAppointmentAdress.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void txtAppointmentAdressZipcode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAppointmentAdressZipcode.Text != string.Empty)
+            {
+                txtAppointmentAdressZipcode.BackColor = SystemColors.Window;
+            }
         }
     }
 }

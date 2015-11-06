@@ -118,7 +118,7 @@
             this.Name = "frmInvoices";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInvoices_FormClosing);
-            this.Validated += new System.EventHandler(this.frmInvoices_Validated);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.frmInvoices_Validating);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAddInvoice)).EndInit();
             this.groupBoxInvoices.ResumeLayout(false);
             this.ResumeLayout(false);

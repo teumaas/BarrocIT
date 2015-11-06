@@ -150,9 +150,6 @@
   <data name="btnInvoicesPrintInvoice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="btnInvoicesPrintInvoice.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="btnInvoicesPrintInvoice.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>

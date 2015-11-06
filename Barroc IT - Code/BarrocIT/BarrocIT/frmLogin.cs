@@ -12,19 +12,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlTypes;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace BarrocIT
 {
     public partial class frmLogin : Form
     {
-        // Create Object here.
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        SqlDataReader SQLReader;
-        frmMain main;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private SqlDataReader SQLReader;
+        private frmMain main;
 
         private string Username, Password;
-        bool txtPasswordWrong;
+        private bool txtPasswordWrong;
 
         public frmLogin()
         {
@@ -39,23 +39,23 @@ namespace BarrocIT
 
             string[] departments = new string[4] { "Sales", "Finance", "Development", "Administration" };
 
-            //Textboxes Properties
-            cmbUsername.Text = "Select department...";
-            
-
+            //Textboxes & Buttons
             for (int i = 0; i < 4; i++)
             {
                 cmbUsername.Items.Add(departments[i]);
             }
-
+            cmbUsername.Text = "Select department...";
+            txtPassword.Text = "Password";
             btnLogin.Enabled = false;
             txtPassword.Enabled = false;
             txtPassword.BorderStyle = BorderStyle.Fixed3D;
 
-            txtPassword.Text = "Password";
+            //Assembly Info
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
 
-            txtAssembly.ForeColor = SystemColors.ControlDarkDark;
-            txtAssembly.Text = "Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            lblAssembly.Text = "Version: " + fvi.ProductVersion;
+            lblDeveloped.Text = "Developed by " + fvi.CompanyName;
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)

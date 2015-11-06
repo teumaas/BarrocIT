@@ -15,16 +15,17 @@ namespace BarrocIT
 {
     public partial class frmCalendar : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmAppointments Appointments;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmAppointments Appointments;
+        private frmMain Main;
 
-        public frmCalendar(frmAppointments Appointments)
+        public frmCalendar(frmMain Main)
         {
             InitializeComponent();
 
             SQLHandler = new DatabaseHandler();
-            this.Appointments = Appointments;
+            this.Main = Main;
 
             DataTable table;
             string query = " Select tbl_customers.CustomerName AS 'Name', tbl_appointments.AppointmentSubject AS 'Subject', tbl_appointments.AppointmentDate AS 'Date', tbl_appointments.AppointmentLocation AS 'Location', tbl_appointments.AppointmentAdress AS 'Adress' FROM tbl_appointments INNER JOIN tbl_customers ON tbl_appointments.CustomerID = tbl_customers.CustomerID where tbl_Appointments.AppointmentDate BETWEEN '";
@@ -42,7 +43,7 @@ namespace BarrocIT
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Appointments.Enabled = true;
+            Main.Enabled = true;
             this.Close();
         }
 
@@ -63,7 +64,7 @@ namespace BarrocIT
 
         private void frmCalendar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Appointments.Enabled = true;
+            Main.Enabled = true;
         }
     }
 }

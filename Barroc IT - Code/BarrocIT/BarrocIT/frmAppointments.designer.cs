@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointments));
             this.dataGridAddAppointment = new System.Windows.Forms.DataGridView();
             this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
-            this.btnAppointmentsCalendar = new System.Windows.Forms.Button();
             this.btnAppointmentsRemove = new System.Windows.Forms.Button();
             this.btnAppointmentsEdit = new System.Windows.Forms.Button();
             this.btnAppointmentsAdd = new System.Windows.Forms.Button();
@@ -64,21 +63,11 @@
             // groupBoxAppointments
             // 
             resources.ApplyResources(this.groupBoxAppointments, "groupBoxAppointments");
-            this.groupBoxAppointments.Controls.Add(this.btnAppointmentsCalendar);
             this.groupBoxAppointments.Controls.Add(this.btnAppointmentsRemove);
             this.groupBoxAppointments.Controls.Add(this.btnAppointmentsEdit);
             this.groupBoxAppointments.Controls.Add(this.btnAppointmentsAdd);
             this.groupBoxAppointments.Name = "groupBoxAppointments";
             this.groupBoxAppointments.TabStop = false;
-            // 
-            // btnAppointmentsCalendar
-            // 
-            resources.ApplyResources(this.btnAppointmentsCalendar, "btnAppointmentsCalendar");
-            this.btnAppointmentsCalendar.Image = global::BarrocIT.Properties.Resources.Calendar;
-            this.btnAppointmentsCalendar.Name = "btnAppointmentsCalendar";
-            this.btnAppointmentsCalendar.TabStop = false;
-            this.btnAppointmentsCalendar.UseVisualStyleBackColor = true;
-            this.btnAppointmentsCalendar.Click += new System.EventHandler(this.btnAppointmentsCalendar_Click);
             // 
             // btnAppointmentsRemove
             // 
@@ -128,7 +117,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridAddAppointment;
         private System.Windows.Forms.GroupBox groupBoxAppointments;
-        private System.Windows.Forms.Button btnAppointmentsCalendar;
         private System.Windows.Forms.Button btnAppointmentsRemove;
         private System.Windows.Forms.Button btnAppointmentsEdit;
         private System.Windows.Forms.Button btnAppointmentsAdd;
