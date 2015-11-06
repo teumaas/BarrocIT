@@ -1,0 +1,15 @@
+BUGS:
+
+opgelost		remove test customer --> SQL bug
+word aan gewerkt	ADD lege customer 
+opgelost		verwijder laatste customer --> crash
+opgelost		print info niet ingeschakeld
+			factuur van niet bestaande klant niet meer toegankelijk.(moet 			blijven staan)
+			project van niet bestaande klant nnog zichtbaar (moet aut. 			verwijderd worden)
+opgelost		afspraken van nietbestaande klant nog zichtbaar (moet aut. 			verwijderd worden)
+
+
+
+
+FEATURES:
+zorg dat versienummer word aangepast
