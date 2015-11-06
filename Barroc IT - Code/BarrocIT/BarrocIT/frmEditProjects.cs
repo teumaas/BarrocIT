@@ -16,9 +16,9 @@ namespace BarrocIT
 {
     public partial class frmEditProjects : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmProjects frmproject;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmProjects frmproject;
 
         private int CustomerID;
         private int ProjectID;

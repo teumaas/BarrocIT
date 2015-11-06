@@ -56,6 +56,7 @@
             this.btnProjectsView = new System.Windows.Forms.Button();
             this.tabAppointments = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAppointmentsCalendar = new System.Windows.Forms.Button();
             this.btnAppointmentsView = new System.Windows.Forms.Button();
             this.dataGridViewAppointments = new System.Windows.Forms.DataGridView();
             this.lblWhoami = new System.Windows.Forms.Label();
@@ -205,7 +206,6 @@
             // 
             this.btnCustomersPrintInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCustomersPrintInfo.Enabled = false;
             this.btnCustomersPrintInfo.Image = global::BarrocIT.Properties.Resources.Print;
             this.btnCustomersPrintInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomersPrintInfo.Location = new System.Drawing.Point(6, 106);
@@ -216,6 +216,7 @@
             this.btnCustomersPrintInfo.Text = "Print info";
             this.btnCustomersPrintInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCustomersPrintInfo.UseVisualStyleBackColor = true;
+            this.btnCustomersPrintInfo.Click += new System.EventHandler(this.btnCustomersPrintInfo_Click);
             // 
             // btnCustomersRemove
             // 
@@ -410,19 +411,37 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnAppointmentsCalendar);
             this.groupBox2.Controls.Add(this.btnAppointmentsView);
             this.groupBox2.Location = new System.Drawing.Point(845, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(147, 50);
+            this.groupBox2.Size = new System.Drawing.Size(147, 80);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
+            // 
+            // btnAppointmentsCalendar
+            // 
+            this.btnAppointmentsCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppointmentsCalendar.Image = global::BarrocIT.Properties.Resources.Calendar;
+            this.btnAppointmentsCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAppointmentsCalendar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAppointmentsCalendar.Location = new System.Drawing.Point(6, 48);
+            this.btnAppointmentsCalendar.Name = "btnAppointmentsCalendar";
+            this.btnAppointmentsCalendar.Size = new System.Drawing.Size(135, 25);
+            this.btnAppointmentsCalendar.TabIndex = 3;
+            this.btnAppointmentsCalendar.TabStop = false;
+            this.btnAppointmentsCalendar.Text = "Calendar";
+            this.btnAppointmentsCalendar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAppointmentsCalendar.UseVisualStyleBackColor = true;
+            this.btnAppointmentsCalendar.Click += new System.EventHandler(this.btnAppointmentsCalendar_Click);
             // 
             // btnAppointmentsView
             // 
             this.btnAppointmentsView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppointmentsView.Image = global::BarrocIT.Properties.Resources.Calendar;
+            this.btnAppointmentsView.Image = ((System.Drawing.Image)(resources.GetObject("btnAppointmentsView.Image")));
             this.btnAppointmentsView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAppointmentsView.Location = new System.Drawing.Point(6, 19);
             this.btnAppointmentsView.Name = "btnAppointmentsView";
@@ -522,18 +541,19 @@
         private System.Windows.Forms.Button btnCustomersAdd;
         private System.Windows.Forms.GroupBox groupBoxProjects;
         private System.Windows.Forms.Button btnProjectsView;
-        private System.Windows.Forms.DataGridView dataGridViewInvoices;
-        private System.Windows.Forms.DataGridView dataGridViewAppointments;
-        private System.Windows.Forms.DataGridView dataGridViewCustomers;
         private System.Windows.Forms.Button btnCustomersPrintInfo;
         private System.Windows.Forms.MenuItem itemRefresh;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem itemInfo;
-        private System.Windows.Forms.DataGridView dataGridViewProjects;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnInvoicesView;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAppointmentsView;
         private System.Windows.Forms.Label lblWhoami;
+        private System.Windows.Forms.DataGridView dataGridViewInvoices;
+        private System.Windows.Forms.DataGridView dataGridViewAppointments;
+        private System.Windows.Forms.DataGridView dataGridViewCustomers;
+        private System.Windows.Forms.DataGridView dataGridViewProjects;
+        private System.Windows.Forms.Button btnAppointmentsCalendar;
     }
 }

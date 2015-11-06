@@ -12,37 +12,43 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Drawing.Printing;
+using System.IO;
 
 namespace BarrocIT
 {
     public partial class frmMain : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        ImageList Tabs;
-        frmLogin Login;
-        frmAddCustomers Add;
-        frmEditCustomers Edit;
-        frmProjects Projects;
-        frmInvoices Invoices;
-        frmAppointments Appointments;
-        frmHelp Help;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private ImageList Tabs;
+        private frmLogin Login;
+        private frmAddCustomers Add;
+        private frmEditCustomers Edit;
+        private frmProjects Projects;
+        private frmInvoices Invoices;
+        private frmAppointments Appointments;
+        private frmHelp Help;
+        private frmCalendar Calendar;
+        private DataGridView[] Datagrids;
 
         private string Username;
+        private string dateAndTime;
 
         public frmMain(string User)
         {
             InitializeComponent();
 
             SQLHandler = new DatabaseHandler();
+            Datagrids = new DataGridView[4] { dataGridViewCustomers, dataGridViewInvoices, dataGridViewProjects, dataGridViewAppointments };
 
-            FillDataGrids();
+            FillDataGrids("*", "tbl_customers");
 
             Tabs = new ImageList();
             Tabs.Images.Add(Properties.Resources.Departments);
             Tabs.Images.Add(Properties.Resources.Invoice);
             Tabs.Images.Add(Properties.Resources.Project);
-            Tabs.Images.Add(Properties.Resources.Calendar);
+            Tabs.Images.Add(Properties.Resources.Appointment);
 
             tabConDepartments.ImageList = Tabs;
             tabCustomers.ImageIndex = 0;
@@ -71,10 +77,6 @@ namespace BarrocIT
             {
                 tabConDepartments.TabPages.Remove(tabInvoices);
             }
-
-            // Labels toevoegen??
-            //dataGridViewCustomers.Columns[1].HeaderText = "Customer Name";
-
         }
         private void btnCustomersAdd_Click(object sender, EventArgs e)
         {
@@ -118,16 +120,18 @@ namespace BarrocIT
 
         private void btnCustomersRemove_Click(object sender, EventArgs e)
         {
+            try
+            {
                 object CustomerID = dataGridViewCustomers.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_customers WHERE CustomerID = @CustomerID", SQLHandler.getConnection());
+                SQLHandler.deleteFROMbyObject(CustomerID, "CustomerID", "tbl_customers");
 
-                SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
-
-                SQLHandler.openConnection();
-                SQLCommand.ExecuteNonQuery();
-                SQLHandler.closeConnection();
-                FillDataGrids();
+                FillDataGrids("*", "tbl_customers");
+            }
+            catch
+            {
+                MessageBox.Show("There are still projects/invoices/appointments bound to this customer.", "Caution!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnInvoicesView_Click(object sender, EventArgs e)
@@ -171,7 +175,7 @@ namespace BarrocIT
 
         private void itemRefresh_Click(object sender, EventArgs e)
         {
-            FillDataGrids();
+            FillDataGrids("*", "tbl_customers");
         }
 
         private void itemSignout_Click(object sender, EventArgs e)
@@ -205,12 +209,12 @@ namespace BarrocIT
             Application.Exit();
         }
 
-        public void FillDataGrids()
+        public void FillDataGrids(string column,string table)
         {
-            dataGridViewCustomers.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_customers;");
-            dataGridViewInvoices.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_customers;");
-            dataGridViewProjects.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_customers;");
-            dataGridViewAppointments.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_customers;");
+            dataGridViewCustomers.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
+            dataGridViewInvoices.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
+            dataGridViewProjects.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
+            dataGridViewAppointments.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
         }
 
         private void tabConDepartments_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,6 +239,108 @@ namespace BarrocIT
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SQLHandler.closeConnection();
+        }
+
+        private void btnAppointmentsCalendar_Click(object sender, EventArgs e)
+        {
+            Calendar = new frmCalendar(this);
+            this.Enabled = false;
+            Calendar.Show();
+        }
+
+        private void btnCustomersPrintInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string dateTime = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+                dateAndTime = dateTime;
+                string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Invoices";
+
+                string[] streamData = new string[13];
+
+                streamData[0] = "Barroc IT";
+                streamData[1] = "";
+                streamData[2] = "Factuur nummer:                 " + dataGridViewCustomers.CurrentRow.Cells[0].Value.ToString();
+                streamData[3] = "Klant nummer:                   " + dataGridViewCustomers.CurrentRow.Cells[1].Value.ToString();
+                streamData[4] = "Project nummer:                 " + dataGridViewCustomers.CurrentRow.Cells[2].Value.ToString();
+                streamData[5] = "Aanmaak datum van offerte:      " + dataGridViewCustomers.CurrentRow.Cells[3].Value.ToString();
+                streamData[6] = "de factuur is betaald:          " + dataGridViewCustomers.CurrentRow.Cells[4].Value.ToString();
+                streamData[7] = "factuur is verzonden:           " + dataGridViewCustomers.CurrentRow.Cells[5].Value.ToString();
+                streamData[8] = "status van de factuur:          " + dataGridViewCustomers.CurrentRow.Cells[6].Value.ToString();
+                streamData[9] = "Factuur termijnen:              " + dataGridViewCustomers.CurrentRow.Cells[7].Value.ToString();
+                streamData[10] = "laatste datum van contact:     " + dataGridViewCustomers.CurrentRow.Cells[8].Value.ToString();
+                streamData[11] = "ledgerAccount:                 " + dataGridViewCustomers.CurrentRow.Cells[9].Value.ToString();
+                streamData[12] = "BTW code:                      " + dataGridViewCustomers.CurrentRow.Cells[10].Value.ToString();
+
+                using (StreamWriter sw = new StreamWriter(mydocpath + @"\" + dateTime + ".txt"))
+                {
+
+                    foreach (string s in streamData)
+                    {
+                        sw.WriteLine(s);
+                    }
+
+                    sw.Close();
+                    MessageBox.Show("Your document is beining prepared. \nWait a moment please.");
+                    try
+                    {
+                        StreamReader streamToPrint = new StreamReader(mydocpath + @"\" + dateTime + ".txt");
+                        try
+                        {
+                            PrintDocument pd = new PrintDocument();
+                            pd.PrintPage += new PrintPageEventHandler
+                               (this.pd_PrintPage);
+                            pd.Print();
+                        }
+                        finally
+                        {
+                            streamToPrint.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/GitHub/BarrocIT/Barroc IT - Code/invoices";
+            StreamReader streamToPrint = new StreamReader(mydocpath + @"\" + dateAndTime + ".txt");
+            Font printFont = new Font("Arial", 10);
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            float leftMargin = ev.MarginBounds.Left;
+            float topMargin = ev.MarginBounds.Top;
+            string line = null;
+
+            linesPerPage = ev.MarginBounds.Height /
+               printFont.GetHeight(ev.Graphics);
+
+            while (count < linesPerPage &&
+               ((line = streamToPrint.ReadLine()) != null))
+            {
+                yPos = topMargin + (count *
+                   printFont.GetHeight(ev.Graphics));
+                ev.Graphics.DrawString(line, printFont, Brushes.Black,
+                   leftMargin, yPos, new StringFormat());
+                count++;
+            }
+
+            if (line != null)
+                ev.HasMorePages = true;
+            else
+                ev.HasMorePages = false;
         }
     }
 }

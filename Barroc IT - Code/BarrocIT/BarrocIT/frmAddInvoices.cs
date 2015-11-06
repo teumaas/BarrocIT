@@ -16,9 +16,9 @@ namespace BarrocIT
 {
     public partial class frmAddInvoices : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmInvoices frminvoices;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmInvoices frminvoices;
 
         private int InvoiceID;
         private int CustomerID;

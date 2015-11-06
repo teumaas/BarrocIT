@@ -17,12 +17,11 @@ namespace BarrocIT
 {
     public partial class frmAppointments : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmAddAppointments Add;
-        frmEditAppointments Edit;
-        frmCalendar Calendar;
-        frmMain Main;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmAddAppointments Add;
+        private frmEditAppointments Edit;
+        private frmMain Main;
 
         private int CustomerID;
         private int ProjectID;
@@ -37,7 +36,7 @@ namespace BarrocIT
 
             SQLHandler = new DatabaseHandler();
 
-            dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = '" + CustomerID + "';");
+            refreshDataGridView();
 
             for (int i = 0; i <= 7; i++)
             {
@@ -61,10 +60,7 @@ namespace BarrocIT
         {
             refreshDataGridView();
         }
-        public void refreshDataGridView()
-        {
-            dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = '" + CustomerID + "';");
-        }
+
         private void btnAppointmentsAdd_Click(object sender, EventArgs e)
         {
             Add = new frmAddAppointments(CustomerID, this);
@@ -78,17 +74,8 @@ namespace BarrocIT
             {
                 object AppointmentID = dataGridAddAppointment.CurrentRow.Cells[0].Value;
 
-                SQLCommand = new SqlCommand("DELETE FROM tbl_appointments WHERE AppointmentID = @AppointmentID", SQLHandler.getConnection());
-
-                SQLCommand.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-                SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
-
-                SQLHandler.openConnection();
-                SQLCommand.ExecuteNonQuery();
-                SQLHandler.closeConnection();
-
-                dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = @CustomerID;");
-                SQLHandler.closeConnection();
+                SQLHandler.deleteFROMbyObject(AppointmentID, "AppointmentID", "tbl_appointments");
+                refreshDataGridView();
             }
             catch
             {
@@ -99,14 +86,14 @@ namespace BarrocIT
         {
             try
             {
-                int AppointmentID = (int) dataGridAddAppointment.CurrentRow.Cells[0].Value;
-                int CustomerID = (int) dataGridAddAppointment.CurrentRow.Cells[1].Value;
-                string AppointmentSubject = (string) dataGridAddAppointment.CurrentRow.Cells[2].Value;
-                DateTime AppointmentDate = (DateTime) dataGridAddAppointment.CurrentRow.Cells[3].Value;
-                string AppointmentLocation = (string) dataGridAddAppointment.CurrentRow.Cells[4].Value;
-                string AppointmentAdress = (string) dataGridAddAppointment.CurrentRow.Cells[5].Value;
-                string AppointmentAdressZipcode = (string) dataGridAddAppointment.CurrentRow.Cells[6].Value;
-                DateTime AppointmentTime = (DateTime) dataGridAddAppointment.CurrentRow.Cells[7].Value;
+                int AppointmentID = (int)dataGridAddAppointment.CurrentRow.Cells[0].Value;
+                int CustomerID = (int)dataGridAddAppointment.CurrentRow.Cells[1].Value;
+                string AppointmentSubject = (string)dataGridAddAppointment.CurrentRow.Cells[2].Value;
+                DateTime AppointmentDate = (DateTime)dataGridAddAppointment.CurrentRow.Cells[3].Value;
+                string AppointmentLocation = (string)dataGridAddAppointment.CurrentRow.Cells[4].Value;
+                string AppointmentAdress = (string)dataGridAddAppointment.CurrentRow.Cells[5].Value;
+                string AppointmentAdressZipcode = (string)dataGridAddAppointment.CurrentRow.Cells[6].Value;
+                DateTime AppointmentTime = (DateTime)dataGridAddAppointment.CurrentRow.Cells[7].Value;
 
                 Edit = new frmEditAppointments(AppointmentID, CustomerID, AppointmentSubject, AppointmentDate, AppointmentLocation, AppointmentAdress, AppointmentAdressZipcode, AppointmentTime, this);
                 this.Enabled = false;
@@ -114,20 +101,17 @@ namespace BarrocIT
             }
             catch
             {
+
             }
-
-        }
-
-        private void btnAppointmentsCalendar_Click(object sender, EventArgs e)
-        {
-            Calendar = new frmCalendar(this);
-            this.Enabled = false;
-            Calendar.Show();
         }
 
         private void frmAppointments_FormClosing(object sender, FormClosingEventArgs e)
         {
             Main.Enabled = true;
+        }
+        public void refreshDataGridView()
+        {
+            dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = '" + CustomerID + "';");
         }
     }
 }

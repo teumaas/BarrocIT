@@ -13,6 +13,7 @@ public class DatabaseHandler
 {
     private string ConnectionString;
     SqlConnection SQLConn;
+    SqlCommand SQLcmd;
 
     public DatabaseHandler()
     {
@@ -56,16 +57,16 @@ public class DatabaseHandler
     public object GetFirstValue(string Query)
     {
         openConnection();
-        SqlCommand cmd = new SqlCommand();
-        cmd.Connection = getConnection();
-        cmd.CommandText = Query;
-        SqlDataReader reader = cmd.ExecuteReader();
+        SQLcmd = new SqlCommand();
+        SQLcmd.Connection = getConnection();
+        SQLcmd.CommandText = Query;
+        SqlDataReader reader = SQLcmd.ExecuteReader();
         object result = -1;
 
         if (reader.HasRows)
         {
             reader.Close();
-            result = cmd.ExecuteScalar();
+            result = SQLcmd.ExecuteScalar();
         }
         else
         {
@@ -74,6 +75,17 @@ public class DatabaseHandler
 
         closeConnection();
         return result;
+    }
+
+    public void deleteFROMbyObject(object item, string column, string table)
+    {
+        SQLcmd = new SqlCommand("DELETE FROM " + table + " WHERE " + column + " = @Item", getConnection());
+
+        SQLcmd.Parameters.AddWithValue("@Item", item);
+
+        openConnection();
+        SQLcmd.ExecuteNonQuery();
+        closeConnection();
     }
 
     public void testConnection()

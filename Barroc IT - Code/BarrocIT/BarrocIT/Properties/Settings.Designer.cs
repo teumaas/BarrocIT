@@ -27,7 +27,7 @@ namespace BarrocIT.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\BarrocIT_DB.m" +
-            "df;Integrated Security=True")]
+            "df;Integrated Security=True;Connect Timeout=30")]
         public string BarrocIT_DBConnectionString {
             get {
                 return ((string)(this["BarrocIT_DBConnectionString"]));

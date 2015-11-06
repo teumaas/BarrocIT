@@ -16,9 +16,9 @@ namespace BarrocIT
 {
     public partial class frmEditCustomers : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmMain frmmain;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmMain frmmain;
 
         private int CustomerID;
         private string CustomerName;
@@ -131,7 +131,7 @@ namespace BarrocIT
                 SQLCommand.ExecuteNonQuery();
                 SQLHandler.closeConnection();
 
-                frmmain.FillDataGrids();
+                frmmain.FillDataGrids("*", "tbl_customers");
                 frmmain.Enabled = true;
                 this.Close();
             }

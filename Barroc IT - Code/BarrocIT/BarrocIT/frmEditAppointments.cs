@@ -11,14 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlTypes;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace BarrocIT
 {
     public partial class frmEditAppointments : Form
     {
-        DatabaseHandler SQLHandler;
-        SqlCommand SQLCommand;
-        frmAppointments frmappointments;
+        private DatabaseHandler SQLHandler;
+        private SqlCommand SQLCommand;
+        private frmAppointments frmappointments;
+        private Regex Validator;
 
         private int AppointmentID;
         private int CustomerID;
@@ -33,6 +35,8 @@ namespace BarrocIT
         {
             InitializeComponent();
             this.frmappointments = frmappointments;
+
+            Validator = new Regex(@"[(a-z)(A-Z)(0-9)\s]");
 
             AppointmentID = AID;
             CustomerID = CID;
@@ -50,7 +54,7 @@ namespace BarrocIT
                 txtAppointmentSubject.Text = Convert.ToString(AppointmentSubject);
                 dtpAppointmentDate.Text = Convert.ToString(AppointmentDate);
                 txtAppointmentLocation.Text = Convert.ToString(AppointmentLocation);
-                txtAppointmentAdres.Text = Convert.ToString(AppointmentAdress);
+                txtAppointmentAdress.Text = Convert.ToString(AppointmentAdress);
                 txtAppointmentAdressZipcode.Text = Convert.ToString(AppointmentAdressZipcode);
                 dtpAppointmentTime.Text = Convert.ToString(AppointmentTime);
             }
@@ -59,19 +63,35 @@ namespace BarrocIT
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (!Validator.Match(txtAppointmentSubject.Text).Success)
+            {
+                txtAppointmentSubject.BackColor = Color.IndianRed;
+            }
+            if (!Validator.Match(txtAppointmentLocation.Text).Success)
+            {
+                txtAppointmentLocation.BackColor = Color.IndianRed;
+            }
+            if (!Validator.Match(txtAppointmentAdress.Text).Success)
+            {
+                txtAppointmentAdress.BackColor = Color.IndianRed;
+            }
+            if (!Validator.Match(txtAppointmentAdressZipcode.Text).Success)
+            {
+                txtAppointmentAdressZipcode.BackColor = Color.IndianRed;
+            }
+            if (Validator.Match(txtAppointmentSubject.Text).Success && Validator.Match(txtAppointmentLocation.Text).Success && Validator.Match(txtAppointmentAdress.Text).Success && Validator.Match(txtAppointmentAdressZipcode.Text).Success)
             {
                 SQLHandler = new DatabaseHandler();
                 SQLCommand = new SqlCommand("UPDATE tbl_appointments SET AppointmentSubject = @AppointmentSubject, AppointmentDate = @AppointmentDate, AppointmentLocation = @AppointmentLocation, AppointmentAdress = @AppointmentAdress, AppointmentAdressZipcode = @AppointmentAdressZipcode, AppointmentTime = @AppointmentTime WHERE @AppointmentID = AppointmentID", SQLHandler.getConnection());
 
                 AppointmentID = Convert.ToInt32(txtAppointmentID.Text);
                 CustomerID = Convert.ToInt32(txtCustomerID.Text);
-                AppointmentSubject = txtAppointmentSubject.Text;
-                AppointmentDate = Convert.ToDateTime(dtpAppointmentDate.Text);
-                AppointmentLocation = txtAppointmentLocation.Text;
-                AppointmentAdress = txtAppointmentAdres.Text;
-                AppointmentAdressZipcode = txtAppointmentAdressZipcode.Text;
+                AppointmentSubject = Convert.ToString(txtAppointmentSubject.Text);
+                AppointmentLocation = Convert.ToString(txtAppointmentLocation.Text);
+                AppointmentAdress = Convert.ToString(txtAppointmentAdress.Text);
+                AppointmentAdressZipcode = Convert.ToString(txtAppointmentAdressZipcode.Text);
                 AppointmentTime = Convert.ToDateTime(dtpAppointmentTime.Text);
+                AppointmentDate = Convert.ToDateTime(dtpAppointmentDate.Text);
 
                 SQLCommand.Parameters.AddWithValue("@AppointmentID", AppointmentID);
                 SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
@@ -89,10 +109,6 @@ namespace BarrocIT
                 frmappointments.refreshDataGridView();
                 frmappointments.Enabled = true;
                 this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Please make sure everything is entered correctly!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)
