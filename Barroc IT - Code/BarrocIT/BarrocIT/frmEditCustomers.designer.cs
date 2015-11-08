@@ -219,7 +219,7 @@ namespace BarrocIT
             this.txtCustomerPhoneNumber1.MaxLength = 12;
             this.txtCustomerPhoneNumber1.Name = "txtCustomerPhoneNumber1";
             this.txtCustomerPhoneNumber1.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerPhoneNumber1.TabIndex = 7;
+            this.txtCustomerPhoneNumber1.TabIndex = 9;
             this.txtCustomerPhoneNumber1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerPhoneNumber1_KeyDown);
             // 
             // txtCustomerAdress2
@@ -281,7 +281,7 @@ namespace BarrocIT
             this.txtCustomerPhoneNumber2.MaxLength = 12;
             this.txtCustomerPhoneNumber2.Name = "txtCustomerPhoneNumber2";
             this.txtCustomerPhoneNumber2.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerPhoneNumber2.TabIndex = 8;
+            this.txtCustomerPhoneNumber2.TabIndex = 10;
             // 
             // txtCustomerZipCode1
             // 
@@ -289,7 +289,7 @@ namespace BarrocIT
             this.txtCustomerZipCode1.MaxLength = 6;
             this.txtCustomerZipCode1.Name = "txtCustomerZipCode1";
             this.txtCustomerZipCode1.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerZipCode1.TabIndex = 9;
+            this.txtCustomerZipCode1.TabIndex = 7;
             this.txtCustomerZipCode1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerZipCode1_KeyDown);
             // 
             // txtCustomerZipCode2
@@ -298,7 +298,7 @@ namespace BarrocIT
             this.txtCustomerZipCode2.MaxLength = 6;
             this.txtCustomerZipCode2.Name = "txtCustomerZipCode2";
             this.txtCustomerZipCode2.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerZipCode2.TabIndex = 10;
+            this.txtCustomerZipCode2.TabIndex = 8;
             // 
             // txtCustomerFaxNumber
             // 

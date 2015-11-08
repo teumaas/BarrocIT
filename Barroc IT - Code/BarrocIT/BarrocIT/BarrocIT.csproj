@@ -290,18 +290,20 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BarrocIT_DB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BarrocIT_DB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BarrocIT_DB.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\Invoice.png" />
     <None Include="Resources\Appointment.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Invoices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BarrocIT_DB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BarrocIT_DB_log.ldf">
+      <DependentUpon>BarrocIT_DB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
