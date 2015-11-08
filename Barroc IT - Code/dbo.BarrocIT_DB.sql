@@ -52,11 +52,11 @@ CREATE TABLE [dbo].[tbl_appointments] (
     [AppointmentID]            INT           IDENTITY (1, 1) NOT NULL,
     [CustomerID]               INT           NOT NULL,
     [AppointmentSubject]       NVARCHAR (50) NOT NULL,
-    [AppointmentDate]          DATE          NOT NULL,
+    [AppointmentDate]          DATETIME      NOT NULL,
     [AppointmentLocation]      NVARCHAR (50) NOT NULL,
     [AppointmentAdress]        NVARCHAR (50) NOT NULL,
-    [AppointmentAdressZipCode] NVARCHAR (6) NOT NULL,
-    [AppointmentTime]          TIME (7)      NOT NULL,
+    [AppointmentAdressZipCode] NVARCHAR (6)  NOT NULL,
+    [AppointmentTime]          DATETIME (7)  NOT NULL,
     PRIMARY KEY CLUSTERED ([AppointmentID] ASC),
     CONSTRAINT [FK_tbl_customers2] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[tbl_customers] ([CustomerID])
 );
