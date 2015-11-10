@@ -24,6 +24,7 @@ namespace BarrocIT
 
         private int CustomerID;
         private string CustomerName;
+        private string CustomerCompany;
         private string CustomerAdress1;
         private string CustomerAdress2;
         private string CustomerCity1;
@@ -40,7 +41,7 @@ namespace BarrocIT
         private bool CustomerBKRCheck;
         private bool CustomerPotential;
 
-        public frmEditCustomers(int CID, string CN, string CA1, string CA2, string CC1, string CC2, string CPN1, string CPN2, string CZC1, string CZC2, string CFXN, string CCP, string CE, string CBN, bool CCW, bool BRK, bool CP, frmMain frmmain)
+        public frmEditCustomers(int CID, string CN, string CCO,  string CA1, string CA2, string CC1, string CC2, string CPN1, string CPN2, string CZC1, string CZC2, string CFXN, string CCP, string CE, string CBN, bool CCW, bool BRK, bool CP, frmMain frmmain)
         {
             InitializeComponent();
             this.frmmain = frmmain;
@@ -48,6 +49,7 @@ namespace BarrocIT
 
             CustomerID = CID;
             CustomerName = CN;
+            CustomerCompany = CCO;
             CustomerAdress1 = CA1;
             CustomerAdress2 = CA2;
             CustomerCity1 = CC1;
@@ -64,27 +66,24 @@ namespace BarrocIT
             CustomerBKRCheck = BRK;
             CustomerPotential = CP;
 
-            try
-            {
-                txtCustomerID.Text = Convert.ToString(CustomerID);
-                txtCustomerName.Text = CustomerName;
-                txtCustomerAdress1.Text = CustomerAdress1;
-                txtCustomerAdress2.Text = CustomerAdress2;
-                txtCustomerCity1.Text = CustomerCity1;
-                txtCustomerCity2.Text = CustomerCity2;
-                txtCustomerPhoneNumber1.Text = CustomerPhoneNumber1;
-                txtCustomerPhoneNumber2.Text = CustomerPhoneNumber2;
-                txtCustomerZipCode1.Text = CustomerZipCode1;
-                txtCustomerZipCode2.Text = CustomerZipCode2;
-                txtCustomerFaxNumber.Text = CustomerFaxNumber;
-                txtCustomerContactPerson.Text = CustomerContactPerson;
-                txtCustomerEmail.Text = CustomerEmail;
-                txtCustomerBankNumber.Text = CustomerBankNumber;
-                cmbCustomerCreditWorthy.SelectedIndex = int.Parse(Convert.ToString(CustomerCreditWorthy).Replace("False", "0").Replace("True", "1"));
-                cmbCustomerBKRCheck.SelectedIndex = int.Parse(Convert.ToString(CustomerBKRCheck).Replace("False", "0").Replace("True", "1"));
-                cmbCustomerPotential.SelectedIndex = int.Parse(Convert.ToString(CustomerPotential).Replace("False", "0").Replace("True", "1"));
-            }
-            catch {}       
+            txtCustomerID.Text = Convert.ToString(CustomerID);
+            txtCustomerName.Text = CustomerName;
+            txtCompany.Text = CustomerCompany;
+            txtCustomerAdress1.Text = CustomerAdress1;
+            txtCustomerAdress2.Text = CustomerAdress2;
+            txtCustomerCity1.Text = CustomerCity1;
+            txtCustomerCity2.Text = CustomerCity2;
+            txtCustomerPhoneNumber1.Text = CustomerPhoneNumber1;
+            txtCustomerPhoneNumber2.Text = CustomerPhoneNumber2;
+            txtCustomerZipCode1.Text = CustomerZipCode1;
+            txtCustomerZipCode2.Text = CustomerZipCode2;
+            txtCustomerFaxNumber.Text = CustomerFaxNumber;
+            txtCustomerContactPerson.Text = CustomerContactPerson;
+            txtCustomerEmail.Text = CustomerEmail;
+            txtCustomerBankNumber.Text = CustomerBankNumber;
+            cmbCustomerCreditWorthy.SelectedIndex = int.Parse(Convert.ToString(CustomerCreditWorthy).Replace("False", "0").Replace("True", "1"));
+            cmbCustomerBKRCheck.SelectedIndex = int.Parse(Convert.ToString(CustomerBKRCheck).Replace("False", "0").Replace("True", "1"));
+            cmbCustomerPotential.SelectedIndex = int.Parse(Convert.ToString(CustomerPotential).Replace("False", "0").Replace("True", "1"));   
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -124,11 +123,13 @@ namespace BarrocIT
             if (Validator.Match(txtCustomerName.Text).Success && Validator.Match(txtCustomerAdress1.Text).Success && Validator.Match(txtCustomerCity1.Text).Success && Validator.Match(txtCustomerPhoneNumber1.Text).Success && Validator.Match(txtCustomerZipCode1.Text).Success && Validator.Match(txtCustomerContactPerson.Text).Success && Validator.Match(txtCustomerEmail.Text).Success && Validator.Match(txtCustomerBankNumber.Text).Success)
             {
                 SQLHandler = new DatabaseHandler();
-                SQLCommand = new SqlCommand("UPDATE tbl_customers SET CustomerName = @CustomerName, Adress1 = @Adress1, Adress2 = @Adress2, City1 = @City1, City2 = @City2, PhoneNum1 = @PhoneNum1, PhoneNum2 = @PhoneNum2, ZipCode1 = @ZipCode1, ZipCode2 = @ZipCode2, FaxNum = @FaxNum, ContactPerson = @ContactPerson, Email = @Email, BankNum = @BankNum, CreditWorthy = @CreditWorthy, BKRCheck = @BKRCheck, PotentialCustomer = @PotentialCustomer WHERE CustomerID = @CustomerID", SQLHandler.getConnection());
+                SQLCommand = new SqlCommand("UPDATE tbl_customers SET CustomerName = @CustomerName, Company = @Company, Adress1 = @Adress1, Adress2 = @Adress2, City1 = @City1, City2 = @City2, PhoneNum1 = @PhoneNum1, PhoneNum2 = @PhoneNum2, ZipCode1 = @ZipCode1, ZipCode2 = @ZipCode2, FaxNum = @FaxNum, ContactPerson = @ContactPerson, Email = @Email, BankNum = @BankNum, CreditWorthy = @CreditWorthy, BKRCheck = @BKRCheck, PotentialCustomer = @PotentialCustomer WHERE CustomerID = @CustomerID", SQLHandler.getConnection());
 
                 CustomerID = Convert.ToInt32(txtCustomerID.Text);
                 CustomerName = txtCustomerName.Text;
+                CustomerCompany = txtCompany.Text;
                 CustomerAdress1 = txtCustomerAdress1.Text;
+
                 if (txtCustomerAdress2.Text == "")
                 {
                     CustomerAdress2 = string.Empty;
@@ -137,7 +138,9 @@ namespace BarrocIT
                 {
                     CustomerAdress2 = txtCustomerAdress2.Text;
                 }
+
                 CustomerCity1 = txtCustomerCity1.Text;
+
                 if (txtCustomerCity2.Text == "")
                 {
                     CustomerCity2 = string.Empty;
@@ -146,7 +149,9 @@ namespace BarrocIT
                 {
                     CustomerCity2 = txtCustomerCity2.Text;
                 }
+
                 CustomerPhoneNumber1 = txtCustomerPhoneNumber1.Text;
+
                 if (txtCustomerPhoneNumber2.Text == "")
                 {
                     CustomerPhoneNumber2 = string.Empty;
@@ -155,7 +160,9 @@ namespace BarrocIT
                 {
                     CustomerPhoneNumber2 = txtCustomerPhoneNumber2.Text;
                 }
+
                 CustomerZipCode1 = txtCustomerZipCode1.Text;
+
                 if (txtCustomerZipCode2.Text == "")
                 {
                     CustomerZipCode2 = string.Empty;
@@ -164,6 +171,7 @@ namespace BarrocIT
                 {
                     CustomerZipCode2 = txtCustomerZipCode2.Text;
                 }
+
                 if (txtCustomerFaxNumber.Text == "")
                 {
                     CustomerFaxNumber = string.Empty;
@@ -172,6 +180,7 @@ namespace BarrocIT
                 {
                     CustomerFaxNumber = txtCustomerFaxNumber.Text;
                 }
+
                 CustomerContactPerson = txtCustomerContactPerson.Text;
                 CustomerEmail = txtCustomerEmail.Text;
                 CustomerBankNumber = txtCustomerBankNumber.Text;
@@ -179,9 +188,9 @@ namespace BarrocIT
                 CustomerBKRCheck = Convert.ToBoolean(cmbCustomerBKRCheck.SelectedIndex);
                 CustomerPotential = Convert.ToBoolean(cmbCustomerPotential.SelectedIndex);
 
-
                 SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
                 SQLCommand.Parameters.AddWithValue("@CustomerName", CustomerName);
+                SQLCommand.Parameters.AddWithValue("@Company", CustomerCompany);
                 SQLCommand.Parameters.AddWithValue("@Adress1", CustomerAdress1);
                 SQLCommand.Parameters.AddWithValue("@Adress2", CustomerAdress2);
                 SQLCommand.Parameters.AddWithValue("@City1", CustomerCity1);
@@ -220,21 +229,6 @@ namespace BarrocIT
             }
         }
 
-        private void cmbCustomerCreditWorthy_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbCustomerBKRCheck_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbCustomerPotential_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
         private void frmEditCustomers_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult exit = MessageBox.Show("Do you really wish to cancel?", "Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -248,7 +242,6 @@ namespace BarrocIT
                 frmmain.Enabled = true;
             }
         }
-
 
         private void txtCustomerName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -303,6 +296,21 @@ namespace BarrocIT
         private void cmbCustomerPotential_Click(object sender, EventArgs e)
         {
             cmbCustomerPotential.DroppedDown = true;
+        }
+
+        private void cmbCustomerCreditWorthy_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbCustomerBKRCheck_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbCustomerPotential_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
     }
 }

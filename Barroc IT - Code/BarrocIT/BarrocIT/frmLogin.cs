@@ -23,7 +23,6 @@ namespace BarrocIT
         private SqlDataReader SQLReader;
         private frmMain main;
 
-        private string Username, Password;
         private bool txtPasswordWrong;
 
         public frmLogin()
@@ -58,91 +57,48 @@ namespace BarrocIT
             lblDeveloped.Text = "Developed by " + fvi.CompanyName;
         }
 
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "Password" || txtPassword.Text == "Invaild Password!")
-            {
-                txtPassword.Text = string.Empty;
-                txtPassword.UseSystemPasswordChar = true;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-                txtPasswordWrong = false;
-                this.Refresh();
-                txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            }
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == string.Empty)
-            {
-                txtPassword.Text = "Password";
-                txtPassword.UseSystemPasswordChar = false;
-                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-                txtPasswordWrong = false;
-                this.Refresh();
-                txtPassword.BorderStyle = BorderStyle.Fixed3D;
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login(cmbUsername.Text, txtPassword.Text);
         }
 
-        private void cmbUsername_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbUsername_Enter(object sender, EventArgs e)
-        {
-            Clipboard.Clear();
-        }
 
         private void Login(string UN, string PW)
         {
-            try
+            UN = cmbUsername.Text;
+            PW = txtPassword.Text;
+
+            SQLHandler = new DatabaseHandler();
+            SQLCommand = new SqlCommand("SELECT * FROM tbl_users WHERE Username = @Username AND Password = @Password", SQLHandler.getConnection());
+            SQLHandler.openConnection();
+
+            SQLCommand.Parameters.AddWithValue("@Username", UN);
+            SQLCommand.Parameters.AddWithValue("@Password", PW);
+
+            SQLReader = SQLCommand.ExecuteReader();
+
+            int count = 0;
+
+            while (SQLReader.Read())
             {
-                UN = cmbUsername.Text;
-                PW = txtPassword.Text;
-
-                SQLHandler = new DatabaseHandler();
-                SQLCommand = new SqlCommand("SELECT * FROM tbl_users WHERE Username = @Username AND Password = @Password",
-                SQLHandler.getConnection());
-                SQLHandler.openConnection();
-
-                SQLCommand.Parameters.AddWithValue("@Username", UN);
-                SQLCommand.Parameters.AddWithValue("@Password", PW);
-
-                SQLReader = SQLCommand.ExecuteReader();
-
-                int count = 0;
-
-                while (SQLReader.Read())
-                {
-                    count++;
-                }
-
-                if (count > 0)
-                {
-                    main = new frmMain(UN);
-                    main.Show();
-                    this.Hide();
-                    SQLHandler.closeConnection();
-                }
-                else
-                {
-                    txtPassword.Text = string.Empty;
-                    txtPassword.UseSystemPasswordChar = false;
-                    txtPassword.Text = "Invaild Password!";
-                    txtPasswordWrong = true;
-                    this.Refresh();
-                    txtPassword.SelectionStart = 0;
-                }
+                count++;
             }
-            catch
+
+            if (count > 0)
             {
-                
+                main = new frmMain(UN);
+                main.Show();
+                this.Hide();
+                SQLHandler.closeConnection();
+            }
+            else
+            {
+                txtPassword.Text = string.Empty;
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.Text = "Invaild Password!";
+                txtPasswordWrong = true;
+                this.Refresh();
+                txtPassword.SelectionStart = 0;
             }
         }
 
@@ -176,11 +132,6 @@ namespace BarrocIT
             }
         }
 
-        private void cmbUsername_Click(object sender, EventArgs e)
-        {
-            cmbUsername.DroppedDown = true;
-        }
-
         private void cmbUsername_SelectedIndexChanged(object sender, EventArgs e)
         {
             for (int i = 0; i < 4; i++)
@@ -189,8 +140,49 @@ namespace BarrocIT
                 {
                     btnLogin.Enabled = true;
                     txtPassword.Enabled = true;
-                } 
+                }
             }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "Password" || txtPassword.Text == "Invaild Password!")
+            {
+                txtPassword.Text = string.Empty;
+                txtPassword.UseSystemPasswordChar = true;
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+                txtPasswordWrong = false;
+                this.Refresh();
+                txtPassword.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == string.Empty)
+            {
+                txtPassword.Text = "Password";
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+                txtPasswordWrong = false;
+                this.Refresh();
+                txtPassword.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+
+        private void cmbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbUsername_Click(object sender, EventArgs e)
+        {
+            cmbUsername.DroppedDown = true;
+        }
+
+        private void cmbUsername_Enter(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
         }
     }
 }

@@ -24,7 +24,6 @@ namespace BarrocIT
         private frmMain Main;
 
         private int CustomerID;
-        private int ProjectID;
         private string Username;
 
         public frmAppointments(string User, int CID, frmMain Main)
@@ -34,6 +33,7 @@ namespace BarrocIT
             Username = User;
             this.Main = Main;
 
+            SQLCommand = new SqlCommand();
             SQLHandler = new DatabaseHandler();
 
             refreshDataGridView();
@@ -56,10 +56,6 @@ namespace BarrocIT
                 btnAppointmentsRemove.Enabled = false;
             }
         }
-        private void frmAppointments_Validated(object sender, EventArgs e)
-        {
-            refreshDataGridView();
-        }
 
         private void btnAppointmentsAdd_Click(object sender, EventArgs e)
         {
@@ -70,48 +66,63 @@ namespace BarrocIT
 
         private void btnAppointmentsRemove_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult remove = MessageBox.Show("Do you really wish to remove this appointment?", "Remove", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (remove == DialogResult.Cancel)
+            {
+            }
+            else if (remove == DialogResult.OK)
             {
                 object AppointmentID = dataGridAddAppointment.CurrentRow.Cells[0].Value;
 
                 SQLHandler.deleteFROMbyObject(AppointmentID, "AppointmentID", "tbl_appointments");
                 refreshDataGridView();
             }
-            catch
-            {
-            }
         }
 
         private void btnAppointmentsEdit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int AppointmentID = (int)dataGridAddAppointment.CurrentRow.Cells[0].Value;
-                int CustomerID = (int)dataGridAddAppointment.CurrentRow.Cells[1].Value;
-                string AppointmentSubject = (string)dataGridAddAppointment.CurrentRow.Cells[2].Value;
-                DateTime AppointmentDate = (DateTime)dataGridAddAppointment.CurrentRow.Cells[3].Value;
-                string AppointmentLocation = (string)dataGridAddAppointment.CurrentRow.Cells[4].Value;
-                string AppointmentAdress = (string)dataGridAddAppointment.CurrentRow.Cells[5].Value;
-                string AppointmentAdressZipcode = (string)dataGridAddAppointment.CurrentRow.Cells[6].Value;
-                DateTime AppointmentTime = (DateTime)dataGridAddAppointment.CurrentRow.Cells[7].Value;
+            int AppointmentID = (int)dataGridAddAppointment.CurrentRow.Cells[0].Value;
+            int CustomerID = (int)dataGridAddAppointment.CurrentRow.Cells[1].Value;
+            string AppointmentSubject = (string)dataGridAddAppointment.CurrentRow.Cells[2].Value;
+            DateTime AppointmentDate = (DateTime)dataGridAddAppointment.CurrentRow.Cells[3].Value;
+            string AppointmentLocation = (string)dataGridAddAppointment.CurrentRow.Cells[4].Value;
+            string AppointmentAdress = (string)dataGridAddAppointment.CurrentRow.Cells[5].Value;
+            string AppointmentAdressZipcode = (string)dataGridAddAppointment.CurrentRow.Cells[6].Value;
+            DateTime AppointmentTime = (DateTime)dataGridAddAppointment.CurrentRow.Cells[7].Value;
 
-                Edit = new frmEditAppointments(AppointmentID, CustomerID, AppointmentSubject, AppointmentDate, AppointmentLocation, AppointmentAdress, AppointmentAdressZipcode, AppointmentTime, this);
-                this.Enabled = false;
-                Edit.Show();
-            }
-            catch
-            {
+            Edit = new frmEditAppointments(AppointmentID, CustomerID, AppointmentSubject, AppointmentDate, AppointmentLocation, AppointmentAdress, AppointmentAdressZipcode, AppointmentTime, this);
+            this.Enabled = false;
+            Edit.Show();
+        }
 
+        public void refreshDataGridView()
+        {
+            dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = '" + CustomerID + "';");
+            checkifDataGridisEmpty();
+        }
+
+        public void checkifDataGridisEmpty()
+        {
+            if (dataGridAddAppointment.Rows.Count == 0)
+            {
+                btnAppointmentsEdit.Enabled = false;
+                btnAppointmentsRemove.Enabled = false;
             }
+            else
+            {
+                btnAppointmentsEdit.Enabled = true;
+                btnAppointmentsRemove.Enabled = true;
+            }
+        }
+
+        private void frmAppointments_Validated(object sender, EventArgs e)
+        {
+            refreshDataGridView();
         }
 
         private void frmAppointments_FormClosing(object sender, FormClosingEventArgs e)
         {
             Main.Enabled = true;
-        }
-        public void refreshDataGridView()
-        {
-            dataGridAddAppointment.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_appointments WHERE CustomerID = '" + CustomerID + "';");
         }
     }
 }

@@ -45,19 +45,13 @@ namespace BarrocIT
             ProjectLimit = PLimit;
             MaintenanceContact = MaintenanceC;
 
-            try
-            {
-                txtProjectID.Text = Convert.ToString(ProjectID);
-                txtCustomerID.Text = Convert.ToString(CustomerID);
-                txtProjectName.Text = ProjectName;
-                cmbProjectStatus.SelectedIndex = int.Parse(Convert.ToString(ProjectStatus).Replace("False", "0").Replace("True", "1"));
-                txtProjectPrice.Text = Convert.ToString(ProjectPrice);
-                txtProjectLimit.Text = Convert.ToString(ProjectLimit);
-                cmbMaintenceContact.SelectedIndex = int.Parse(Convert.ToString(MaintenanceContact).Replace("False", "0").Replace("True", "1"));
-            }
-            catch
-            {
-            }            
+            txtProjectID.Text = Convert.ToString(ProjectID);
+            txtCustomerID.Text = Convert.ToString(CustomerID);
+            txtProjectName.Text = ProjectName;
+            cmbProjectStatus.SelectedIndex = int.Parse(Convert.ToString(ProjectStatus).Replace("False", "0").Replace("True", "1"));
+            txtProjectPrice.Text = Convert.ToString(ProjectPrice);
+            txtProjectLimit.Text = Convert.ToString(ProjectLimit);
+            cmbMaintenceContact.SelectedIndex = int.Parse(Convert.ToString(MaintenanceContact).Replace("False", "0").Replace("True", "1"));       
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -105,6 +99,7 @@ namespace BarrocIT
                 frmproject.Activate();
             }
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult exit = MessageBox.Show("Do you really wish to cancel?", "Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -114,16 +109,6 @@ namespace BarrocIT
                 Dispose();
                 frmproject.Activate();
             }
-        }
-
-        private void cmbProjectStatus_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbMaintenceContact_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
         }
 
         private void frmEditProjects_FormClosing(object sender, FormClosingEventArgs e)
@@ -179,6 +164,16 @@ namespace BarrocIT
         private void cmbMaintenceContact_Click(object sender, EventArgs e)
         {
             cmbMaintenceContact.DroppedDown = true;
+        }
+
+        private void cmbProjectStatus_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbMaintenceContact_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
     }
 }

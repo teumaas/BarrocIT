@@ -68,36 +68,54 @@ namespace BarrocIT
 
         private void btnProjectEdit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int ProjectID = (int)dataGridAddProject.CurrentRow.Cells[0].Value;
-                string ProjectName = (string)dataGridAddProject.CurrentRow.Cells[2].Value;
-                bool ProjectStatus = (bool)dataGridAddProject.CurrentRow.Cells[3].Value;
-                int ProjectPrice = (int)dataGridAddProject.CurrentRow.Cells[4].Value;
-                int ProjectLimit = (int)dataGridAddProject.CurrentRow.Cells[5].Value;
-                bool MaintenanceContact = (bool)dataGridAddProject.CurrentRow.Cells[6].Value;
+            int ProjectID = (int)dataGridAddProject.CurrentRow.Cells[0].Value;
+            string ProjectName = (string)dataGridAddProject.CurrentRow.Cells[2].Value;
+            bool ProjectStatus = (bool)dataGridAddProject.CurrentRow.Cells[3].Value;
+            int ProjectPrice = (int)dataGridAddProject.CurrentRow.Cells[4].Value;
+            int ProjectLimit = (int)dataGridAddProject.CurrentRow.Cells[5].Value;
+            bool MaintenanceContact = (bool)dataGridAddProject.CurrentRow.Cells[6].Value;
 
-                Edit = new frmEditProjects(CustomerID, ProjectID, ProjectName, ProjectStatus, ProjectPrice, ProjectLimit, MaintenanceContact, this);
-                this.Enabled = false;
-                Edit.Show();
-            }
-            catch
-            {
-            }
+            Edit = new frmEditProjects(CustomerID, ProjectID, ProjectName, ProjectStatus, ProjectPrice, ProjectLimit, MaintenanceContact, this);
+            this.Enabled = false;
+            Edit.Show();
         }
 
         private void btnProjectRemove_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult remove = MessageBox.Show("Do you really wish to remove this project?", "Remove", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (remove == DialogResult.Cancel)
+            {
+
+            }
+            else if (remove == DialogResult.OK)
             {
                 object ProjectID = dataGridAddProject.CurrentRow.Cells[0].Value;
 
                 SQLHandler.deleteFROMbyObject(ProjectID, "ProjectID", "tbl_projects");
                 refreshDataGridView();
+                checkifDataGridisEmpty();
             }
-            catch
+        }
+
+        public void refreshDataGridView()
+        {
+            SQLCommand = new SqlCommand();
+
+            dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '" + CustomerID + "';");
+            checkifDataGridisEmpty();
+        }
+
+        public void checkifDataGridisEmpty()
+        {
+            if (dataGridAddProject.Rows.Count == 0)
             {
-                MessageBox.Show("There are still invoicesbound to this customer. Or there are no customers to remove.", "Caution!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnProjectRemove.Enabled = false;
+                btnProjectEdit.Enabled = false;
+            }
+            else
+            {
+                btnProjectRemove.Enabled = true;
+                btnProjectEdit.Enabled = true;
             }
         }
 
@@ -109,11 +127,6 @@ namespace BarrocIT
         private void frmProjects_FormClosing(object sender, FormClosingEventArgs e)
         {
             Main.Enabled = true;
-        }
-
-        public void refreshDataGridView()
-        {
-            dataGridAddProject.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_projects WHERE CustomerID = '" + CustomerID + "';");
         }
     }
 }

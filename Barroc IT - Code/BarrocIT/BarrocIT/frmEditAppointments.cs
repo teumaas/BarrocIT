@@ -47,18 +47,14 @@ namespace BarrocIT
             AppointmentAdressZipcode = AAZ;
             AppointmentTime = AT;
 
-            try
-            {
-                txtAppointmentID.Text = Convert.ToString(AppointmentID);
-                txtCustomerID.Text = Convert.ToString(CustomerID);
-                txtAppointmentSubject.Text = Convert.ToString(AppointmentSubject);
-                dtpAppointmentDate.Text = Convert.ToString(AppointmentDate);
-                txtAppointmentLocation.Text = Convert.ToString(AppointmentLocation);
-                txtAppointmentAdress.Text = Convert.ToString(AppointmentAdress);
-                txtAppointmentAdressZipcode.Text = Convert.ToString(AppointmentAdressZipcode);
-                dtpAppointmentTime.Text = Convert.ToString(AppointmentTime);
-            }
-            catch {}  
+            txtAppointmentID.Text = Convert.ToString(AppointmentID);
+            txtCustomerID.Text = Convert.ToString(CustomerID);
+            txtAppointmentSubject.Text = Convert.ToString(AppointmentSubject);
+            dtpAppointmentDate.Text = Convert.ToString(AppointmentDate);
+            txtAppointmentLocation.Text = Convert.ToString(AppointmentLocation);
+            txtAppointmentAdress.Text = Convert.ToString(AppointmentAdress);
+            txtAppointmentAdressZipcode.Text = Convert.ToString(AppointmentAdressZipcode);
+            dtpAppointmentTime.Text = Convert.ToString(AppointmentTime);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -121,16 +117,6 @@ namespace BarrocIT
                 Dispose();
                 frmappointments.Activate();
             }
-        }
-
-        private void cmbAppointmentHours_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbAppointmentMinutes_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
         }
 
         private void frmEditAppointments_FormClosing(object sender, FormClosingEventArgs e)

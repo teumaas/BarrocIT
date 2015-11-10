@@ -34,10 +34,13 @@ namespace BarrocIT
         public frmInvoices(string User, int CID, frmMain Main)
         {
             InitializeComponent();
+
             CustomerID = CID;
+            ProjectID = 0;
             Username = User;
             this.Main = Main;
 
+            SQLCommand = new SqlCommand();
             SQLHandler = new DatabaseHandler();
 
             refreshDataGridView();
@@ -64,41 +67,35 @@ namespace BarrocIT
 
         private void btnInvoicesEdit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int InvoiceID = (int) dataGridAddInvoice.CurrentRow.Cells[0].Value;
-                int CustomerID = (int) dataGridAddInvoice.CurrentRow.Cells[1].Value;
-                int ProjectID = (int) dataGridAddInvoice.CurrentRow.Cells[2].Value;
-                DateTime InvoiceDate = (DateTime) dataGridAddInvoice.CurrentRow.Cells[3].Value;
-                bool InvoicePaid = (bool) dataGridAddInvoice.CurrentRow.Cells[4].Value;
-                bool InvoiceSent = (bool) dataGridAddInvoice.CurrentRow.Cells[5].Value;
-                bool InvoiceStatus = (bool) dataGridAddInvoice.CurrentRow.Cells[6].Value;
-                string InvoiceTerms = (string) dataGridAddInvoice.CurrentRow.Cells[7].Value;
-                DateTime LastContactDate = (DateTime) dataGridAddInvoice.CurrentRow.Cells[8].Value;
-                string LegderAccountNumber = (string) dataGridAddInvoice.CurrentRow.Cells[9].Value;
-                string TaxCode = (string) dataGridAddInvoice.CurrentRow.Cells[10].Value;
+            int InvoiceID = (int) dataGridAddInvoice.CurrentRow.Cells[0].Value;
+            int CustomerID = (int) dataGridAddInvoice.CurrentRow.Cells[1].Value;
+            int ProjectID = (int) dataGridAddInvoice.CurrentRow.Cells[2].Value;
+            DateTime InvoiceDate = (DateTime) dataGridAddInvoice.CurrentRow.Cells[3].Value;
+            bool InvoicePaid = (bool) dataGridAddInvoice.CurrentRow.Cells[4].Value;
+            bool InvoiceSent = (bool) dataGridAddInvoice.CurrentRow.Cells[5].Value;
+            bool InvoiceStatus = (bool) dataGridAddInvoice.CurrentRow.Cells[6].Value;
+            string InvoiceTerms = (string) dataGridAddInvoice.CurrentRow.Cells[7].Value;
+            DateTime LastContactDate = (DateTime) dataGridAddInvoice.CurrentRow.Cells[8].Value;
+            string LegderAccountNumber = (string) dataGridAddInvoice.CurrentRow.Cells[9].Value;
+            string TaxCode = (string) dataGridAddInvoice.CurrentRow.Cells[10].Value;
 
-                Edit = new frmEditInvoices(InvoiceID, CustomerID, ProjectID, InvoiceDate, InvoicePaid, InvoiceSent,
-                    InvoiceStatus, InvoiceTerms, LastContactDate, LegderAccountNumber, TaxCode, this);
-                this.Enabled = false;
-                Edit.Show();
-            }
-            catch
-            {
-            }
+            Edit = new frmEditInvoices(InvoiceID, CustomerID, ProjectID, InvoiceDate, InvoicePaid, InvoiceSent, InvoiceStatus, InvoiceTerms, LastContactDate, LegderAccountNumber, TaxCode, this);
+            this.Enabled = false;
+            Edit.Show();
         }
 
         private void btnInvoicesRemove_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult remove = MessageBox.Show("Do you really wish to remove this invoice?", "Remove", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (remove == DialogResult.Cancel)
             {
-                object InvoiceID = dataGridAddInvoice.CurrentRow.Cells[0].Value;
-
-                SQLHandler.deleteFROMbyObject(InvoiceID, "InvoiceID", "tbl_invoices");
-                refreshDataGridView();
             }
-            catch
+            else if (remove == DialogResult.OK)
             {
+            object InvoiceID = dataGridAddInvoice.CurrentRow.Cells[0].Value;
+
+            SQLHandler.deleteFROMbyObject(InvoiceID, "InvoiceID", "tbl_invoices");
+            refreshDataGridView();
             }
         }
 
@@ -110,8 +107,31 @@ namespace BarrocIT
         public void refreshDataGridView()
         {
             dataGridAddInvoice.DataSource = SQLHandler.SQLCommand("SELECT * FROM tbl_invoices WHERE CustomerID = '" + CustomerID + "';");
+            checkifDataGridisEmpty();
         }
 
+        private void frmInvoices_Validating(object sender, CancelEventArgs e)
+        {
+            refreshDataGridView();
+        }
+
+        public void checkifDataGridisEmpty()
+        {
+            if (dataGridAddInvoice.Rows.Count == 0)
+            {
+                btnInvoicesEdit.Enabled = false;
+                btnInvoicesRemove.Enabled = false;
+                btnInvoicesPrintInvoice.Enabled = false;
+            }
+            else
+            {
+                btnInvoicesEdit.Enabled = true;
+                btnInvoicesRemove.Enabled = true;
+                btnInvoicesPrintInvoice.Enabled = true;
+            }
+        }
+
+        // Made by Santino Bonora
         private void btnInvoicesPrintInvoice_Click(object sender, EventArgs e)
         {
             try
@@ -175,11 +195,7 @@ namespace BarrocIT
             }
         }
 
-        private void frmInvoices_Validating(object sender, CancelEventArgs e)
-        {
-            refreshDataGridView();
-        }
-
+        // Made by Santino Bonora
         private void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Invoices";

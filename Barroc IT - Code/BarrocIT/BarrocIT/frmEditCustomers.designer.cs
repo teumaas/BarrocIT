@@ -67,6 +67,8 @@ namespace BarrocIT
             this.lblCustomerCreditWorthy = new System.Windows.Forms.Label();
             this.lblCustomerBKRCheck = new System.Windows.Forms.Label();
             this.lblCustomerPotential = new System.Windows.Forms.Label();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.lblCompany = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -74,7 +76,7 @@ namespace BarrocIT
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::BarrocIT.Properties.Resources.Cancel;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(197, 456);
+            this.btnCancel.Location = new System.Drawing.Point(197, 478);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(115, 25);
             this.btnCancel.TabIndex = 0;
@@ -87,7 +89,7 @@ namespace BarrocIT
             // lblCustomerAdress1
             // 
             this.lblCustomerAdress1.AutoSize = true;
-            this.lblCustomerAdress1.Location = new System.Drawing.Point(63, 63);
+            this.lblCustomerAdress1.Location = new System.Drawing.Point(63, 89);
             this.lblCustomerAdress1.Name = "lblCustomerAdress1";
             this.lblCustomerAdress1.Size = new System.Drawing.Size(51, 13);
             this.lblCustomerAdress1.TabIndex = 0;
@@ -95,17 +97,17 @@ namespace BarrocIT
             // 
             // txtCustomerAdress1
             // 
-            this.txtCustomerAdress1.Location = new System.Drawing.Point(116, 60);
+            this.txtCustomerAdress1.Location = new System.Drawing.Point(116, 86);
             this.txtCustomerAdress1.MaxLength = 50;
             this.txtCustomerAdress1.Name = "txtCustomerAdress1";
             this.txtCustomerAdress1.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerAdress1.TabIndex = 3;
+            this.txtCustomerAdress1.TabIndex = 2;
             this.txtCustomerAdress1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerAdress1_KeyDown);
             // 
             // lblCustomerPhoneNumber1
             // 
             this.lblCustomerPhoneNumber1.AutoSize = true;
-            this.lblCustomerPhoneNumber1.Location = new System.Drawing.Point(24, 219);
+            this.lblCustomerPhoneNumber1.Location = new System.Drawing.Point(24, 245);
             this.lblCustomerPhoneNumber1.Name = "lblCustomerPhoneNumber1";
             this.lblCustomerPhoneNumber1.Size = new System.Drawing.Size(90, 13);
             this.lblCustomerPhoneNumber1.TabIndex = 0;
@@ -114,7 +116,7 @@ namespace BarrocIT
             // lblCustomerCity2
             // 
             this.lblCustomerCity2.AutoSize = true;
-            this.lblCustomerCity2.Location = new System.Drawing.Point(78, 141);
+            this.lblCustomerCity2.Location = new System.Drawing.Point(78, 219);
             this.lblCustomerCity2.Name = "lblCustomerCity2";
             this.lblCustomerCity2.Size = new System.Drawing.Size(36, 13);
             this.lblCustomerCity2.TabIndex = 0;
@@ -123,7 +125,7 @@ namespace BarrocIT
             // lblCustomerCity1
             // 
             this.lblCustomerCity1.AutoSize = true;
-            this.lblCustomerCity1.Location = new System.Drawing.Point(78, 115);
+            this.lblCustomerCity1.Location = new System.Drawing.Point(78, 193);
             this.lblCustomerCity1.Name = "lblCustomerCity1";
             this.lblCustomerCity1.Size = new System.Drawing.Size(36, 13);
             this.lblCustomerCity1.TabIndex = 0;
@@ -132,7 +134,7 @@ namespace BarrocIT
             // lblCustomerAdress2
             // 
             this.lblCustomerAdress2.AutoSize = true;
-            this.lblCustomerAdress2.Location = new System.Drawing.Point(63, 89);
+            this.lblCustomerAdress2.Location = new System.Drawing.Point(63, 115);
             this.lblCustomerAdress2.Name = "lblCustomerAdress2";
             this.lblCustomerAdress2.Size = new System.Drawing.Size(51, 13);
             this.lblCustomerAdress2.TabIndex = 0;
@@ -153,12 +155,13 @@ namespace BarrocIT
             this.txtCustomerID.Location = new System.Drawing.Point(116, 8);
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerID.TabIndex = 1;
+            this.txtCustomerID.TabIndex = 0;
+            this.txtCustomerID.TabStop = false;
             // 
             // lblCustomerPhoneNumber2
             // 
             this.lblCustomerPhoneNumber2.AutoSize = true;
-            this.lblCustomerPhoneNumber2.Location = new System.Drawing.Point(24, 245);
+            this.lblCustomerPhoneNumber2.Location = new System.Drawing.Point(24, 271);
             this.lblCustomerPhoneNumber2.Name = "lblCustomerPhoneNumber2";
             this.lblCustomerPhoneNumber2.Size = new System.Drawing.Size(90, 13);
             this.lblCustomerPhoneNumber2.TabIndex = 0;
@@ -170,7 +173,7 @@ namespace BarrocIT
             this.txtCustomerName.MaxLength = 50;
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerName.TabIndex = 2;
+            this.txtCustomerName.TabIndex = 1;
             this.txtCustomerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerName_KeyDown);
             // 
             // lblCustomerName
@@ -186,7 +189,7 @@ namespace BarrocIT
             // 
             this.btnSave.Image = global::BarrocIT.Properties.Resources.Save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.Location = new System.Drawing.Point(12, 456);
+            this.btnSave.Location = new System.Drawing.Point(12, 478);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 25);
             this.btnSave.TabIndex = 0;
@@ -198,37 +201,37 @@ namespace BarrocIT
             // 
             // txtCustomerCity1
             // 
-            this.txtCustomerCity1.Location = new System.Drawing.Point(116, 112);
+            this.txtCustomerCity1.Location = new System.Drawing.Point(116, 190);
             this.txtCustomerCity1.MaxLength = 50;
             this.txtCustomerCity1.Name = "txtCustomerCity1";
             this.txtCustomerCity1.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerCity1.TabIndex = 5;
+            this.txtCustomerCity1.TabIndex = 6;
             this.txtCustomerCity1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerCity1_KeyDown);
             // 
             // txtCustomerCity2
             // 
-            this.txtCustomerCity2.Location = new System.Drawing.Point(116, 138);
+            this.txtCustomerCity2.Location = new System.Drawing.Point(116, 216);
             this.txtCustomerCity2.MaxLength = 50;
             this.txtCustomerCity2.Name = "txtCustomerCity2";
             this.txtCustomerCity2.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerCity2.TabIndex = 6;
+            this.txtCustomerCity2.TabIndex = 7;
             // 
             // txtCustomerPhoneNumber1
             // 
-            this.txtCustomerPhoneNumber1.Location = new System.Drawing.Point(116, 216);
+            this.txtCustomerPhoneNumber1.Location = new System.Drawing.Point(116, 242);
             this.txtCustomerPhoneNumber1.MaxLength = 12;
             this.txtCustomerPhoneNumber1.Name = "txtCustomerPhoneNumber1";
             this.txtCustomerPhoneNumber1.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerPhoneNumber1.TabIndex = 9;
+            this.txtCustomerPhoneNumber1.TabIndex = 8;
             this.txtCustomerPhoneNumber1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerPhoneNumber1_KeyDown);
             // 
             // txtCustomerAdress2
             // 
-            this.txtCustomerAdress2.Location = new System.Drawing.Point(116, 86);
+            this.txtCustomerAdress2.Location = new System.Drawing.Point(116, 112);
             this.txtCustomerAdress2.MaxLength = 50;
             this.txtCustomerAdress2.Name = "txtCustomerAdress2";
             this.txtCustomerAdress2.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerAdress2.TabIndex = 4;
+            this.txtCustomerAdress2.TabIndex = 3;
             // 
             // cmbCustomerCreditWorthy
             // 
@@ -239,10 +242,10 @@ namespace BarrocIT
             this.cmbCustomerCreditWorthy.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.cmbCustomerCreditWorthy.Location = new System.Drawing.Point(116, 372);
+            this.cmbCustomerCreditWorthy.Location = new System.Drawing.Point(116, 398);
             this.cmbCustomerCreditWorthy.Name = "cmbCustomerCreditWorthy";
             this.cmbCustomerCreditWorthy.Size = new System.Drawing.Size(195, 21);
-            this.cmbCustomerCreditWorthy.TabIndex = 15;
+            this.cmbCustomerCreditWorthy.TabIndex = 14;
             this.cmbCustomerCreditWorthy.Text = "No";
             this.cmbCustomerCreditWorthy.Click += new System.EventHandler(this.cmbCustomerCreditWorthy_Click);
             this.cmbCustomerCreditWorthy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCustomerCreditWorthy_KeyDown);
@@ -253,10 +256,10 @@ namespace BarrocIT
             this.cmbCustomerBKRCheck.Items.AddRange(new object[] {
             "Not done",
             "Done"});
-            this.cmbCustomerBKRCheck.Location = new System.Drawing.Point(116, 399);
+            this.cmbCustomerBKRCheck.Location = new System.Drawing.Point(116, 425);
             this.cmbCustomerBKRCheck.Name = "cmbCustomerBKRCheck";
             this.cmbCustomerBKRCheck.Size = new System.Drawing.Size(195, 21);
-            this.cmbCustomerBKRCheck.TabIndex = 16;
+            this.cmbCustomerBKRCheck.TabIndex = 15;
             this.cmbCustomerBKRCheck.Text = "Not done";
             this.cmbCustomerBKRCheck.Click += new System.EventHandler(this.cmbCustomerBKRCheck_Click);
             this.cmbCustomerBKRCheck.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCustomerBKRCheck_KeyDown);
@@ -267,78 +270,78 @@ namespace BarrocIT
             this.cmbCustomerPotential.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.cmbCustomerPotential.Location = new System.Drawing.Point(116, 426);
+            this.cmbCustomerPotential.Location = new System.Drawing.Point(116, 452);
             this.cmbCustomerPotential.Name = "cmbCustomerPotential";
             this.cmbCustomerPotential.Size = new System.Drawing.Size(195, 21);
-            this.cmbCustomerPotential.TabIndex = 17;
+            this.cmbCustomerPotential.TabIndex = 16;
             this.cmbCustomerPotential.Text = "No";
             this.cmbCustomerPotential.Click += new System.EventHandler(this.cmbCustomerPotential_Click);
             this.cmbCustomerPotential.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCustomerPotential_KeyDown);
             // 
             // txtCustomerPhoneNumber2
             // 
-            this.txtCustomerPhoneNumber2.Location = new System.Drawing.Point(116, 242);
+            this.txtCustomerPhoneNumber2.Location = new System.Drawing.Point(116, 268);
             this.txtCustomerPhoneNumber2.MaxLength = 12;
             this.txtCustomerPhoneNumber2.Name = "txtCustomerPhoneNumber2";
             this.txtCustomerPhoneNumber2.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerPhoneNumber2.TabIndex = 10;
+            this.txtCustomerPhoneNumber2.TabIndex = 9;
             // 
             // txtCustomerZipCode1
             // 
-            this.txtCustomerZipCode1.Location = new System.Drawing.Point(116, 164);
-            this.txtCustomerZipCode1.MaxLength = 6;
+            this.txtCustomerZipCode1.Location = new System.Drawing.Point(116, 138);
+            this.txtCustomerZipCode1.MaxLength = 5;
             this.txtCustomerZipCode1.Name = "txtCustomerZipCode1";
             this.txtCustomerZipCode1.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerZipCode1.TabIndex = 7;
+            this.txtCustomerZipCode1.TabIndex = 4;
             this.txtCustomerZipCode1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerZipCode1_KeyDown);
             // 
             // txtCustomerZipCode2
             // 
-            this.txtCustomerZipCode2.Location = new System.Drawing.Point(116, 190);
+            this.txtCustomerZipCode2.Location = new System.Drawing.Point(116, 164);
             this.txtCustomerZipCode2.MaxLength = 6;
             this.txtCustomerZipCode2.Name = "txtCustomerZipCode2";
             this.txtCustomerZipCode2.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerZipCode2.TabIndex = 8;
+            this.txtCustomerZipCode2.TabIndex = 5;
             // 
             // txtCustomerFaxNumber
             // 
-            this.txtCustomerFaxNumber.Location = new System.Drawing.Point(116, 268);
+            this.txtCustomerFaxNumber.Location = new System.Drawing.Point(116, 294);
             this.txtCustomerFaxNumber.MaxLength = 12;
             this.txtCustomerFaxNumber.Name = "txtCustomerFaxNumber";
             this.txtCustomerFaxNumber.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerFaxNumber.TabIndex = 11;
+            this.txtCustomerFaxNumber.TabIndex = 10;
             // 
             // txtCustomerContactPerson
             // 
-            this.txtCustomerContactPerson.Location = new System.Drawing.Point(116, 294);
+            this.txtCustomerContactPerson.Location = new System.Drawing.Point(116, 320);
             this.txtCustomerContactPerson.MaxLength = 50;
             this.txtCustomerContactPerson.Name = "txtCustomerContactPerson";
             this.txtCustomerContactPerson.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerContactPerson.TabIndex = 12;
+            this.txtCustomerContactPerson.TabIndex = 11;
             this.txtCustomerContactPerson.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerContactPerson_KeyDown);
             // 
             // txtCustomerEmail
             // 
-            this.txtCustomerEmail.Location = new System.Drawing.Point(116, 320);
+            this.txtCustomerEmail.Location = new System.Drawing.Point(116, 346);
             this.txtCustomerEmail.MaxLength = 50;
             this.txtCustomerEmail.Name = "txtCustomerEmail";
             this.txtCustomerEmail.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerEmail.TabIndex = 13;
+            this.txtCustomerEmail.TabIndex = 12;
             this.txtCustomerEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerEmail_KeyDown);
             // 
             // txtCustomerBankNumber
             // 
-            this.txtCustomerBankNumber.Location = new System.Drawing.Point(116, 346);
+            this.txtCustomerBankNumber.Location = new System.Drawing.Point(116, 372);
             this.txtCustomerBankNumber.MaxLength = 20;
             this.txtCustomerBankNumber.Name = "txtCustomerBankNumber";
             this.txtCustomerBankNumber.Size = new System.Drawing.Size(195, 20);
-            this.txtCustomerBankNumber.TabIndex = 14;
+            this.txtCustomerBankNumber.TabIndex = 13;
             this.txtCustomerBankNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerBankNumber_KeyDown);
             // 
             // lblCustomerZipCode1
             // 
             this.lblCustomerZipCode1.AutoSize = true;
-            this.lblCustomerZipCode1.Location = new System.Drawing.Point(56, 167);
+            this.lblCustomerZipCode1.Location = new System.Drawing.Point(56, 141);
             this.lblCustomerZipCode1.Name = "lblCustomerZipCode1";
             this.lblCustomerZipCode1.Size = new System.Drawing.Size(58, 13);
             this.lblCustomerZipCode1.TabIndex = 0;
@@ -347,7 +350,7 @@ namespace BarrocIT
             // lblCustomerZipCode2
             // 
             this.lblCustomerZipCode2.AutoSize = true;
-            this.lblCustomerZipCode2.Location = new System.Drawing.Point(56, 193);
+            this.lblCustomerZipCode2.Location = new System.Drawing.Point(56, 167);
             this.lblCustomerZipCode2.Name = "lblCustomerZipCode2";
             this.lblCustomerZipCode2.Size = new System.Drawing.Size(58, 13);
             this.lblCustomerZipCode2.TabIndex = 0;
@@ -356,7 +359,7 @@ namespace BarrocIT
             // lblCustomerFaxNumber
             // 
             this.lblCustomerFaxNumber.AutoSize = true;
-            this.lblCustomerFaxNumber.Location = new System.Drawing.Point(47, 271);
+            this.lblCustomerFaxNumber.Location = new System.Drawing.Point(47, 297);
             this.lblCustomerFaxNumber.Name = "lblCustomerFaxNumber";
             this.lblCustomerFaxNumber.Size = new System.Drawing.Size(67, 13);
             this.lblCustomerFaxNumber.TabIndex = 0;
@@ -365,7 +368,7 @@ namespace BarrocIT
             // lblCustomerContactPerson
             // 
             this.lblCustomerContactPerson.AutoSize = true;
-            this.lblCustomerContactPerson.Location = new System.Drawing.Point(31, 297);
+            this.lblCustomerContactPerson.Location = new System.Drawing.Point(31, 323);
             this.lblCustomerContactPerson.Name = "lblCustomerContactPerson";
             this.lblCustomerContactPerson.Size = new System.Drawing.Size(83, 13);
             this.lblCustomerContactPerson.TabIndex = 0;
@@ -374,7 +377,7 @@ namespace BarrocIT
             // lblCustomerEmail
             // 
             this.lblCustomerEmail.AutoSize = true;
-            this.lblCustomerEmail.Location = new System.Drawing.Point(79, 323);
+            this.lblCustomerEmail.Location = new System.Drawing.Point(79, 349);
             this.lblCustomerEmail.Name = "lblCustomerEmail";
             this.lblCustomerEmail.Size = new System.Drawing.Size(35, 13);
             this.lblCustomerEmail.TabIndex = 0;
@@ -383,7 +386,7 @@ namespace BarrocIT
             // lblCustomerBankNumber
             // 
             this.lblCustomerBankNumber.AutoSize = true;
-            this.lblCustomerBankNumber.Location = new System.Drawing.Point(39, 349);
+            this.lblCustomerBankNumber.Location = new System.Drawing.Point(39, 375);
             this.lblCustomerBankNumber.Name = "lblCustomerBankNumber";
             this.lblCustomerBankNumber.Size = new System.Drawing.Size(75, 13);
             this.lblCustomerBankNumber.TabIndex = 0;
@@ -392,7 +395,7 @@ namespace BarrocIT
             // lblCustomerCreditWorthy
             // 
             this.lblCustomerCreditWorthy.AutoSize = true;
-            this.lblCustomerCreditWorthy.Location = new System.Drawing.Point(40, 375);
+            this.lblCustomerCreditWorthy.Location = new System.Drawing.Point(40, 401);
             this.lblCustomerCreditWorthy.Name = "lblCustomerCreditWorthy";
             this.lblCustomerCreditWorthy.Size = new System.Drawing.Size(74, 13);
             this.lblCustomerCreditWorthy.TabIndex = 0;
@@ -401,7 +404,7 @@ namespace BarrocIT
             // lblCustomerBKRCheck
             // 
             this.lblCustomerBKRCheck.AutoSize = true;
-            this.lblCustomerBKRCheck.Location = new System.Drawing.Point(48, 402);
+            this.lblCustomerBKRCheck.Location = new System.Drawing.Point(48, 428);
             this.lblCustomerBKRCheck.Name = "lblCustomerBKRCheck";
             this.lblCustomerBKRCheck.Size = new System.Drawing.Size(66, 13);
             this.lblCustomerBKRCheck.TabIndex = 0;
@@ -410,11 +413,29 @@ namespace BarrocIT
             // lblCustomerPotential
             // 
             this.lblCustomerPotential.AutoSize = true;
-            this.lblCustomerPotential.Location = new System.Drawing.Point(16, 429);
+            this.lblCustomerPotential.Location = new System.Drawing.Point(16, 455);
             this.lblCustomerPotential.Name = "lblCustomerPotential";
             this.lblCustomerPotential.Size = new System.Drawing.Size(98, 13);
             this.lblCustomerPotential.TabIndex = 0;
             this.lblCustomerPotential.Text = "Potential Customer:";
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.Location = new System.Drawing.Point(116, 60);
+            this.txtCompany.MaxLength = 50;
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(195, 20);
+            this.txtCompany.TabIndex = 2;
+            this.txtCompany.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustomerAdress1_KeyDown);
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(60, 63);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(54, 13);
+            this.lblCompany.TabIndex = 0;
+            this.lblCompany.Text = "Company:";
             // 
             // frmEditCustomers
             // 
@@ -422,12 +443,13 @@ namespace BarrocIT
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(324, 489);
+            this.ClientSize = new System.Drawing.Size(324, 509);
             this.Controls.Add(this.cmbCustomerPotential);
             this.Controls.Add(this.cmbCustomerBKRCheck);
             this.Controls.Add(this.cmbCustomerCreditWorthy);
             this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.txtCustomerName);
+            this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.lblCustomerAdress1);
             this.Controls.Add(this.txtCustomerPhoneNumber1);
             this.Controls.Add(this.txtCustomerAdress2);
@@ -440,6 +462,7 @@ namespace BarrocIT
             this.Controls.Add(this.txtCustomerPhoneNumber2);
             this.Controls.Add(this.txtCustomerCity2);
             this.Controls.Add(this.txtCustomerCity1);
+            this.Controls.Add(this.txtCompany);
             this.Controls.Add(this.txtCustomerAdress1);
             this.Controls.Add(this.lblCustomerPotential);
             this.Controls.Add(this.lblCustomerBKRCheck);
@@ -511,5 +534,7 @@ namespace BarrocIT
         private System.Windows.Forms.Label lblCustomerCreditWorthy;
         private System.Windows.Forms.Label lblCustomerBKRCheck;
         private System.Windows.Forms.Label lblCustomerPotential;
+        private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.Label lblCompany;
     }
 }

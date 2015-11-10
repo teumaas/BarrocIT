@@ -94,6 +94,7 @@ namespace BarrocIT
                 frmproject.Enabled = true;
                 Dispose();
                 frmproject.Activate();
+                frmproject.checkifDataGridisEmpty();
             }
         }
  
@@ -106,16 +107,6 @@ namespace BarrocIT
                 Dispose();
                 frmproject.Activate();
             }
-        }
-
-        private void cmbMaintenceContact_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbProjectStatus_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
         }
 
         private void frmAddProjects_FormClosing(object sender, FormClosingEventArgs e)
@@ -156,6 +147,16 @@ namespace BarrocIT
         private void txtProjectLimit_Enter(object sender, EventArgs e)
         {
             Clipboard.Clear();
+        }
+
+        private void cmbMaintenceContact_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbProjectStatus_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
 
         private void txtProjectName_KeyDown(object sender, KeyEventArgs e)

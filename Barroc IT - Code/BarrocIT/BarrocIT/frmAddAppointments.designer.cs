@@ -72,7 +72,7 @@ namespace BarrocIT
             this.lblAppointmentSubject.Location = new System.Drawing.Point(5, 67);
             this.lblAppointmentSubject.Name = "lblAppointmentSubject";
             this.lblAppointmentSubject.Size = new System.Drawing.Size(108, 13);
-            this.lblAppointmentSubject.TabIndex = 26;
+            this.lblAppointmentSubject.TabIndex = 0;
             this.lblAppointmentSubject.Text = "Appointment Subject:";
             // 
             // txtAppointmentSubject
@@ -81,7 +81,7 @@ namespace BarrocIT
             this.txtAppointmentSubject.MaxLength = 50;
             this.txtAppointmentSubject.Name = "txtAppointmentSubject";
             this.txtAppointmentSubject.Size = new System.Drawing.Size(197, 20);
-            this.txtAppointmentSubject.TabIndex = 3;
+            this.txtAppointmentSubject.TabIndex = 1;
             this.txtAppointmentSubject.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAppointmentSubject_KeyDown);
             // 
             // lblAppointmentAdressZipcode
@@ -90,7 +90,7 @@ namespace BarrocIT
             this.lblAppointmentAdressZipcode.Location = new System.Drawing.Point(3, 171);
             this.lblAppointmentAdressZipcode.Name = "lblAppointmentAdressZipcode";
             this.lblAppointmentAdressZipcode.Size = new System.Drawing.Size(146, 13);
-            this.lblAppointmentAdressZipcode.TabIndex = 13;
+            this.lblAppointmentAdressZipcode.TabIndex = 0;
             this.lblAppointmentAdressZipcode.Text = "Appointment Adress Zipcode:";
             // 
             // lblAppointmentAdress
@@ -99,7 +99,7 @@ namespace BarrocIT
             this.lblAppointmentAdress.Location = new System.Drawing.Point(10, 145);
             this.lblAppointmentAdress.Name = "lblAppointmentAdress";
             this.lblAppointmentAdress.Size = new System.Drawing.Size(104, 13);
-            this.lblAppointmentAdress.TabIndex = 14;
+            this.lblAppointmentAdress.TabIndex = 0;
             this.lblAppointmentAdress.Text = "Appointment Adress:";
             // 
             // lblAppointmentLocation
@@ -108,7 +108,7 @@ namespace BarrocIT
             this.lblAppointmentLocation.Location = new System.Drawing.Point(1, 119);
             this.lblAppointmentLocation.Name = "lblAppointmentLocation";
             this.lblAppointmentLocation.Size = new System.Drawing.Size(113, 13);
-            this.lblAppointmentLocation.TabIndex = 15;
+            this.lblAppointmentLocation.TabIndex = 0;
             this.lblAppointmentLocation.Text = "Appointment Location:";
             // 
             // lblAppointmentDate
@@ -117,7 +117,7 @@ namespace BarrocIT
             this.lblAppointmentDate.Location = new System.Drawing.Point(18, 93);
             this.lblAppointmentDate.Name = "lblAppointmentDate";
             this.lblAppointmentDate.Size = new System.Drawing.Size(95, 13);
-            this.lblAppointmentDate.TabIndex = 16;
+            this.lblAppointmentDate.TabIndex = 0;
             this.lblAppointmentDate.Text = "Appointment Date:";
             // 
             // lblAppointmentID
@@ -126,7 +126,7 @@ namespace BarrocIT
             this.lblAppointmentID.Location = new System.Drawing.Point(30, 15);
             this.lblAppointmentID.Name = "lblAppointmentID";
             this.lblAppointmentID.Size = new System.Drawing.Size(83, 13);
-            this.lblAppointmentID.TabIndex = 17;
+            this.lblAppointmentID.TabIndex = 0;
             this.lblAppointmentID.Text = "Appointment ID:";
             // 
             // txtAppointmentID
@@ -135,7 +135,8 @@ namespace BarrocIT
             this.txtAppointmentID.Location = new System.Drawing.Point(115, 12);
             this.txtAppointmentID.Name = "txtAppointmentID";
             this.txtAppointmentID.Size = new System.Drawing.Size(197, 20);
-            this.txtAppointmentID.TabIndex = 1;
+            this.txtAppointmentID.TabIndex = 0;
+            this.txtAppointmentID.TabStop = false;
             // 
             // lblLastContactDate
             // 
@@ -143,7 +144,7 @@ namespace BarrocIT
             this.lblLastContactDate.Location = new System.Drawing.Point(19, 197);
             this.lblLastContactDate.Name = "lblLastContactDate";
             this.lblLastContactDate.Size = new System.Drawing.Size(95, 13);
-            this.lblLastContactDate.TabIndex = 12;
+            this.lblLastContactDate.TabIndex = 0;
             this.lblLastContactDate.Text = "Appointment Time:";
             // 
             // txtCustomerID
@@ -152,7 +153,8 @@ namespace BarrocIT
             this.txtCustomerID.Location = new System.Drawing.Point(115, 38);
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(197, 20);
-            this.txtCustomerID.TabIndex = 2;
+            this.txtCustomerID.TabIndex = 0;
+            this.txtCustomerID.TabStop = false;
             // 
             // lblCustomerID
             // 
@@ -160,7 +162,7 @@ namespace BarrocIT
             this.lblCustomerID.Location = new System.Drawing.Point(45, 41);
             this.lblCustomerID.Name = "lblCustomerID";
             this.lblCustomerID.Size = new System.Drawing.Size(68, 13);
-            this.lblCustomerID.TabIndex = 26;
+            this.lblCustomerID.TabIndex = 0;
             this.lblCustomerID.Text = "Customer ID:";
             // 
             // dtpAppointmentDate
@@ -168,7 +170,7 @@ namespace BarrocIT
             this.dtpAppointmentDate.Location = new System.Drawing.Point(115, 90);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.Size = new System.Drawing.Size(197, 20);
-            this.dtpAppointmentDate.TabIndex = 4;
+            this.dtpAppointmentDate.TabIndex = 2;
             this.dtpAppointmentDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // btnCreate
@@ -191,7 +193,7 @@ namespace BarrocIT
             this.txtAppointmentLocation.MaxLength = 50;
             this.txtAppointmentLocation.Name = "txtAppointmentLocation";
             this.txtAppointmentLocation.Size = new System.Drawing.Size(196, 20);
-            this.txtAppointmentLocation.TabIndex = 5;
+            this.txtAppointmentLocation.TabIndex = 3;
             this.txtAppointmentLocation.TextChanged += new System.EventHandler(this.txtAppointmentLocation_TextChanged);
             // 
             // txtAppointmentAdress
@@ -200,7 +202,7 @@ namespace BarrocIT
             this.txtAppointmentAdress.MaxLength = 50;
             this.txtAppointmentAdress.Name = "txtAppointmentAdress";
             this.txtAppointmentAdress.Size = new System.Drawing.Size(196, 20);
-            this.txtAppointmentAdress.TabIndex = 6;
+            this.txtAppointmentAdress.TabIndex = 4;
             this.txtAppointmentAdress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAppointmentAdress_KeyDown);
             // 
             // txtAppointmentAdressZipcode
@@ -209,7 +211,7 @@ namespace BarrocIT
             this.txtAppointmentAdressZipcode.MaxLength = 6;
             this.txtAppointmentAdressZipcode.Name = "txtAppointmentAdressZipcode";
             this.txtAppointmentAdressZipcode.Size = new System.Drawing.Size(161, 20);
-            this.txtAppointmentAdressZipcode.TabIndex = 7;
+            this.txtAppointmentAdressZipcode.TabIndex = 5;
             this.txtAppointmentAdressZipcode.TextChanged += new System.EventHandler(this.txtAppointmentAdressZipcode_TextChanged);
             // 
             // dtpAppointmentTime
@@ -219,7 +221,7 @@ namespace BarrocIT
             this.dtpAppointmentTime.Location = new System.Drawing.Point(115, 195);
             this.dtpAppointmentTime.Name = "dtpAppointmentTime";
             this.dtpAppointmentTime.Size = new System.Drawing.Size(197, 20);
-            this.dtpAppointmentTime.TabIndex = 27;
+            this.dtpAppointmentTime.TabIndex = 6;
             // 
             // frmAddAppointments
             // 

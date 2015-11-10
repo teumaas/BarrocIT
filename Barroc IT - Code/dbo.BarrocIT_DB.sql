@@ -1,6 +1,7 @@
 CREATE TABLE [dbo].[tbl_customers] (
     [CustomerID]        INT           NOT NULL,
     [CustomerName]      NVARCHAR (50) NOT NULL,
+	[Company]      		NVARCHAR (50) NULL,
     [Adress1]           NVARCHAR (50) NOT NULL,
     [Adress2]           NVARCHAR (50) NULL,
     [City1]             NVARCHAR (50) NOT NULL,

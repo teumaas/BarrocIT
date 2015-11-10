@@ -52,69 +52,70 @@ namespace BarrocIT
             LedgerAccountNumber = LAN;
             TaxCode = TCode;
 
-                txtInvoiceID.Text = Convert.ToString(InvoiceID);
-                txtCustomerID.Text = Convert.ToString(CustomerID);
-                txtProjectID.Text = Convert.ToString(ProjectID);
-                dtpInvoiceDate.Text = Convert.ToString(InvoiceDate);
-                cmbInvoicePaid.SelectedIndex = int.Parse(Convert.ToString(InvoicePaid).Replace("False", "0").Replace("True", "1"));
-                cmbInvoiceSent.SelectedIndex = int.Parse(Convert.ToString(InvoiceSent).Replace("False", "0").Replace("True", "1"));
-                cmbInvoiceStatus.SelectedIndex = int.Parse(Convert.ToString(InvoiceStatus).Replace("False", "0").Replace("True", "1"));
-                txtInvoiceTerms.Text = Convert.ToString(InvoiceTerms);
-                dtpLastContactDate.Text = Convert.ToString(LastContactDate);
-                txtLedgerContactNumber.Text = Convert.ToString(LedgerAccountNumber);
-                txtTaxCode.Text = Convert.ToString(TaxCode);
+            txtInvoiceID.Text = Convert.ToString(InvoiceID);
+            txtCustomerID.Text = Convert.ToString(CustomerID);
+            txtProjectID.Text = Convert.ToString(ProjectID);
+            dtpInvoiceDate.Text = Convert.ToString(InvoiceDate);
+            cmbInvoicePaid.SelectedIndex = int.Parse(Convert.ToString(InvoicePaid).Replace("False", "0").Replace("True", "1"));
+            cmbInvoiceSent.SelectedIndex = int.Parse(Convert.ToString(InvoiceSent).Replace("False", "0").Replace("True", "1"));
+            cmbInvoiceStatus.SelectedIndex = int.Parse(Convert.ToString(InvoiceStatus).Replace("False", "0").Replace("True", "1"));
+            txtInvoiceTerms.Text = Convert.ToString(InvoiceTerms);
+            dtpLastContactDate.Text = Convert.ToString(LastContactDate);
+            txtLedgerContactNumber.Text = Convert.ToString(LedgerAccountNumber);
+            txtTaxCode.Text = Convert.ToString(TaxCode);
              
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-                if (!Validator.Match(txtInvoiceTerms.Text).Success)
-                {
-                    txtInvoiceTerms.BackColor = Color.IndianRed;
-                }
-                if (!Validator.Match(txtLedgerContactNumber.Text).Success)
-                {
-                    txtLedgerContactNumber.BackColor = Color.IndianRed;
-                }
-                if (!Validator.Match(txtTaxCode.Text).Success)
-                {
-                    txtTaxCode.BackColor = Color.IndianRed;
-                }
-                if (Validator.Match(txtInvoiceTerms.Text).Success && Validator.Match(txtLedgerContactNumber.Text).Success && Validator.Match(txtTaxCode.Text).Success)
-                {
-                    SQLHandler = new DatabaseHandler();
-                    SQLCommand = new SqlCommand("UPDATE tbl_invoices SET InvoiceDate = @InvoiceDate, InvoicePaid = @InvoicePaid, InvoiceSent = @InvoiceSent, InvoiceStatus = @InvoiceStatus, InvoiceTerms = @InvoiceTerms, LastContactDate = @LastContactDate, LedgerAccNum = @LedgerAccNum, TaxCode = @TaxCode WHERE @InvoiceID = InvoiceID", SQLHandler.getConnection());
+            if (!Validator.Match(txtInvoiceTerms.Text).Success)
+            {
+                txtInvoiceTerms.BackColor = Color.IndianRed;
+            }
+            if (!Validator.Match(txtLedgerContactNumber.Text).Success)
+            {
+                txtLedgerContactNumber.BackColor = Color.IndianRed;
+            }
+            if (!Validator.Match(txtTaxCode.Text).Success)
+            {
+                txtTaxCode.BackColor = Color.IndianRed;
+            }
+            if (Validator.Match(txtInvoiceTerms.Text).Success && Validator.Match(txtLedgerContactNumber.Text).Success &&
+                Validator.Match(txtTaxCode.Text).Success)
+            {
+                SQLHandler = new DatabaseHandler();
+                SQLCommand = new SqlCommand("UPDATE tbl_invoices SET InvoiceDate = @InvoiceDate, InvoicePaid = @InvoicePaid, InvoiceSent = @InvoiceSent, InvoiceStatus = @InvoiceStatus, InvoiceTerms = @InvoiceTerms, LastContactDate = @LastContactDate, LedgerAccNum = @LedgerAccNum, TaxCode = @TaxCode WHERE @InvoiceID = InvoiceID", SQLHandler.getConnection());
 
-                    InvoiceID = Convert.ToInt32(txtInvoiceID.Text);
-                    CustomerID = Convert.ToInt32(txtCustomerID.Text);
-                    ProjectID = Convert.ToInt32(txtProjectID.Text);
-                    InvoiceDate = Convert.ToDateTime(dtpInvoiceDate.Text);
-                    InvoicePaid = Convert.ToBoolean(cmbInvoicePaid.SelectedIndex);
-                    InvoiceSent = Convert.ToBoolean(cmbInvoiceSent.SelectedIndex);
-                    InvoiceStatus = Convert.ToBoolean(cmbInvoiceStatus.SelectedIndex);
-                    InvoiceTerms = Convert.ToString(txtInvoiceTerms.Text);
-                    LastContactDate = Convert.ToDateTime(dtpLastContactDate.Text);
-                    LedgerAccountNumber = Convert.ToString(txtLedgerContactNumber.Text);
-                    TaxCode = Convert.ToString(txtTaxCode.Text);
+                InvoiceID = Convert.ToInt32(txtInvoiceID.Text);
+                CustomerID = Convert.ToInt32(txtCustomerID.Text);
+                ProjectID = Convert.ToInt32(txtProjectID.Text);
+                InvoiceDate = Convert.ToDateTime(dtpInvoiceDate.Text);
+                InvoicePaid = Convert.ToBoolean(cmbInvoicePaid.SelectedIndex);
+                InvoiceSent = Convert.ToBoolean(cmbInvoiceSent.SelectedIndex);
+                InvoiceStatus = Convert.ToBoolean(cmbInvoiceStatus.SelectedIndex);
+                InvoiceTerms = Convert.ToString(txtInvoiceTerms.Text);
+                LastContactDate = Convert.ToDateTime(dtpLastContactDate.Text);
+                LedgerAccountNumber = Convert.ToString(txtLedgerContactNumber.Text);
+                TaxCode = Convert.ToString(txtTaxCode.Text);
 
-                    SQLCommand.Parameters.AddWithValue("@InvoiceID", InvoiceID);
-                    SQLCommand.Parameters.AddWithValue("@InvoiceDate", InvoiceDate);
-                    SQLCommand.Parameters.AddWithValue("@InvoicePaid", InvoicePaid);
-                    SQLCommand.Parameters.AddWithValue("@InvoiceSent", InvoiceSent);
-                    SQLCommand.Parameters.AddWithValue("@InvoiceStatus", InvoiceStatus);
-                    SQLCommand.Parameters.AddWithValue("@InvoiceTerms", InvoiceTerms);
-                    SQLCommand.Parameters.AddWithValue("@LastContactDate", LastContactDate);
-                    SQLCommand.Parameters.AddWithValue("@LedgerAccNum", LedgerAccountNumber);
-                    SQLCommand.Parameters.AddWithValue("@TaxCode", TaxCode);
+                SQLCommand.Parameters.AddWithValue("@InvoiceID", InvoiceID);
+                SQLCommand.Parameters.AddWithValue("@InvoiceDate", InvoiceDate);
+                SQLCommand.Parameters.AddWithValue("@InvoicePaid", InvoicePaid);
+                SQLCommand.Parameters.AddWithValue("@InvoiceSent", InvoiceSent);
+                SQLCommand.Parameters.AddWithValue("@InvoiceStatus", InvoiceStatus);
+                SQLCommand.Parameters.AddWithValue("@InvoiceTerms", InvoiceTerms);
+                SQLCommand.Parameters.AddWithValue("@LastContactDate", LastContactDate);
+                SQLCommand.Parameters.AddWithValue("@LedgerAccNum", LedgerAccountNumber);
+                SQLCommand.Parameters.AddWithValue("@TaxCode", TaxCode);
 
-                    SQLHandler.openConnection();
-                    SQLCommand.ExecuteNonQuery();
-                    SQLHandler.closeConnection();
+                SQLHandler.openConnection();
+                SQLCommand.ExecuteNonQuery();
+                SQLHandler.closeConnection();
 
-                    frminvoices.refreshDataGridView();
-                    frminvoices.Enabled = true;
-                    Dispose();
-                    frminvoices.Activate();
+                frminvoices.refreshDataGridView();
+                frminvoices.Enabled = true;
+                Dispose();
+                frminvoices.Activate();
             }
         }
 
@@ -127,21 +128,6 @@ namespace BarrocIT
                 Dispose();
                 frminvoices.Activate();
             }
-        }
-
-        private void cmbInvoicePaid_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbInvoiceSent_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbInvoiceStatus_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
         }
 
         private void frmEditInvoices_FormClosing(object sender, FormClosingEventArgs e)
@@ -186,6 +172,21 @@ namespace BarrocIT
         private void cmbInvoiceStatus_Click(object sender, EventArgs e)
         {
             cmbInvoiceStatus.DroppedDown = true;
+        }
+
+        private void cmbInvoicePaid_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbInvoiceSent_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbInvoiceStatus_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
     }
 }

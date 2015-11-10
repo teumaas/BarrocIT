@@ -39,6 +39,7 @@ namespace BarrocIT
         {
             InitializeComponent();
 
+            SQLCommand = new SqlCommand();
             SQLHandler = new DatabaseHandler();
             Datagrids = new DataGridView[4] { dataGridViewCustomers, dataGridViewInvoices, dataGridViewProjects, dataGridViewAppointments };
 
@@ -56,14 +57,6 @@ namespace BarrocIT
             tabProjects.ImageIndex = 2;
             tabAppointments.ImageIndex = 3;
 
-            for (int i = 0; i <= 16; i++)
-            {
-                dataGridViewCustomers.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridViewInvoices.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridViewProjects.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGridViewAppointments.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            }
-
             Username = User;
             lblWhoami.Text += Username;
 
@@ -80,98 +73,87 @@ namespace BarrocIT
         }
         private void btnCustomersAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Add = new frmAddCustomers(this);
-                this.Enabled = false;
-                Add.Show();
-            }
-            catch { }
+            Add = new frmAddCustomers(this);
+            this.Enabled = false;
+            Add.Show();
         }
 
         private void btnCustomersEdit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int CustomerID = (int)dataGridViewCustomers.CurrentRow.Cells[0].Value;
-                string CustomerName = (string)dataGridViewCustomers.CurrentRow.Cells[1].Value;
-                string CustomerAdress1 = (string)dataGridViewCustomers.CurrentRow.Cells[2].Value;
-                string CustomerAdress2 = dataGridViewCustomers.CurrentRow.Cells[3].Value.ToString();
-                string CustomerCity1 = (string)dataGridViewCustomers.CurrentRow.Cells[4].Value;
-                string CustomerCity2 = dataGridViewCustomers.CurrentRow.Cells[5].Value.ToString();
-                string CustomerPhoneNumber1 = (string)dataGridViewCustomers.CurrentRow.Cells[6].Value;
-                string CustomerPhoneNumber2 = dataGridViewCustomers.CurrentRow.Cells[7].Value.ToString();
-                string CustomerZipCode1 = (string)dataGridViewCustomers.CurrentRow.Cells[8].Value;
-                string CustomerZipCode2 = dataGridViewCustomers.CurrentRow.Cells[9].Value.ToString();
-                string CustomerFaxNumber = dataGridViewCustomers.CurrentRow.Cells[10].Value.ToString();
-                string CustomerContactPerson = (string)dataGridViewCustomers.CurrentRow.Cells[11].Value;
-                string CustomerEmail = (string)dataGridViewCustomers.CurrentRow.Cells[12].Value;
-                string CustomerBankNumber = (string)dataGridViewCustomers.CurrentRow.Cells[13].Value;
-                bool CustomerCreditWorthy = (bool)dataGridViewCustomers.CurrentRow.Cells[14].Value;
-                bool CustomerBKRCheck = (bool)dataGridViewCustomers.CurrentRow.Cells[15].Value;
-                bool CustomerPotential = (bool)dataGridViewCustomers.CurrentRow.Cells[16].Value;
+            int CustomerID = (int)dataGridViewCustomers.CurrentRow.Cells[0].Value;
+            string CustomerName = (string)dataGridViewCustomers.CurrentRow.Cells[1].Value;
+            string CustomerCompany = (string)dataGridViewCustomers.CurrentRow.Cells[2].Value;
+            string CustomerAdress1 = (string)dataGridViewCustomers.CurrentRow.Cells[3].Value;
+            string CustomerAdress2 = dataGridViewCustomers.CurrentRow.Cells[4].Value.ToString();
+            string CustomerCity1 = (string)dataGridViewCustomers.CurrentRow.Cells[5].Value;
+            string CustomerCity2 = dataGridViewCustomers.CurrentRow.Cells[6].Value.ToString();
+            string CustomerPhoneNumber1 = (string)dataGridViewCustomers.CurrentRow.Cells[7].Value;
+            string CustomerPhoneNumber2 = dataGridViewCustomers.CurrentRow.Cells[8].Value.ToString();
+            string CustomerZipCode1 = (string)dataGridViewCustomers.CurrentRow.Cells[9].Value;
+            string CustomerZipCode2 = dataGridViewCustomers.CurrentRow.Cells[10].Value.ToString();
+            string CustomerFaxNumber = dataGridViewCustomers.CurrentRow.Cells[11].Value.ToString();
+            string CustomerContactPerson = (string)dataGridViewCustomers.CurrentRow.Cells[12].Value;
+            string CustomerEmail = (string)dataGridViewCustomers.CurrentRow.Cells[13].Value;
+            string CustomerBankNumber = (string)dataGridViewCustomers.CurrentRow.Cells[14].Value;
+            bool CustomerCreditWorthy = (bool)dataGridViewCustomers.CurrentRow.Cells[15].Value;
+            bool CustomerBKRCheck = (bool)dataGridViewCustomers.CurrentRow.Cells[16].Value;
+            bool CustomerPotential = (bool)dataGridViewCustomers.CurrentRow.Cells[17].Value;
 
-                Edit = new frmEditCustomers(CustomerID, CustomerName, CustomerAdress1, CustomerAdress2, CustomerCity1, CustomerCity2, CustomerPhoneNumber1, CustomerPhoneNumber2, CustomerZipCode1, CustomerZipCode2, CustomerFaxNumber, CustomerContactPerson, CustomerEmail, CustomerBankNumber, CustomerCreditWorthy, CustomerBKRCheck, CustomerPotential, this);
-                this.Enabled = false;
-                Edit.Show();
-            }
-            catch {}
+            Edit = new frmEditCustomers(CustomerID, CustomerName, CustomerCompany, CustomerAdress1, CustomerAdress2, CustomerCity1, CustomerCity2, CustomerPhoneNumber1, CustomerPhoneNumber2, CustomerZipCode1, CustomerZipCode2, CustomerFaxNumber, CustomerContactPerson, CustomerEmail, CustomerBankNumber, CustomerCreditWorthy, CustomerBKRCheck, CustomerPotential, this);
+            this.Enabled = false;
+            Edit.Show();
         }
 
         private void btnCustomersRemove_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult remove = MessageBox.Show("Do you really wish to remove this customer?", "Remove", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (remove == DialogResult.Cancel)
             {
-                object CustomerID = dataGridViewCustomers.CurrentRow.Cells[0].Value;
-
-                SQLHandler.deleteFROMbyObject(CustomerID, "CustomerID", "tbl_customers");
-
-                FillDataGrids("*", "tbl_customers");
             }
-            catch
+            else if (remove == DialogResult.OK)
             {
-                MessageBox.Show("There are still projects/invoices/appointments bound to this customer. Or there are no customers to remove.", "Caution!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                FillDataGrids("*", "tbl_customers");
+                try
+                {
+                    object CustomerID = dataGridViewCustomers.CurrentRow.Cells[0].Value;
+
+                    SQLHandler.deleteFROMbyObject(CustomerID, "CustomerID", "tbl_customers");
+
+                    FillDataGrids("*", "tbl_customers");
+                    checkifDataGridisEmpty();
+                }
+                catch
+                {
+                    MessageBox.Show("There are still projects/invoices/appointments bound to this customer.", "Caution!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    FillDataGrids("*", "tbl_customers");
+                }
             }
         }
 
         private void btnInvoicesView_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int CustomerID = (int)dataGridViewInvoices.CurrentRow.Cells[0].Value;
+            int CustomerID = (int) dataGridViewInvoices.CurrentRow.Cells[0].Value;
 
-                Invoices = new frmInvoices(Username, CustomerID, this);
-                this.Enabled = false;
-                Invoices.Show();
-            }
-            catch {}
+            Invoices = new frmInvoices(Username, CustomerID, this);
+            this.Enabled = false;
+            Invoices.Show();
         }
 
         private void btnProjectsView_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int CustomerID = (int)dataGridViewProjects.CurrentRow.Cells[0].Value;
+            int CustomerID = (int) dataGridViewProjects.CurrentRow.Cells[0].Value;
 
-                Projects = new frmProjects(Username, CustomerID, this);
-                this.Enabled = false;
-                Projects.Show();
-            }
-            catch {}
+            Projects = new frmProjects(Username, CustomerID, this);
+            this.Enabled = false;
+            Projects.Show();
         }
 
         private void btnAppointmentsView_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int CustomerID = (int)dataGridViewAppointments.CurrentRow.Cells[0].Value;
+            int CustomerID = (int) dataGridViewAppointments.CurrentRow.Cells[0].Value;
 
-                Appointments = new frmAppointments(Username, CustomerID, this);
-                this.Enabled = false;
-                Appointments.Show();
-            }
-            catch {}
+            Appointments = new frmAppointments(Username, CustomerID, this);
+            this.Enabled = false;
+            Appointments.Show();
         }
 
         private void itemRefresh_Click(object sender, EventArgs e)
@@ -200,6 +182,16 @@ namespace BarrocIT
             dataGridViewInvoices.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
             dataGridViewProjects.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
             dataGridViewAppointments.DataSource = SQLHandler.SQLCommand("SELECT " + column + " FROM " + table + ";");
+
+            for (int i = 0; i <= 16; i++)
+            {
+                dataGridViewCustomers.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridViewInvoices.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridViewProjects.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridViewAppointments.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+
+            checkifDataGridisEmpty();
         }
 
         private void tabConDepartments_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,6 +221,51 @@ namespace BarrocIT
             Calendar.Show();
         }
 
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult exit = MessageBox.Show("Do you really wish to exit?", "Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (exit == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else if (exit == DialogResult.OK)
+            {
+                e.Cancel = false;
+                Application.ExitThread();
+                Dispose();
+                Application.Exit();
+            }
+        }
+
+        public void checkifDataGridisEmpty()
+        {
+            if (dataGridViewCustomers.Rows.Count == 0)
+            {
+                btnCustomersRemove.Enabled = false;
+                btnCustomersPrintInfo.Enabled = false;
+                btnCustomersEdit.Enabled = false;
+                btnProjectsView.Enabled = false;
+                btnAppointmentsCalendar.Enabled = false;
+                btnAppointmentsView.Enabled = false;
+                btnInvoicesView.Enabled = false;
+            }
+            else
+            {
+                btnCustomersRemove.Enabled = true;
+                btnCustomersPrintInfo.Enabled = true;
+                btnCustomersEdit.Enabled = true;
+                btnProjectsView.Enabled = true;
+                btnAppointmentsCalendar.Enabled = true;
+                btnAppointmentsView.Enabled = true;
+                btnInvoicesView.Enabled = true;
+            }
+        }
+        private void itemExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        // Made by Santino Bonora
         private void btnCustomersPrintInfo_Click(object sender, EventArgs e)
         {
             try
@@ -298,6 +335,7 @@ namespace BarrocIT
             }
         }
 
+        // Made by Santino Bonora
         private void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Invoices";
@@ -327,27 +365,6 @@ namespace BarrocIT
                 ev.HasMorePages = true;
             else
                 ev.HasMorePages = false;
-        }
-
-        private void itemExit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult exit = MessageBox.Show("Do you really wish to exit?", "Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (exit == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
-            else if (exit == DialogResult.OK)
-            {
-                e.Cancel = false;
-                Application.ExitThread();
-                Dispose();
-                Application.Exit();
-            }
         }
     }
 }

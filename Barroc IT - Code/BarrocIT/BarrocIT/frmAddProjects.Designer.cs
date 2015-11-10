@@ -55,7 +55,8 @@
             this.btnCancel.Location = new System.Drawing.Point(198, 199);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(115, 25);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -68,7 +69,8 @@
             this.btnCreate.Location = new System.Drawing.Point(12, 199);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(115, 25);
-            this.btnCreate.TabIndex = 8;
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.TabStop = false;
             this.btnCreate.Text = "Create";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -80,7 +82,8 @@
             this.txtProjectID.Location = new System.Drawing.Point(83, 12);
             this.txtProjectID.Name = "txtProjectID";
             this.txtProjectID.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectID.TabIndex = 1;
+            this.txtProjectID.TabIndex = 0;
+            this.txtProjectID.TabStop = false;
             // 
             // txtProjectName
             // 
@@ -88,7 +91,7 @@
             this.txtProjectName.MaxLength = 50;
             this.txtProjectName.Name = "txtProjectName";
             this.txtProjectName.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectName.TabIndex = 3;
+            this.txtProjectName.TabIndex = 1;
             this.txtProjectName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectName_KeyDown);
             // 
             // txtProjectPrice
@@ -97,7 +100,7 @@
             this.txtProjectPrice.MaxLength = 50;
             this.txtProjectPrice.Name = "txtProjectPrice";
             this.txtProjectPrice.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectPrice.TabIndex = 5;
+            this.txtProjectPrice.TabIndex = 3;
             this.txtProjectPrice.Enter += new System.EventHandler(this.txtProjectPrice_Enter);
             this.txtProjectPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectPrice_KeyDown);
             this.txtProjectPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProjectPrice_KeyPress);
@@ -108,7 +111,7 @@
             this.txtProjectLimit.MaxLength = 50;
             this.txtProjectLimit.Name = "txtProjectLimit";
             this.txtProjectLimit.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectLimit.TabIndex = 6;
+            this.txtProjectLimit.TabIndex = 4;
             this.txtProjectLimit.Enter += new System.EventHandler(this.txtProjectLimit_Enter);
             this.txtProjectLimit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectLimit_KeyDown);
             this.txtProjectLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProjectLimit_KeyPress);
@@ -167,7 +170,7 @@
             this.cmbProjectStatus.Location = new System.Drawing.Point(83, 90);
             this.cmbProjectStatus.Name = "cmbProjectStatus";
             this.cmbProjectStatus.Size = new System.Drawing.Size(229, 21);
-            this.cmbProjectStatus.TabIndex = 4;
+            this.cmbProjectStatus.TabIndex = 2;
             this.cmbProjectStatus.Text = "Unfinished";
             this.cmbProjectStatus.Click += new System.EventHandler(this.cmbProjectStatus_Click);
             this.cmbProjectStatus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProjectStatus_KeyDown);
@@ -190,7 +193,7 @@
             this.cmbMaintenceContact.Location = new System.Drawing.Point(115, 168);
             this.cmbMaintenceContact.Name = "cmbMaintenceContact";
             this.cmbMaintenceContact.Size = new System.Drawing.Size(197, 21);
-            this.cmbMaintenceContact.TabIndex = 7;
+            this.cmbMaintenceContact.TabIndex = 5;
             this.cmbMaintenceContact.Text = "No";
             this.cmbMaintenceContact.Click += new System.EventHandler(this.cmbMaintenceContact_Click);
             this.cmbMaintenceContact.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbMaintenceContact_KeyDown);
@@ -210,7 +213,8 @@
             this.txtCustomerID.Location = new System.Drawing.Point(83, 38);
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(229, 20);
-            this.txtCustomerID.TabIndex = 11;
+            this.txtCustomerID.TabIndex = 0;
+            this.txtCustomerID.TabStop = false;
             // 
             // frmAddProjects
             // 

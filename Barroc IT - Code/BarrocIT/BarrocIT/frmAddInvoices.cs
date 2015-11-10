@@ -135,21 +135,6 @@ namespace BarrocIT
             }
         }
 
-        private void cmbInvoicePaid_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbInvoiceSent_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
-        private void cmbInvoiceStatus_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
         private void frmAddInvoices_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult exit = MessageBox.Show("Do you really wish to cancel?", "Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -197,6 +182,21 @@ namespace BarrocIT
         private void cmbInvoiceStatus_Click(object sender, EventArgs e)
         {
             cmbInvoiceStatus.DroppedDown = true;
+        }
+
+        private void cmbInvoicePaid_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbInvoiceSent_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void cmbInvoiceStatus_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
     }
 }

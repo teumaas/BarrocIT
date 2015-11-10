@@ -84,7 +84,7 @@ namespace BarrocIT
             this.lblCustomerID.Location = new System.Drawing.Point(13, 41);
             this.lblCustomerID.Name = "lblCustomerID";
             this.lblCustomerID.Size = new System.Drawing.Size(68, 13);
-            this.lblCustomerID.TabIndex = 26;
+            this.lblCustomerID.TabIndex = 0;
             this.lblCustomerID.Text = "Customer ID:";
             // 
             // txtCustomerID
@@ -93,7 +93,8 @@ namespace BarrocIT
             this.txtCustomerID.Location = new System.Drawing.Point(83, 38);
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(229, 20);
-            this.txtCustomerID.TabIndex = 27;
+            this.txtCustomerID.TabIndex = 0;
+            this.txtCustomerID.TabStop = false;
             // 
             // cmbMaintenceContact
             // 
@@ -104,7 +105,7 @@ namespace BarrocIT
             this.cmbMaintenceContact.Location = new System.Drawing.Point(115, 168);
             this.cmbMaintenceContact.Name = "cmbMaintenceContact";
             this.cmbMaintenceContact.Size = new System.Drawing.Size(197, 21);
-            this.cmbMaintenceContact.TabIndex = 23;
+            this.cmbMaintenceContact.TabIndex = 5;
             this.cmbMaintenceContact.Text = "No";
             this.cmbMaintenceContact.Click += new System.EventHandler(this.cmbMaintenceContact_Click);
             this.cmbMaintenceContact.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbMaintenceContact_KeyDown);
@@ -118,7 +119,7 @@ namespace BarrocIT
             this.cmbProjectStatus.Location = new System.Drawing.Point(83, 90);
             this.cmbProjectStatus.Name = "cmbProjectStatus";
             this.cmbProjectStatus.Size = new System.Drawing.Size(229, 21);
-            this.cmbProjectStatus.TabIndex = 20;
+            this.cmbProjectStatus.TabIndex = 2;
             this.cmbProjectStatus.Text = "Unfinished";
             this.cmbProjectStatus.Click += new System.EventHandler(this.cmbProjectStatus_Click);
             this.cmbProjectStatus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbProjectStatus_KeyDown);
@@ -129,7 +130,7 @@ namespace BarrocIT
             this.lblMaintenceContact.Location = new System.Drawing.Point(13, 171);
             this.lblMaintenceContact.Name = "lblMaintenceContact";
             this.lblMaintenceContact.Size = new System.Drawing.Size(100, 13);
-            this.lblMaintenceContact.TabIndex = 12;
+            this.lblMaintenceContact.TabIndex = 0;
             this.lblMaintenceContact.Text = "Maintence Contact:";
             // 
             // lblProjectLimit
@@ -138,7 +139,7 @@ namespace BarrocIT
             this.lblProjectLimit.Location = new System.Drawing.Point(14, 145);
             this.lblProjectLimit.Name = "lblProjectLimit";
             this.lblProjectLimit.Size = new System.Drawing.Size(67, 13);
-            this.lblProjectLimit.TabIndex = 13;
+            this.lblProjectLimit.TabIndex = 0;
             this.lblProjectLimit.Text = "Project Limit:";
             // 
             // lblProjectPrice
@@ -147,7 +148,7 @@ namespace BarrocIT
             this.lblProjectPrice.Location = new System.Drawing.Point(11, 119);
             this.lblProjectPrice.Name = "lblProjectPrice";
             this.lblProjectPrice.Size = new System.Drawing.Size(70, 13);
-            this.lblProjectPrice.TabIndex = 14;
+            this.lblProjectPrice.TabIndex = 0;
             this.lblProjectPrice.Text = "Project Price:";
             // 
             // lblProjectStatus
@@ -156,7 +157,7 @@ namespace BarrocIT
             this.lblProjectStatus.Location = new System.Drawing.Point(5, 93);
             this.lblProjectStatus.Name = "lblProjectStatus";
             this.lblProjectStatus.Size = new System.Drawing.Size(76, 13);
-            this.lblProjectStatus.TabIndex = 15;
+            this.lblProjectStatus.TabIndex = 0;
             this.lblProjectStatus.Text = "Project Status:";
             // 
             // lblProjectName
@@ -165,7 +166,7 @@ namespace BarrocIT
             this.lblProjectName.Location = new System.Drawing.Point(7, 67);
             this.lblProjectName.Name = "lblProjectName";
             this.lblProjectName.Size = new System.Drawing.Size(74, 13);
-            this.lblProjectName.TabIndex = 16;
+            this.lblProjectName.TabIndex = 0;
             this.lblProjectName.Text = "Project Name:";
             // 
             // lblProjectID
@@ -174,7 +175,7 @@ namespace BarrocIT
             this.lblProjectID.Location = new System.Drawing.Point(24, 15);
             this.lblProjectID.Name = "lblProjectID";
             this.lblProjectID.Size = new System.Drawing.Size(57, 13);
-            this.lblProjectID.TabIndex = 17;
+            this.lblProjectID.TabIndex = 0;
             this.lblProjectID.Text = "Project ID:";
             // 
             // txtProjectLimit
@@ -183,7 +184,7 @@ namespace BarrocIT
             this.txtProjectLimit.MaxLength = 50;
             this.txtProjectLimit.Name = "txtProjectLimit";
             this.txtProjectLimit.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectLimit.TabIndex = 22;
+            this.txtProjectLimit.TabIndex = 3;
             this.txtProjectLimit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectLimit_KeyDown);
             this.txtProjectLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProjectLimit_KeyPress);
             // 
@@ -193,7 +194,7 @@ namespace BarrocIT
             this.txtProjectPrice.MaxLength = 50;
             this.txtProjectPrice.Name = "txtProjectPrice";
             this.txtProjectPrice.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectPrice.TabIndex = 21;
+            this.txtProjectPrice.TabIndex = 3;
             this.txtProjectPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectPrice_KeyDown);
             this.txtProjectPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProjectPrice_KeyPress);
             // 
@@ -203,7 +204,7 @@ namespace BarrocIT
             this.txtProjectName.MaxLength = 50;
             this.txtProjectName.Name = "txtProjectName";
             this.txtProjectName.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectName.TabIndex = 19;
+            this.txtProjectName.TabIndex = 1;
             this.txtProjectName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectName_KeyDown);
             // 
             // txtProjectID
@@ -212,7 +213,8 @@ namespace BarrocIT
             this.txtProjectID.Location = new System.Drawing.Point(83, 12);
             this.txtProjectID.Name = "txtProjectID";
             this.txtProjectID.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectID.TabIndex = 18;
+            this.txtProjectID.TabIndex = 0;
+            this.txtProjectID.TabStop = false;
             // 
             // frmEditProjects
             // 

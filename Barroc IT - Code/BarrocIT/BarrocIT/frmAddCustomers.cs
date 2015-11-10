@@ -25,6 +25,7 @@ namespace BarrocIT
 
         private int CustomerID;
         private string CustomerName;
+        private string CustomerCompany;
         private string CustomerAdress1;
         private string CustomerAdress2;
         private string CustomerCity1;
@@ -95,10 +96,11 @@ namespace BarrocIT
             }
             if (Validator.Match(txtCustomerName.Text).Success && Validator.Match(txtCustomerAdress1.Text).Success && Validator.Match(txtCustomerCity1.Text).Success && Validator.Match(txtCustomerPhoneNumber1.Text).Success && Validator.Match(txtCustomerZipCode1.Text).Success && Validator.Match(txtCustomerContactPerson.Text).Success && Validator.Match(txtCustomerEmail.Text).Success && Validator.Match(txtCustomerBankNumber.Text).Success)
             {
-                SQLCommand = new SqlCommand("INSERT INTO tbl_customers (CustomerID, CustomerName, Adress1, Adress2, City1, City2, PhoneNum1, PhoneNum2, ZipCode1, ZipCode2, FaxNum, ContactPerson, Email, BankNum, CreditWorthy, BKRCheck, PotentialCustomer) VALUES (@CustomerID, @CustomerName, @Adress1, @Adress2, @City1, @City2, @PhoneNum1, @PhoneNum2, @ZipCode1, @ZipCode2, @FaxNum, @ContactPerson, @Email, @BankNum, @CreditWorthy, @BKRCheck, @PotentialCustomer)", SQLHandler.getConnection());
+                SQLCommand = new SqlCommand("INSERT INTO tbl_customers (CustomerID, CustomerName, Company, Adress1, Adress2, City1, City2, PhoneNum1, PhoneNum2, ZipCode1, ZipCode2, FaxNum, ContactPerson, Email, BankNum, CreditWorthy, BKRCheck, PotentialCustomer) VALUES (@CustomerID, @CustomerName, @Company, @Adress1, @Adress2, @City1, @City2, @PhoneNum1, @PhoneNum2, @ZipCode1, @ZipCode2, @FaxNum, @ContactPerson, @Email, @BankNum, @CreditWorthy, @BKRCheck, @PotentialCustomer)", SQLHandler.getConnection());
 
                 CustomerID = Convert.ToInt32(txtCustomerID.Text);
                 CustomerName = txtCustomerName.Text;
+                CustomerCompany = txtComany.Text;
                 CustomerAdress1 = txtCustomerAdress1.Text;
                 if (txtCustomerAdress2.Text == "")
                 {
@@ -152,6 +154,7 @@ namespace BarrocIT
 
                 SQLCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
                 SQLCommand.Parameters.AddWithValue("@CustomerName", CustomerName);
+                SQLCommand.Parameters.AddWithValue("@Company", CustomerCompany);
                 SQLCommand.Parameters.AddWithValue("@Adress1", CustomerAdress1);
                 SQLCommand.Parameters.AddWithValue("@Adress2", CustomerAdress2);
                 SQLCommand.Parameters.AddWithValue("@City1", CustomerCity1);
@@ -176,6 +179,7 @@ namespace BarrocIT
                 frmmain.Enabled = true;
                 Dispose();
                 frmmain.Activate();
+                frmmain.checkifDataGridisEmpty();
             }
         }
         
@@ -187,6 +191,20 @@ namespace BarrocIT
                 frmmain.Enabled = true;
                 Dispose();
                 frmmain.Activate();
+            }
+        }
+
+        private void frmAddCustomers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult exit = MessageBox.Show("Do you really wish to cancel?", "Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (exit == DialogResult.Cancel)
+            {
+                e.Cancel = true; 
+            }
+            else if (exit == DialogResult.OK)
+            {
+                e.Cancel = false;
+                frmmain.Enabled = true;
             }
         }
 
@@ -205,20 +223,19 @@ namespace BarrocIT
             e.SuppressKeyPress = true;
         }
 
-        private void frmAddCustomers_FormClosing(object sender, FormClosingEventArgs e)
+        private void cmbCustomerCreditWorthy_Click(object sender, EventArgs e)
         {
-            DialogResult exit = MessageBox.Show("Do you really wish to cancel?", "Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (exit == DialogResult.Cancel)
-            {
-                e.Cancel = true; 
-            }
-            else if (exit == DialogResult.OK)
-            {
-                e.Cancel = false;
-                frmmain.Enabled = true;
-            }
+            cmbCustomerCreditWorthy.DroppedDown = true;
+        }
+        private void cmbCustomerBKRCheck_Click(object sender, EventArgs e)
+        {
+            cmbCustomerBKRCheck.DroppedDown = true;
         }
 
+        private void cmbCustomerPotential_Click(object sender, EventArgs e)
+        {
+            cmbCustomerPotential.DroppedDown = true;
+        }
         private void txtCustomerName_KeyDown(object sender, KeyEventArgs e)
         {
             txtCustomerName.BackColor = SystemColors.Window;
@@ -259,19 +276,9 @@ namespace BarrocIT
             txtCustomerBankNumber.BackColor = SystemColors.Window;
         }
 
-        private void cmbCustomerCreditWorthy_Click(object sender, EventArgs e)
+        private void frmAddCustomers_Load(object sender, EventArgs e)
         {
-            cmbCustomerCreditWorthy.DroppedDown = true;
-        }
 
-        private void cmbCustomerBKRCheck_Click(object sender, EventArgs e)
-        {
-            cmbCustomerBKRCheck.DroppedDown = true;
-        }
-
-        private void cmbCustomerPotential_Click(object sender, EventArgs e)
-        {
-            cmbCustomerPotential.DroppedDown = true;
         }
     }
 }

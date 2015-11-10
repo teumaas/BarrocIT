@@ -78,7 +78,7 @@ namespace BarrocIT
             this.lblProjectID.Location = new System.Drawing.Point(24, 67);
             this.lblProjectID.Name = "lblProjectID";
             this.lblProjectID.Size = new System.Drawing.Size(57, 13);
-            this.lblProjectID.TabIndex = 26;
+            this.lblProjectID.TabIndex = 0;
             this.lblProjectID.Text = "Project ID:";
             // 
             // txtProjectID
@@ -86,7 +86,7 @@ namespace BarrocIT
             this.txtProjectID.Location = new System.Drawing.Point(83, 64);
             this.txtProjectID.Name = "txtProjectID";
             this.txtProjectID.Size = new System.Drawing.Size(229, 20);
-            this.txtProjectID.TabIndex = 3;
+            this.txtProjectID.TabIndex = 1;
             this.txtProjectID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProjectID_KeyDown);
             // 
             // cmbInvoicePaid
@@ -98,7 +98,7 @@ namespace BarrocIT
             this.cmbInvoicePaid.Location = new System.Drawing.Point(83, 116);
             this.cmbInvoicePaid.Name = "cmbInvoicePaid";
             this.cmbInvoicePaid.Size = new System.Drawing.Size(229, 21);
-            this.cmbInvoicePaid.TabIndex = 5;
+            this.cmbInvoicePaid.TabIndex = 3;
             this.cmbInvoicePaid.Text = "Not payed";
             this.cmbInvoicePaid.Click += new System.EventHandler(this.cmbInvoicePaid_Click);
             this.cmbInvoicePaid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbInvoicePaid_KeyDown);
@@ -109,7 +109,7 @@ namespace BarrocIT
             this.lblInvoiceTerms.Location = new System.Drawing.Point(4, 198);
             this.lblInvoiceTerms.Name = "lblInvoiceTerms";
             this.lblInvoiceTerms.Size = new System.Drawing.Size(77, 13);
-            this.lblInvoiceTerms.TabIndex = 12;
+            this.lblInvoiceTerms.TabIndex = 0;
             this.lblInvoiceTerms.Text = "Invoice Terms:";
             // 
             // lblInvoiceStatus
@@ -118,7 +118,7 @@ namespace BarrocIT
             this.lblInvoiceStatus.Location = new System.Drawing.Point(3, 171);
             this.lblInvoiceStatus.Name = "lblInvoiceStatus";
             this.lblInvoiceStatus.Size = new System.Drawing.Size(78, 13);
-            this.lblInvoiceStatus.TabIndex = 13;
+            this.lblInvoiceStatus.TabIndex = 0;
             this.lblInvoiceStatus.Text = "Invoice Status:";
             // 
             // lblInvoiceSent
@@ -127,7 +127,7 @@ namespace BarrocIT
             this.lblInvoiceSent.Location = new System.Drawing.Point(11, 145);
             this.lblInvoiceSent.Name = "lblInvoiceSent";
             this.lblInvoiceSent.Size = new System.Drawing.Size(70, 13);
-            this.lblInvoiceSent.TabIndex = 14;
+            this.lblInvoiceSent.TabIndex = 0;
             this.lblInvoiceSent.Text = "Invoice Sent:";
             // 
             // lblInvoicePaid
@@ -136,7 +136,7 @@ namespace BarrocIT
             this.lblInvoicePaid.Location = new System.Drawing.Point(12, 119);
             this.lblInvoicePaid.Name = "lblInvoicePaid";
             this.lblInvoicePaid.Size = new System.Drawing.Size(69, 13);
-            this.lblInvoicePaid.TabIndex = 15;
+            this.lblInvoicePaid.TabIndex = 0;
             this.lblInvoicePaid.Text = "Invoice Paid:";
             // 
             // lblInvoiceDate
@@ -145,7 +145,7 @@ namespace BarrocIT
             this.lblInvoiceDate.Location = new System.Drawing.Point(10, 93);
             this.lblInvoiceDate.Name = "lblInvoiceDate";
             this.lblInvoiceDate.Size = new System.Drawing.Size(71, 13);
-            this.lblInvoiceDate.TabIndex = 16;
+            this.lblInvoiceDate.TabIndex = 0;
             this.lblInvoiceDate.Text = "Invoice Date:";
             // 
             // lblInvoiceID
@@ -154,7 +154,7 @@ namespace BarrocIT
             this.lblInvoiceID.Location = new System.Drawing.Point(17, 15);
             this.lblInvoiceID.Name = "lblInvoiceID";
             this.lblInvoiceID.Size = new System.Drawing.Size(64, 13);
-            this.lblInvoiceID.TabIndex = 17;
+            this.lblInvoiceID.TabIndex = 0;
             this.lblInvoiceID.Text = "Invoices ID:";
             // 
             // txtInvoiceID
@@ -163,7 +163,8 @@ namespace BarrocIT
             this.txtInvoiceID.Location = new System.Drawing.Point(83, 12);
             this.txtInvoiceID.Name = "txtInvoiceID";
             this.txtInvoiceID.Size = new System.Drawing.Size(229, 20);
-            this.txtInvoiceID.TabIndex = 1;
+            this.txtInvoiceID.TabIndex = 0;
+            this.txtInvoiceID.TabStop = false;
             // 
             // lblLastContactDate
             // 
@@ -171,7 +172,7 @@ namespace BarrocIT
             this.lblLastContactDate.Location = new System.Drawing.Point(1, 223);
             this.lblLastContactDate.Name = "lblLastContactDate";
             this.lblLastContactDate.Size = new System.Drawing.Size(93, 13);
-            this.lblLastContactDate.TabIndex = 12;
+            this.lblLastContactDate.TabIndex = 0;
             this.lblLastContactDate.Text = "Last contact date:";
             // 
             // lblLedgerAccountNumber
@@ -180,7 +181,7 @@ namespace BarrocIT
             this.lblLedgerAccountNumber.Location = new System.Drawing.Point(1, 248);
             this.lblLedgerAccountNumber.Name = "lblLedgerAccountNumber";
             this.lblLedgerAccountNumber.Size = new System.Drawing.Size(123, 13);
-            this.lblLedgerAccountNumber.TabIndex = 12;
+            this.lblLedgerAccountNumber.TabIndex = 0;
             this.lblLedgerAccountNumber.Text = "Ledger account number:";
             // 
             // lblTaxCode
@@ -189,7 +190,7 @@ namespace BarrocIT
             this.lblTaxCode.Location = new System.Drawing.Point(29, 273);
             this.lblTaxCode.Name = "lblTaxCode";
             this.lblTaxCode.Size = new System.Drawing.Size(52, 13);
-            this.lblTaxCode.TabIndex = 12;
+            this.lblTaxCode.TabIndex = 0;
             this.lblTaxCode.Text = "Taxcode:";
             // 
             // dtpLastContactDate
@@ -197,7 +198,7 @@ namespace BarrocIT
             this.dtpLastContactDate.Location = new System.Drawing.Point(96, 220);
             this.dtpLastContactDate.Name = "dtpLastContactDate";
             this.dtpLastContactDate.Size = new System.Drawing.Size(216, 20);
-            this.dtpLastContactDate.TabIndex = 9;
+            this.dtpLastContactDate.TabIndex = 7;
             this.dtpLastContactDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // txtLedgerContactNumber
@@ -205,7 +206,7 @@ namespace BarrocIT
             this.txtLedgerContactNumber.Location = new System.Drawing.Point(126, 245);
             this.txtLedgerContactNumber.Name = "txtLedgerContactNumber";
             this.txtLedgerContactNumber.Size = new System.Drawing.Size(186, 20);
-            this.txtLedgerContactNumber.TabIndex = 12;
+            this.txtLedgerContactNumber.TabIndex = 8;
             this.txtLedgerContactNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLedgerContactNumber_KeyDown);
             // 
             // txtTaxCode
@@ -213,7 +214,7 @@ namespace BarrocIT
             this.txtTaxCode.Location = new System.Drawing.Point(83, 270);
             this.txtTaxCode.Name = "txtTaxCode";
             this.txtTaxCode.Size = new System.Drawing.Size(229, 20);
-            this.txtTaxCode.TabIndex = 12;
+            this.txtTaxCode.TabIndex = 9;
             this.txtTaxCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTaxCode_KeyDown);
             // 
             // txtCustomerID
@@ -222,7 +223,8 @@ namespace BarrocIT
             this.txtCustomerID.Location = new System.Drawing.Point(83, 38);
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(229, 20);
-            this.txtCustomerID.TabIndex = 2;
+            this.txtCustomerID.TabIndex = 0;
+            this.txtCustomerID.TabStop = false;
             // 
             // lblCustomerID
             // 
@@ -230,7 +232,7 @@ namespace BarrocIT
             this.lblCustomerID.Location = new System.Drawing.Point(13, 41);
             this.lblCustomerID.Name = "lblCustomerID";
             this.lblCustomerID.Size = new System.Drawing.Size(68, 13);
-            this.lblCustomerID.TabIndex = 26;
+            this.lblCustomerID.TabIndex = 0;
             this.lblCustomerID.Text = "Customer ID:";
             // 
             // cmbInvoiceSent
@@ -242,7 +244,7 @@ namespace BarrocIT
             this.cmbInvoiceSent.Location = new System.Drawing.Point(83, 142);
             this.cmbInvoiceSent.Name = "cmbInvoiceSent";
             this.cmbInvoiceSent.Size = new System.Drawing.Size(229, 21);
-            this.cmbInvoiceSent.TabIndex = 6;
+            this.cmbInvoiceSent.TabIndex = 4;
             this.cmbInvoiceSent.Text = "Not sent";
             this.cmbInvoiceSent.Click += new System.EventHandler(this.cmbInvoiceSent_Click);
             this.cmbInvoiceSent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbInvoiceSent_KeyDown);
@@ -256,7 +258,7 @@ namespace BarrocIT
             this.cmbInvoiceStatus.Location = new System.Drawing.Point(83, 168);
             this.cmbInvoiceStatus.Name = "cmbInvoiceStatus";
             this.cmbInvoiceStatus.Size = new System.Drawing.Size(229, 21);
-            this.cmbInvoiceStatus.TabIndex = 7;
+            this.cmbInvoiceStatus.TabIndex = 5;
             this.cmbInvoiceStatus.Text = "Not ready";
             this.cmbInvoiceStatus.Click += new System.EventHandler(this.cmbInvoiceStatus_Click);
             this.cmbInvoiceStatus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbInvoiceStatus_KeyDown);
@@ -267,7 +269,7 @@ namespace BarrocIT
             this.txtInvoiceTerms.MaxLength = 50;
             this.txtInvoiceTerms.Name = "txtInvoiceTerms";
             this.txtInvoiceTerms.Size = new System.Drawing.Size(229, 20);
-            this.txtInvoiceTerms.TabIndex = 8;
+            this.txtInvoiceTerms.TabIndex = 6;
             this.txtInvoiceTerms.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInvoiceTerms_KeyDown);
             // 
             // dtpInvoiceDate
@@ -275,7 +277,7 @@ namespace BarrocIT
             this.dtpInvoiceDate.Location = new System.Drawing.Point(83, 90);
             this.dtpInvoiceDate.Name = "dtpInvoiceDate";
             this.dtpInvoiceDate.Size = new System.Drawing.Size(229, 20);
-            this.dtpInvoiceDate.TabIndex = 4;
+            this.dtpInvoiceDate.TabIndex = 2;
             this.dtpInvoiceDate.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // btnCreate
@@ -285,7 +287,8 @@ namespace BarrocIT
             this.btnCreate.Location = new System.Drawing.Point(10, 302);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(115, 25);
-            this.btnCreate.TabIndex = 27;
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.TabStop = false;
             this.btnCreate.Text = "Create";
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = true;
