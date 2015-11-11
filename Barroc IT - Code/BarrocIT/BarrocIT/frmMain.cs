@@ -273,29 +273,30 @@ namespace BarrocIT
 
                 string dateTime = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
                 dateAndTime = dateTime;
-                string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Invoices";
+                string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Customers";
 
-                string[] streamData = new string[19];
+                string[] streamData = new string[20];
 
                 streamData[0] = "Barroc IT";
                 streamData[1] = "";
                 streamData[2] = "Customer ID:                  " + dataGridViewCustomers.CurrentRow.Cells[0].Value.ToString();
                 streamData[3] = "Name:                         " + dataGridViewCustomers.CurrentRow.Cells[1].Value.ToString();
-                streamData[4] = "Adress 1:                     " + dataGridViewCustomers.CurrentRow.Cells[2].Value.ToString();
-                streamData[5] = "Adress 2:                     " + dataGridViewCustomers.CurrentRow.Cells[3].Value.ToString();
-                streamData[6] = "City 1:                       " + dataGridViewCustomers.CurrentRow.Cells[4].Value.ToString();
-                streamData[7] = "City 2:                       " + dataGridViewCustomers.CurrentRow.Cells[5].Value.ToString();
-                streamData[8] = "Phone Number 1:               " + dataGridViewCustomers.CurrentRow.Cells[6].Value.ToString();
-                streamData[9] = "Phone Number 2:               " + dataGridViewCustomers.CurrentRow.Cells[7].Value.ToString();
-                streamData[10] = "Zipcode 1:                    " + dataGridViewCustomers.CurrentRow.Cells[8].Value.ToString();
-                streamData[11] = "Zipcode 2:                    " + dataGridViewCustomers.CurrentRow.Cells[9].Value.ToString();
-                streamData[12] = "Fax Number:                   " + dataGridViewCustomers.CurrentRow.Cells[10].Value.ToString();
-                streamData[13] = "Contact person:               " + dataGridViewCustomers.CurrentRow.Cells[11].Value.ToString();
-                streamData[14] = "Email Adress:                 " + dataGridViewCustomers.CurrentRow.Cells[12].Value.ToString();
-                streamData[15] = "Bank number:                  " + dataGridViewCustomers.CurrentRow.Cells[13].Value.ToString();
-                streamData[16] = "Credit Worthy:                " + dataGridViewCustomers.CurrentRow.Cells[14].Value.ToString().Replace("False", "No").Replace("True", "Yes");
-                streamData[17] = "BKR Check:                    " + dataGridViewCustomers.CurrentRow.Cells[15].Value.ToString().Replace("False", "Not done").Replace("True", "Done");
-                streamData[18] = "Potential Customer:           " + dataGridViewCustomers.CurrentRow.Cells[16].Value.ToString().Replace("False", "No").Replace("True", "Yes");
+                streamData[4] = "Company:                      " + dataGridViewCustomers.CurrentRow.Cells[2].Value.ToString();
+                streamData[5] = "Adress 1:                     " + dataGridViewCustomers.CurrentRow.Cells[3].Value.ToString();
+                streamData[6] = "Adress 2:                     " + dataGridViewCustomers.CurrentRow.Cells[4].Value.ToString();
+                streamData[7] = "City 1:                       " + dataGridViewCustomers.CurrentRow.Cells[5].Value.ToString();
+                streamData[8] = "City 2:                       " + dataGridViewCustomers.CurrentRow.Cells[6].Value.ToString();
+                streamData[9] = "Phone Number 1:               " + dataGridViewCustomers.CurrentRow.Cells[7].Value.ToString();
+                streamData[10] = "Phone Number 2:               " + dataGridViewCustomers.CurrentRow.Cells[8].Value.ToString();
+                streamData[11] = "Zipcode 1:                    " + dataGridViewCustomers.CurrentRow.Cells[9].Value.ToString();
+                streamData[12] = "Zipcode 2:                    " + dataGridViewCustomers.CurrentRow.Cells[10].Value.ToString();
+                streamData[13] = "Fax Number:                   " + dataGridViewCustomers.CurrentRow.Cells[11].Value.ToString();
+                streamData[14] = "Contact person:               " + dataGridViewCustomers.CurrentRow.Cells[12].Value.ToString();
+                streamData[15] = "Email Adress:                 " + dataGridViewCustomers.CurrentRow.Cells[13].Value.ToString();
+                streamData[16] = "Bank number:                  " + dataGridViewCustomers.CurrentRow.Cells[14].Value.ToString();
+                streamData[17] = "Credit Worthy:                " + dataGridViewCustomers.CurrentRow.Cells[15].Value.ToString().Replace("False", "No").Replace("True", "Yes");
+                streamData[18] = "BKR Check:                    " + dataGridViewCustomers.CurrentRow.Cells[16].Value.ToString().Replace("False", "Not done").Replace("True", "Done");
+                streamData[19] = "Potential Customer:           " + dataGridViewCustomers.CurrentRow.Cells[17].Value.ToString().Replace("False", "No").Replace("True", "Yes");
 
                 using (StreamWriter sw = new StreamWriter(mydocpath + @"\" + dateTime + ".txt"))
                 {
@@ -338,7 +339,7 @@ namespace BarrocIT
         // Made by Santino Bonora
         private void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
-            string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Invoices";
+            string mydocpath = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - 23) + "/Customers";
             StreamReader streamToPrint = new StreamReader(mydocpath + @"\" + dateAndTime + ".txt");
             Font printFont = new Font("Arial", 10);
             float linesPerPage = 0;
