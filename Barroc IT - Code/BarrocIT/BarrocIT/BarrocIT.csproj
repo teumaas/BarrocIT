@@ -294,6 +294,7 @@
     <None Include="Resources\Appointment.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Customers\" />
     <Folder Include="Invoices\" />
   </ItemGroup>
   <ItemGroup>
