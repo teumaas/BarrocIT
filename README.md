@@ -1,4 +1,3 @@
 # BarrocIT
-BarrocIT
 
-This is a School project..
+This is a School project. For Radius College Breda
